@@ -1,0 +1,20 @@
+<?php
+  /**
+  * Implement hook_menu().
+  */ 
+  /*function custom_products_menu_alter(&$items) {
+    $items['taxonomy/term/%taxonomy_term']['page callback'] = 'custom_products_taxonomy_page_callback';
+  }  
+  
+  function custom_products_taxonomy_page_callback($term) {
+    //echo '<pre>'; print_r($term); echo '</pre>'; exit;
+    $tid = $term->tid;
+    $vid = $term->vid;
+    $term_name = $term->name;
+    echo $tid . ' - '. $vid .' - '. $term_name .'<br/>';
+    
+    $build = taxonomy_term_page($term);
+    // Add your hook code here.
+    //echo '<pre>'; print_r($build); echo '</pre>'; exit;
+    return $build;
+  }*/

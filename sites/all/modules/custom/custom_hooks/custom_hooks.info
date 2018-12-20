@@ -1,0 +1,3 @@
+name = Custom Hooks Module
+description = All custom hooks will be defined here (excluding menu hooks).
+core = 7.x

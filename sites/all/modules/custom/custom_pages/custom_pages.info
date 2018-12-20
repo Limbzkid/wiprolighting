@@ -1,0 +1,3 @@
+name = Custom Pages Module
+description = All custom pages other than products will be defined here.
+core = 7.x

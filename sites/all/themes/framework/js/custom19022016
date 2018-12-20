@@ -1,0 +1,457 @@
+(function ($) {
+  
+  if($("body").hasClass("page-user-register")) {
+    $(".password-suggestions").remove();
+  }
+  
+  $("#edit-field-dealer-code-").addClass("dnone");
+  
+  $("#edit-field-occupation-und").change(function() {
+    //console.log($($(this).find("input").attr("class")));
+    if($(this).val() == 6) {
+      $(".field-name-field-dealer-code-").removeClass("dnone");
+      if($("#edit-field-dealer-code-und-0-value").hasClass("dnone")) {
+        $("#edit-field-dealer-code-und-0-value").removeClass("dnone")
+      }
+    } else {
+      $(".field-name-field-dealer-code-").addClass("dnone");
+    }
+  });
+  
+  var isClicked = false;
+  $(".userLogin").click(function() {
+    $('.error').remove();
+    var error = false;
+    if(!isClicked) {
+      isClicked = true;
+      var uname = $("#userLoginName").val();
+      var pass = $("#userLoginPass").val();
+      if(uname == '') {
+        $('<div class="messages error messages-inline">Email id is required.</div>' ).insertAfter($("#userLoginName").parent(".fields"));
+        error = true;
+      }
+      if(pass == '') {
+        $('<div class="messages error messages-inline">Password is required.</div>' ).insertAfter($("#userLoginPass").parent(".fields"));
+        error = true;
+      }
+      if(!error) {
+        $.ajax({
+          dataType : "json",
+          type:'POST',
+          url: Drupal.settings.basePath + 'authenticate-user',
+          data: {uname: uname, pass: pass},
+          success:function(data){
+            //console.log(data);
+            if(data.uid > 0) {
+              $(".form-item-name > input").val(uname);
+              $(".form-item-pass > input").val(pass);
+              $("#user-login-form .form-submit").click();
+            } else {
+              // display error msg - data.msg
+              var msg = data.msg[0];
+              //console.log(msg[0]);
+              var id = msg.split('-')[0];
+              var msg = msg.split('-')[1];
+              $('<div class="messages error messages-inline">'+ msg +'</div>' ).insertAfter($('#'+id).parent(".fields"));
+            }
+          }
+        });
+      }
+      isClicked = false;
+    }
+  });
+  
+  $(".breadcrumbs li").each(function() {
+    if($(this).text() == '') {
+      $(this).remove();
+    }
+  });
+   
+  $(".searchBox").on('keydown', '.search', function (e) {
+    var key = e.which;
+    if(key == 13) {
+      if($(this).val() == '') {
+        alert('Please enter a Search text.');
+        return false;
+      }
+      $(".form-item-search-block-form input").val($(".search").val());
+      $("#search-block-form .form-submit").click();
+      //$("#search-block-form .form-submit").click();
+      return false;
+    }
+  });
+  
+  $(".searchIcon").click(function() {
+    if($(".search").val() == '' || $('.searchBox input:text').val() == $('.searchBox input:text').attr("placeholder")) {
+      $(".searchBox").addClass("blankFld");
+      return false;
+    }
+    $(".form-item-search-block-form input").val($(".search").val());
+    $("#search-block-form .form-submit").click();
+    //$("#search-block-form #edit-submit--2").click();
+  });
+  
+	$(document).on('click', '#submitThis', function () {
+    $('#name').parent().find('.errorVisible').css('visibility','hidden');
+    $('#email').parent().find('.errorVisible').css('visibility','hidden');
+    $('#mobile').parent().find('.errorVisible').css('visibility','hidden');
+    function ValidateEmail(email) {
+      var expr = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+      return expr.test(email);
+    }
+    function ValidateName(name) {
+      var letters = /^([a-zA-Z.\']+\s?)*$/;
+      if(name == '' || !name.match(letters) || name.length < 2 || name.length > 51){
+        return false;
+      } else {
+        return true;
+      }  
+    }
+    function ValidateMobile(mobile) {
+      var validmobile = /^[987].*$/;
+      if(mobile.trim() == '' || mobile.trim() == 0 || mobile.trim().length != 10 || !mobile.match(validmobile)) {
+        return false;
+      } else {
+        return true;
+      }  
+    }
+    var name    = $('#name').val();
+    var email   = $("#email").val();
+    var mobile  = $('#mobile').val();
+    
+    var captchaErr = false;
+		var captchaUrl = Drupal.settings.basePath + 'captcha.php?';
+		var data = $("#captcha-form").serialize();
+    $.ajax({
+      data: data,
+      type: "post",
+      async: false,
+      url: Drupal.settings.basePath + "captchaChk.php",
+      success: function(data1) {
+        //console.log('captdata', data1);
+        if(data1==0) {
+          document.getElementById('captcha').src = captchaUrl + Math.random();
+          document.getElementById('captcha-form').focus();
+          $('#captcha-form').val("");
+          //alert('in here');
+          captchaErr = true;
+        }	else	{
+          document.getElementById('captcha').src= captchaUrl + Math.random();
+          document.getElementById('captcha-form').value = '';
+          document.getElementById('captcha-form').focus();
+          $(".captchaErr").css('display','none');
+        }
+      }
+    });
+    
+    if(!ValidateName(name) || !ValidateEmail(email) || !ValidateMobile(mobile) || captchaErr) {
+      $('.errors').css('display','none');
+      if(!ValidateName(name))
+        $('#name').parent().find('.errorVisible').css('visibility','visible');
+      if(!ValidateEmail(email))
+        $('#email').parent().find('.errorVisible').css('visibility','visible');
+      if(!ValidateMobile(mobile))
+        $('#mobile').parent().find('.errorVisible').css('visibility','visible');
+      if(captchaErr) {
+        $(".captchaErr").css('display', 'block');
+      }
+    } else {
+      $.ajax({
+        type:'POST',
+        url: Drupal.settings.basePath + 'get-a-call-back',
+        data:{'name' : name, 'mail': email, 'mobile' : mobile},
+        //cache:false,
+        dataType: "json",
+        success:function(data){
+          //console.log(data);
+          if(data.status == 0) {
+            for(var x in data.msg) {
+              var temp = data.msg[x].split("-");
+              var errID = temp[0];
+              //console.log(errID);
+              $("#"+errID).parent(".field").find('.errorVisible').css('visibility','visible');
+            }
+          } else {
+            $('.thankYouMsg').css('display','block');
+            $('.formData').css('display','none');
+          }
+        },
+        errors: function(data){
+          
+        }
+      });
+    }
+  });
+	
+    //$('#sortingTable').DataTable();
+    $('#sortingTable').DataTable({
+        "lengthMenu": [[100, 250, 500, -1], [100, 250, 500, "All"]]
+    });
+	
+	$("#applications").change(function() {
+    
+    //alert(1);
+		if($(this).val() == 'all') {
+      $(".loadmoreBtn").show();
+    }
+		var applications = $(this).val();
+		if(applications == 'all') {
+			$('#sortingTable tbody tr').show();
+			$('.tabcontent.gridView li').show();
+			return false;
+		}
+		$.each($('#sortingTable tbody tr'), function(index, value) {
+      
+			$(value).hide();
+			if($(value).attr('uid') && $(value).attr('uid').indexOf(applications) >= 0){
+				$(value).show();
+			}
+		});
+		
+		$.each($('.tabcontent.gridView li'), function(index, value) {
+			$(value).hide();
+      //console.log(value);
+			if($(value).attr('uid') && $(value).attr('uid').indexOf(applications) >= 0){
+				$(value).show();
+			}
+		});
+    var gridViewProdPresent = "0";
+    $(".gridRow>li").each(function() {
+      if($(this).is(":visible")) {
+        gridViewProdPresent = "1";
+      }
+    });
+    //console.log(gridViewProdPresent);
+    if($(".gridView").hasClass("active")) {
+      $(".gridErrMsg").css('display', 'none');
+      if(gridViewProdPresent == "0") {
+        $(".loadmoreBtn").hide();
+        $(".gridErrMsg").css('display', 'block');
+      }
+    }
+    
+    if($(".listView").hasClass("active")) {
+      $("#sortingTable").find("thead").show();
+      var listViewProdPresent = "0";
+      $("#sortingTable").find("tbody").find("tr").each(function() {
+        if($(this).is(":visible")) {
+          listViewProdPresent = "1";
+        }
+      });
+      $(".listErrMsg").css('display', 'none');
+      if(listViewProdPresent == "0") {
+        $("#sortingTable").find("thead").hide();
+        $(".listErrMsg").css('display', 'block');
+      }
+    }
+    
+		
+	});	
+	
+	$(".applications1").click(function() {
+    $(".errorMsg").hide();
+    var prodFound = "0";
+		if($(this).hasClass('active')) {
+			$(this).removeClass('active')
+      
+      
+			$('.productList .group').show();
+			return false;
+		}
+		var application = $(this).attr('tid');
+		//console.log($(this).attr('tid'));
+		$(this).addClass('active').siblings().removeClass('active');
+		$.each($('.productList .group'), function(index, value) {
+			$(value).hide();
+			if($(value).attr('tid') && $(value).attr('tid').indexOf(application) >= 0){
+				$(value).show();
+        prodFound = "1";
+			}
+		});
+    if(prodFound == "0") {
+      $(".errorMsg").show();
+    }
+		productListSlider();
+	});
+
+/*Ligthting design app functionality:start*/
+	$('.appStepSection .stepContent').eq(0).show();
+	
+	/*designSelect:start*/
+	$(".designSelect .group .imgBox").click(function() {
+    var $this=$(this);
+    /***/
+    $this.parents(".group").find(".formBox").find("select").each(function(){
+      var selText = $(this).find("option:first-child").text();
+        $(this).find("option:first-child").attr("selected", "selected");
+        $(this).parents(".selBox").find(".selVal").text(selText);
+        $(this).parents(".selBox").css("border-color", "#b8b8b8");
+      })    
+    $(this).parent().addClass('active').siblings().removeClass('active');
+		$(this).next(".formBox").slideDown().parent().siblings().find(".formBox").hide();
+		$(this).parents('.appStepSection').find(".steps li").eq(0).addClass('active');		
+	});
+	
+	$(".stepContent .designSelect #officeProceed").click(function(){
+		//console.log('dinesh');
+		if($(this).parents('.designSelect').find('#officeArea').val() && $(this).parents('.designSelect').find('#offMountingHeight').val()) {
+			$(this).parents('.appStepSection').find(".steps li").eq(0).removeClass('active').addClass('complete').next().addClass('active');
+			$(this).parents('.stepContent').hide().next().fadeIn();
+			stepSectionFocus();
+		} else {
+      if(!$(this).parents('.designSelect').find('#officeArea').val()) {
+				$('#officeArea').parent('.selBox').css('border-color','red');
+			} else {
+        $('#officeArea').parent('.selBox').removeAttr('style');
+      }
+      if(!$(this).parents('.designSelect').find('#offMountingHeight').val()) {
+				$('#offMountingHeight').parent('.selBox').css('border-color','red');
+			} else {
+        $('#offMountingHeight').parent('.selBox').removeAttr('style');
+      }
+			//$(this).parents('.active').find('.selBox').css('border-color','red');
+		}
+	});
+	
+	$(".stepContent .designSelect #factoryProceed").click(function(){
+		if($(this).parents('.designSelect').find('#factoryArea').val() && $(this).parents('.designSelect').find('#mountingHeight').val()) {
+			$(this).parents('.appStepSection').find(".steps li").eq(0).removeClass('active').addClass('complete').next().addClass('active');
+			$(this).parents('.stepContent').hide().next().fadeIn();
+			stepSectionFocus();
+		}
+		else {
+			if(!$(this).parents('.designSelect').find('#factoryArea').val()) {
+				$('#factoryArea').parent('.selBox').css('border-color','red');
+			} else {
+        $('#factoryArea').parent('.selBox').removeAttr('style');
+      }
+			if(!$(this).parents('.designSelect').find('#mountingHeight').val()) {
+				$('#mountingHeight').parent('.selBox').css('border-color','red');
+			} else {
+        $('#mountingHeight').parent('.selBox').removeAttr('style');
+      }
+		}
+	});
+	
+	//Delay might need
+	$(".group.active .formBox .selBox select").change(function(){
+		$(this).parents('.active').find('.selBox').css('border-color','#b8b8b8');
+	});	
+	/*selectArea:start*/
+  
+	$(".stepContent .selectArea .formBtn").click(function(){
+    var areaSelected = false;
+    $("#addAreaType .areaType").each(function() {
+      if($(this).hasClass("sel")) {
+        areaSelected = true;
+      }
+    });
+    if (areaSelected) {
+      $(this).parents('.appStepSection').find(".steps li").eq(1).removeClass('active').addClass('complete').next().addClass('active');
+      if(areaSelected) {
+        $(this).parents('.stepContent').hide().next().fadeIn();
+      }	
+      stepSectionFocus();
+    }
+	});
+  
+  
+	$(".stepContent .selectArea .backBtn").click(function(){
+		$(this).parents('.appStepSection').find(".steps li").eq(0).addClass('active').removeClass('complete').next().removeClass('active');
+		$(this).parents('.stepContent').hide().prev().fadeIn();
+		stepSectionFocus();
+	});
+	
+	
+	/*selectProduct:start*/
+	$(".stepContent .selectProduct .formBtn").click(function(){
+    var prodSelected = false;
+    $(".products .group").each(function() {
+      if($(this).hasClass("sel")) {
+        prodSelected = true;
+      }
+    });
+    if(prodSelected) {
+      $(this).parents('.appStepSection').find(".steps li").eq(2).removeClass('active').addClass('complete').next().addClass('active');
+      $(this).parents('.stepContent').hide().next().fadeIn();
+      stepSectionFocus();
+    }
+	});
+  
+	$(".stepContent .selectProduct .backBtn").click(function(){
+		$(this).parents('.appStepSection').find(".steps li").eq(1).addClass('active').removeClass('complete').next().removeClass('active');
+		$(this).parents('.stepContent').hide().prev().fadeIn();
+		stepSectionFocus();
+	});
+	
+	/*addProduct:start*/
+	$(".summarySection .summaryTable .addProduct").click(function(){
+		$(this).parents('.appStepSection').find(".steps li").eq(2).addClass('active').removeClass('complete').next().removeClass('active');
+		$(this).parents('.stepContent').hide().prev().fadeIn();
+		stepSectionFocus();
+	});
+	
+	/*addAnotherArea:start*/
+	$(".summarySection .summaryTable .addAnotherArea").click(function(){
+		$(this).parents('.appStepSection').find(".steps li").removeClass('active').eq(1).addClass('active').removeClass('complete').next().removeClass('complete');
+		$(this).parents('.stepContent').hide().prev().prev().fadeIn();
+		stepSectionFocus();
+	});
+	
+	/*Ligthting design app functionality:end*/
+  
+  
+  
+  
+  
+  $(document).on('click','.submit_sku',function(){
+  //$(".submit_sku").live("click", function() {
+    if($("#filter_sku").is(":checked")) {
+			var sku = $("#filter_sku_text").val();
+			if(sku == '') {
+				alert('Please enter Product SKU');
+				return false;
+			} else {
+				$.ajax({
+					type: "POST",
+					url: Drupal.settings.basePath + 'edit-product-details',
+					data:{ psku : sku },
+					success: function(data) {
+						//console.log(data);
+						/*$("#node-admin-content").find(".table-select-processed").find("tbody").remove();
+						$(".item-list").addClass("dnone");
+						$("#node-admin-content").find(".table-select-processed").find("thead").html("");
+						$("#node-admin-content").find(".table-select-processed").find("thead").after(data);*/
+					}
+				});
+			}
+		}
+	});
+  /*------- Careers Form ------*/
+  $("#careers-content #edit-location").change(function() {
+    var loc = $(this).val();
+    $.ajax({
+      dataType : "json",
+      type:'POST',
+      url: Drupal.settings.basePath + 'about-us/careers/career-positions',
+      data: {loc: loc},
+      success:function(data){
+        //console.log(data);
+        $("#careers-content #edit-position").html('');
+        $("#careers-content #edit-position").append(data);
+        
+      }
+
+    });
+  });
+  
+  setTimeout(function(){
+    var menuHtm = '<li><a href="/wiprolighting/products/led/lamps-accessories" rel="Lamps & Accessories"> <span class="sansXbold">Lamps & Accessories</span> <span class="arow"></span></a></li>';
+    menuHtm += '<li><a href="/wiprolighting/products/led/lighting-management-system" rel="Lighting Management System"> <span class="sansXbold">Lighting Management System</span> <span class="arow"></span></a></li>';
+    menuHtm += '<li><a href="/wiprolighting/products/led/cleanray" rel="Cleanray"> <span class="sansXbold">Cleanray</span> <span class="arow"></span></a></li>';
+    $('.subMenu').eq(1).find('.menuSection').eq(0).find(".rgtMenuBox").find('ul').append(menuHtm);
+  }, 1000);
+  
+ 
+	
+})(jQuery);  // end of document ready

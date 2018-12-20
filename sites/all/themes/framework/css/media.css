@@ -1,0 +1,853 @@
+/* device css start here*/
+@media only screen and (min-width : 0px) and (max-width : 1280px) {
+.registerPage .form-item .form-radios .form-type-radio {    width: 50%;}
+.registerPage .form-item .form-radios{ width: 300px;}
+.registerPage .form-item .form-radios .form-type-radio input.form-radio { position: relative; top: 3px;}
+}
+@media only screen and (min-width : 0px) and (max-width : 1024px) {
+/*Mobile Menu CSS starts*/
+.logo { padding: 0 15px }
+nav { padding-right: 15px }
+/*Mobile Menu CSS Ends*/
+/*pageInfoSection Css Start*/
+.pageInfoSection .lhsInfo, .pageInfoSection .rhsInfo { width: 50% }
+.gridView > ul li .productImg img { max-width: 100% }
+/*pageInfoSection Css Ends*/
+.productCompareSection, .productListSection .actionDiv, .productType .compareLink { display: none; }
+.loadMoreContainer { display: block; border-top: 1px solid #eee; width: 100%; float: left; }
+.loadMoreContainer .loadmoreBtn { border: 1px solid #eee; border-top: none; padding: 5px 10px; }
+.mapBox .addressMap, .mapBox .addressList { display: block }
+.subMenu .submenuBox { width: 55%; }
+.rgtMenuBox { width: 45%; }
+.fixmenu .tollNum p, .fixmenu .tollNum a { font-size: 20px }
+.feedbackPopup { right:0; }
+.lightbox .lightboxContent .ledGroup li{ width:25%;}
+.scrollTable{ overflow:hidden;}
+.pageInfoSection {overflow-x:hidden;}
+.formSection.box2 .formRight .form .formData .rgtSide .row{padding: 0px 0 0 0px;}
+.feedbackForm .row .fields .radioBtnWrap .group label {    position: relative;    top: 3px;}
+}
+@media only screen and (min-width : 0px) and (max-width : 980px) {
+/*product style by raje:start*/	
+.contentMaster .container { width: 95%; margin: 0 2.5%; }
+.timelineSection ul { margin-left: 180px !important; }
+.selProductWrapper .container { width: 95%; margin: 0 2.5%; }
+.pickProductCompare { width: 50%; }
+.compareBestSuited .group ul li { max-width: 70px; }
+.productLhs { border-bottom: 1px solid #c5c5c5; border-right: medium none; width: 100%; }
+.productLhs .actionDiv { right: 0; }
+.productLhs .productSlider { margin: 0 auto; float: none; display: block; }
+.productRhs { width: 100%; }
+.productRhs .productInfo { width: 50%; padding-left: 0; }
+.productRhs .bestSuited { border-left: 1px solid #e1e1e1; border-top: medium none; width: 50%; padding-right: 0; }
+.bestSuitedCarousel .actionDiv { top: 20px; }
+.featuresSection { padding: 25px 0; }
+.featuresSection .featuresTab li.active { font-size: 1.2em; font-family: "open_sans"; }
+.featuresSection .featuresTabContent { padding: 25px 0; }
+.formSection { padding: 25px 0; }
+.formSection .formLeft .group h2 { font-size: 2.5em; }
+.formSection .formRight .form h2 { font-size: 2.5em; }
+.caseStudySection .group h2 { font-size: 2.5em; }
+.caseStudySection .groupFullContent .box { min-height: auto; }
+.caseStudySection .box ul li .content, .caseStudySection .box ul li .banner { width: 100%; }
+.similarSection .productList li .productImg img { width: 100%; }
+/*productListSection:start*/
+.productListSlider .productListWrap, .selectProduct .products { width: 102%; }
+.productListSlider .group { width: 33.33%; padding-right: 15px; }
+/*productListSection:end*/
+/*product style by raje:end*/	
+/*Product Category Css Start*/
+.gridView > ul li { width: 50% }
+.productBrochureSection .gridView > ul li { width: 50% }
+/*Product Category Css Ends*/
+/*Locate Us Css Start*/
+.locationFinder .lgt, .locationFinder .boxBtn { width: 55% }
+.locationFinder .rgt, .locationFinder .boxBtn.arowNext { width: 45% }
+/*Locate Us Css Ends*/
+
+/*About Us Content Css Start*/
+.pageContent { display: inline }
+.pageContent .bigImg, .pageContent .pgeCopy { display: block; }
+.pageContent .bigImg { margin: 0 auto; width: 60% }
+/*About Us Content Css Ends*/
+
+/*appStepSection:start*/
+.selectLamp .optionGroup:nth-child(odd) { width: 100%; padding-bottom: 25px; }
+.selectLamp .optionGroup:nth-child(even) { width: 100%; }
+.selectLamp .optionGroup .radioList { padding: 10px; }
+.selectProduct .group { width: 33.33% }
+.viewDesign .viewDesignContent .group .designDetails { width: 100%; }
+.viewDesign .viewDesignContent .group .designDetails .clm { width: 50%; }
+/*appStepSection:end*/
+/*Spirit of Wipro:start*/
+.spiritWrp .row .cols.fst { width: 25%; padding: 0 20px 0 0 }
+.spiritWrp .row .cols { width: 75%; }
+.spiritWrp .row .titles li { padding: 0 0 0 1% }
+.spiritWrp .row .titles li:first-child { padding: 0 1% 0 0 }
+/*Spirit of Wipro:end*/
+/*lightbox:start*/
+.lightbox { width: 95%; padding: 15px; position: absolute; }
+.lbVideo { position: fixed; }
+.lbLedEdge {top:50px; }
+/*lightbox:end*/
+.tablePayBacKCalc .usageSection .row .clm { padding: 10px; width: 50%; }
+.tablePayBacKCalc .topSelectSection .group .fieldGroup .field { width: 100%; padding: 10px 0 0 0; }
+/*videoListSection:start*/
+.videoListSection ul li { padding: 30px 15px; }
+/*videoListSection:end*/
+.childList h2 { font-size: 2.5em; }
+.fullContentSection .pageContent .pgeCopy h1 { width: 270px }
+/*ComboPck Start*/
+.selectProduct .comboPck .group .productImg { padding: 12px 0 }
+.selectProduct .comboPck .group .productImg img, .summarySection .summaryTable table tr td .productImg img { width: auto }
+.summarySection .summaryTable.comboPck table tr td .productImg, .summarySection .summaryTable.comboPck table tr td .productName { width:100% }
+/*ComboPck End*/
+.architectureSection{ padding:25px 0;}
+.architectureSection h2 { font-size: 2.5em; }
+
+.intermediateWrap .intermediateContainer {box-sizing: border-box; padding: 2%;}
+.intermediateWrap .footerList ul li {font-size:1.2em; padding: 0 2% 2% 0;}
+.intermediateWrap .clickButton { width:45%;}
+.intermediateWrap .commercialist ul li {   font-size: 1.2em;  }
+.intermediateWrap .commercialist ul {margin:5px 0;}
+.scrollTable{ overflow-x:scroll;}
+}
+ @media only screen and (min-width : 0px) and (max-width : 979px) {
+/*Mobile Menu CSS starts*/
+.menu { padding: 0 5px 0 0 }
+.menu > ul > li > a { font-size: 1.3em }
+.menu > ul > li { padding: 0 9px 0 10px }
+/**/
+.searchBox input { width: 80px; }
+.searchBox { width: 97px }
+.fixmenu { padding: 10px 0 }
+.fixmenu > ul > li { padding: 10px; }
+.fixmenu .fotviewMore { padding: 5px 10px; }
+.fixmenu .infoLinks li { padding: 0 15px 10px 0 }
+.fixmenu h3 { font-size: 1.5em }
+.fixmenu .infoLinks li a, .fixmenu .helpDesk p, .fixmenu .helpDesk a, .fixmenu .smo p, .fixmenu .smo .companyLinks li { font-size: 1.2em; }
+.fixmenu .smo p, .fixmenu .helpDesk a { padding: 10px 0 0 0 }
+/*Mobile Menu CSS Ends*/
+/*Product Category Css Start*/
+.tableView table tr td .links .newItem { width: 30px }
+.tableView table tr td:nth-child(1), .tableView table tr th:nth-child(1) { width: 30% }
+.tableView table tr td:nth-child(2), .tableView table tr th:nth-child(2), .tableView table tr td:nth-child(3), .tableView table tr th:nth-child(3) { width: 25% }
+.tableView table tr td:nth-child(4), .tableView table tr th:nth-child(4) { width: 20% }
+/*Product Category Css Ends*/
+/*pageInfoSection Css Start*/
+.pageInfoSection .lhsInfo .titleBox { left: 0; top: 0; }
+.pageInfoSection .lhsInfo .titleBox h2, .productCategory .pageInfoSection .lhsInfo .titleBox h2 { font-size: 150% }
+/*pageInfoSection Css Ends*/
+/*pageInfoSection Css Start*/
+.pageInfoSection .rhsInfo { padding: 3% 0 0 3% }
+/*pageInfoSection Css Ends*/
+
+/*fullContentSection:start*/
+.queryForm .formWrap .formValue .group .grpClm { width: 50%; }
+.queryForm .formWrap .fieldGroup .group .row .clm { width: 33.33%; }
+.queryForm .formWrap .fieldGroup .group .row2 .clm { width: 66.66%; }
+.contactSection .group { padding: 10px 0 0 70px; }
+/*fullContentSection:end*/
+.locationFinder .lgt, .locationFinder .rgt { width: 50% }
+.locationFinder .boxBtn { width: 60% }
+.locationFinder .boxBtn.arowNext { width: 40% }
+.box2.formSection .formRight .form, .box2.formSection .formLeft .group { height: auto; padding: 20px 10px }
+.box2.formSection .arrowLink { float: left; clear: both }
+/*Locate Us Css Ends*/
+/**/
+
+
+/*gallerySection:start*/
+.gallerySection .contentPart p { font-size: 1.4em; }
+.gallerySection .contentPart .title { font-size: 1.8em; }
+/*gallerySection:end*/ 
+
+/*galleryTopSection:start*/
+.galleryTopSection .imgPart { width: 50%; }
+.galleryTopSection .contentPart { width: 50%; }
+/*galleryTopSection:end*/
+
+/*Our team*/
+.ourTeamRow .cols, .ourTeamRow .cols.mid { width: 33.33%; }
+.ourTeamRow .cols .imageContainer img { border: 3px solid #cfcfcf; border-radius: 100%; margin: 7px 0 }
+.ourTeamRow .cols.active .imageContainer img { border: 10px solid #cfcfcf; margin: 0 }
+/*our-usps.html*/
+.usprows { border: none }
+.usprows .cols { width: 100%; border-top: 1px solid #ececec }
+.usprows .cols:first-child { border: none }
+/*our-usps.html End*/
+
+/*appStepSection:start*/
+.appStepSection .stepContent { padding: 45px 0 0 0; }
+.btnGrp .innerBtnGrp { float: left; padding-top: 25px; }
+.designSelect { width: 100%; }
+/*appStepSection:end*/
+/*Spirit of Wipro:start*/
+.spiritWrp { padding: 0 }
+.spiritWrp .row .cols.fst, .spiritWrp .row .cols { width: 100%; padding: 0 }
+.spiritWrp .row .cols.fst { padding: 0 0 15px 0 }
+.spiritWrp .row .cols.fst h3 { font-size: 2.5em }
+.spiritWrp .row .cols.fst h3 .semiBold { float: none; width: auto }
+.environmentalpolicy h2 { font-size: 1.6em }
+.environmentalpolicy img { width: 100% }
+/*Spirit of Wipro:end*/
+.fullContentSection .listingWrp li { font-size: 1.4em }
+/*.emplist*/
+.careersWrp .emplist { transform: scale(0.75); -webkit-transform: scale(0.75); -ms-transform: scale(0.75); -o-transform: scale(0.75); transform-origin: 0 0; -webkit-transform-origin: 0 0; -moz-transform-origin: 0 0; -ms-transform-origin: 0 0; }
+/*SiteMap Start*/
+.site-map-box-prod .content .first > li { width: 100%; padding: 15px 0 0 0 }
+.box2.formSection .formLeft .group, .box2.formSection .formRight .form { min-height: 380px }
+.box2.formSection .formRight .form .formData .row .field { padding-left: 12px }
+.box2.formSection .formRight .form .formData .row.capchBox .field input { width: 100% }
+.tabWrapper .tabList ul li {padding:0 2%;}
+.mainmidCont { width: 70%;}
+.mainmidCont p.underhead {width:100%;}
+.formSection .formRight .form .formData .row {transform:scale(0.8);-webkit-transform:scale(0.8);-moz-transform:scale(0.8);-ms-transform:scale(0.8);-o-transform:scale(0.8);transform-origin:0 0;-webkit-transform-origin:0 0;-moz-transform-origin:0 0;-ms-transform-origin:0 0;-o-transform-origin:0 0;}
+#careers-content .captcha, #write-to-us .captcha, #request-a-quote .captcha { width:49%;}
+#write-to-us .captcha, #request-a-quote .captcha { margin: 0 auto; padding: 16px 0 12px 0;}
+.formSection .formRight .form .formData .row .field input {width: 100%;}
+.formSection.box2 .formRight .form .formData .rgtSide .row{padding: 0px 0 0 0px;}
+.registerPage .captcha {margin: 0 auto;width: 50%;}
+}
+@media only screen and (min-width : 0px) and (max-width : 800px) {
+#careers-content .captcha, #write-to-us .captcha, #request-a-quote .captcha {    width: 50%;}
+.registerPage .form-item .form-radios .form-type-radio {    width: 50%;}
+.registerPage .form-item .form-radios{ width: 300px;}
+.registerPage .form-item .form-radios .form-type-radio input.form-radio { position: relative;top:3px;}
+careers-content .captcha, #write-to-us .captcha, #request-a-quote .captcha {    width: 49%;}
+.feedbackForm .row label { font-size:1.2em;}
+}
+@media only screen and (min-width : 0px) and (max-width : 768px) {
+#careers-content .captcha, #write-to-us .captcha, #request-a-quote .captcha{ width: 47%;}
+.registerPage .captcha {width:47%;}
+.feedbackForm .row .fields .radioBtnWrap .group label { position: relative;    top: 3px;}
+.feedbackForm .row label { font-size:1.2em;}
+
+}
+ /*Below CSS are for Divice Only*/
+@media only screen and (min-width : 0px) and (max-width : 767px) {
+.searchBox input { border: 0 }
+.searchIcon:before { border: 2px solid #fff; }
+.searchIcon:after { background: #fff; }
+.lightboxWrp .popXbtn { top: 18px }
+/*Mobile Menu CSS starts*/
+/**/
+.globalNav li a:hover, .globalNav li.sel a { border-bottom: 0 }
+.menu.device > ul > li > a:after, .menu.device > ul > li > a:hover:after, .menu.device > ul > li > a.active:after { border: 0 }
+.menu.device > ul > li > a:before { content: ""; display: inline-block; margin: 0 10px 0 0; }
+.menu.device > ul > li > a:before { border-right: 2px solid #fff; transform: rotate(-45deg); -webkit-transform: rotate(-45deg); -moz-transform: rotate(-45deg); -ms-transform: rotate(-45deg); -o-transform: rotate(-45deg); border-bottom: 2px solid #fff; height: 10px; width: 10px; }
+.homepge .rgtMenuBox { padding: 0; }
+/**/
+.menu, .paginav, .searchBox, .homePageRoll a.prv, .homePageRoll a.nex { display: none }
+.topbar, header .menuBox { position: absolute; right: 1% }
+header .menuBox.scrollAdded { overflow: scroll; left: 0 }
+.topbar { top: 40px; }
+.menuBox { top: 0; padding: 0; border-left: 1px solid #e9e9e9; }
+.globalNav { padding: 0 10px 0 0; position: absolute; top: -40px; right: 35%; }
+.globalNav li a { font-size: 0; width: 28px; margin: 0; height: 28px; float: left }
+.globalNav li a:hover { border-bottom: 2px solid #fff }
+.globalNav li a:after { margin: 0; left: 0 }
+.callBar { padding: 0 5px; border: none }
+.menu.device { position: relative; z-index: 9; top: 30px; height: auto; display: none; left: 0; width: 100% }
+.menu.device > ul > li { float: left; width: 100%; padding: 0 5px; position: static }
+.menu.device > ul > li > a { color: #fff; float: left; width: 100%; padding: 5px; font-size: 1.8em }
+/*Mobile Menu Animetion CSS starts*/
+.navIcon.navIconOpen a { background: none; border: none }
+.navIcon, .searchLink { display: block; cursor: pointer }
+.navIcon { float: left; height: 28px; padding: 5px; position: relative; width: 35px; z-index: 1; }
+.navIcon.navIconOpen { position: fixed; right: 1%; z-index: 9; }
+.navIcon a { position: absolute; display: block; width: 22px; height: 2px; background-color: #333; font-size: 0px; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; -webkit-transition: background-color 0.3s; transition: background-color 0.3s; top: 50%; left: 50%; transform: translateY(-50%) translateX(-50%); -webkit-transform: translateY(-50%) translateX(-50%); -moz-transform: translateY(-50%) translateX(-50%); -ms-transform: translateY(-50%) translateX(-50%); -o-transform: translateY(-50%) translateX(-50%); }
+.navIconOpen.navIcon a { background-color: transparent; }
+.navIcon a:before, .navIcon a:after { position: absolute; left: 0; width: 100%; height: 100%; background: #333; content: ''; -webkit-transition: -webkit-transform 0.3s; transition: transform 0.3s; }
+.navIcon a:before { -webkit-transform: translateY(-300%); transform: translateY(-300%); -moz-transform: translateY(-300%); -ms-transform: translateY(-300%) -o-transform: translateY(-300%)
+}
+.navIcon a:after { -webkit-transform: translateY(300%); transform: translateY(300%); -moz-transform: translateY(300%); -ms-transform: translateY(300%); -o-transform: translateY(300%); }
+.navIconOpen.navIcon a:before { -webkit-transform: translateY(0) rotate(45deg); transform: translateY(0) rotate(45deg); -moz-transform: translateY(0) rotate(45deg); -ms-transform: translateY(0) rotate(45deg); -o-transform: translateY(0) rotate(45deg); }
+.navIconOpen.navIcon a:after { -webkit-transform: translateY(0) rotate(-45deg); transform: translateY(0) rotate(-45deg); -moz-transform: translateY(0) rotate(-45deg); -ms-transform: translateY(0) rotate(-45deg); -o-transform: translateY(0) rotate(-45deg); }
+.navIcon.navIconOpen a:before, .navIcon.navIconOpen a:after { background: #fff; }
+/*Mobile Menu Animetion CSS Ends*/
+.searchBox { position: absolute; right: 38px; top: 0; background: #333; padding: 5px; width: 150px; height: 28px }
+.searchBox input { color: #fff; width: 82% }
+.searchLink { width: 28px; height: 28px }
+.searchLink a { float: left; top: 50%; left: 50%; transform: translateY(-50%) translateX(-50%); -webkit-transform: translateY(-50%) translateX(-50%); -moz-transform: translateY(-50%) translateX(-50%); height: 20px; position: relative; width: 17px; }
+.searchLink a:before, .searchLink a:after { content: ''; height: 10px; display: block; position: absolute; top: 0; left: 0; }
+.searchLink a:before { width: 10px; border: 2px #333 solid; border-radius: 100%; -webkit-border-radius: 100%; -moz-border-radius: 100%; }
+.searchLink a:after { width: 2px; background: #333; transform: rotate(-45deg); -webkit-transform: rotate(-45deg); -moz-transform: rotate(-45deg); -o-transform: rotate(-45deg); -ms-transform: rotate(-45deg); top: 10px; left: 15px; }
+.globalNav, .searchLink { float: left; }
+.homepge .fixmenu > ul > li.tollNum, .homepge .fixmenu > ul > li.smo, .fixmenu > ul > li.tollNum, .fixmenu > ul > li.smo { width: 50%; }
+.fixmenu > ul > li { width: 50%; height: auto; min-height: 0px }
+.fixmenu > ul > li:nth-child(3) { clear: both; border-left: 0; border-top: 1px solid #d8d8d8; }
+.fixmenu > ul > li:nth-child(4) { border-top: 1px solid #d8d8d8; }
+.fixmenu h3 { margin-bottom: 5px; }
+.fixmenu .infoLinks li { padding: 0 5px }
+.rgtMenuBox .hoverList p { display: none }
+/*Mobile Menu CSS starts*/
+
+/*articleTopSection:start*/
+.articleTopSection .imgPart { width: 100%; }
+.articleTopSection .contentPart { padding: 20px 0 0 0; width: 100%; }
+.articleTopSection .contentPart p { font-size: 1.4em; }
+.articleTopSection .contentPart .title { font-size: 1.8em; }
+/*articleTopSection:end*/
+
+/*articleSection:start*/
+.articleSection .allArticle .article { padding: 25px 0; }
+.articleSection .imgPart { width: 100%; }
+.articleSection .contentPart { padding: 20px 0 0 0; width: 100%; }
+.articleSection .contentPart p { font-size: 1.4em; }
+.articleSection .contentPart .title { font-size: 1.8em; }
+/*articleSection:end*/
+
+/*gallerySection:start*/
+.gallerySection .group { padding: 0 0 30px 0; width: 100%; }
+.gallerySection .contentPart p { font-size: 1.2em; line-height: normal; }
+.gallerySection .contentPart .title { font-size: 1.4em; line-height: normal; }
+/*gallerySection:end*/ 
+
+/*galleryTopSection:start*/
+.galleryTopSection .imgPart { width: 100%; }
+.galleryTopSection .contentPart { padding: 20px 0 0 0; width: 100%; }
+/*galleryTopSection:end*/
+
+/*product style by raje:start*/
+/*responsiveTable:start*/
+.responsiveTable .tableData table tr { float: left; width: 144px; }
+.responsiveTable table tr td, .responsiveTable table tr th { display: block; float: left; width: 144px; height: 50px; vertical-align: middle; overflow-y: auto }
+.responsiveTable .abTableHeading { display: block; position: absolute; top: 0; left: 0; width: 144px; z-index: 2; }
+.responsiveTable .tableDataOuter { padding-left: 144px; }
+.responsiveTable .tableData { overflow-x: auto; position: relative; width: 100%; }
+.responsiveTable .tableData table thead { display: none; }
+.responsiveTable .tableData table tbody { float: left; border-top: none; }
+.responsiveTable .tableData table tbody tr, .responsiveTable .tableData table tbody tr td { width: 143px; }
+/*responsiveTable:end*/
+
+.pickProductCompare { width: 100%; }
+.pickProductCompare .productList li { width: 25%; }
+.pickProductCompare .productList li .imgProduct img { width: 100%; }
+.compareBestSuited .group { width: 100%; }
+.compareProducts .group { padding: 20px 10px; width: 100%; }
+.compareProducts .group .productImg { height: auto; }
+.compareProducts .productInfo { padding: 20px 0 0 0; }
+.compareProducts .actionLink { padding: 20px 0 0 0; }
+.compareProducts .brandLogo { display: inline-block; padding-top: 20px; position: static; text-align: center; width: 100%; }
+.compareProducts .brandLogo img { width: auto; }
+.featuresSection .featuresTab { display: none; }
+.featuresSection h3 { display: block; }
+.featuresSection .featuresTabContent .group { padding: 0 10px !important; width: 100%; }
+.formSection .formLeft { padding: 0; width: 100%; }
+.formSection .formRight { margin-top: 15px; width: 100%; }
+.formSection .formLeft .group { padding: 10px; width: 100%; max-width: 1000%; background-size: 100% 100%; }
+.formSection .formLeft .group .btmStrip .left { width: 100%; font-size: 1.2em; }
+.formSection .formLeft .group .btmStrip .right { text-align: center; width: 100%; }
+.formSection .formLeft .group .btmStrip .right .arrowLink { float: none; display: inline-block; font-size: 1.4em; }
+.caseStudySection .group { width: 100%; padding: 0; }
+.caseStudySection .group:first-child { padding-bottom: 25px; }
+.caseStudySection .box ul li .content, .caseStudySection .box ul li .banner { width: 50%; }
+.similarSection .productList li { padding-bottom: 30px; width: 50%; }
+/*productListSection:start*/
+.productListSlider .productListWrap { height: auto; }
+.productListSlider .group { width: 50%; position: static; }
+/*productListSection:end*/
+/*fullContentSection:start*/
+.queryForm .formWrap .fieldGroup .group .row { padding: 0; }
+.queryForm .formWrap .fieldGroup .group .grpTitle { padding-bottom: 15px; }
+.queryForm .formWrap .fieldGroup .group .row .clm { padding: 0 20px 20px 0; width: 100%; }
+.queryForm .formWrap .fieldGroup .group .row2 .clm { width: 100%; }
+.contactSection { padding: 0; }
+.contactSection .group { margin-top: 40px; width: 100%; }
+.tablePayBacKCalc .topSelectSection .group { padding: 15px 0 0 0; width: 100%; }
+.tablePayBacKCalc .topSelectSection .group:first-child { padding: 0 }
+.tablePayBacKCalc table tr td, .tablePayBacKCalc table tr th { font-size: 1.2em; padding: 5px; }
+.tablePayBacKCalc table tr .sectionTitle { font-size: 1.4em; }
+.tablePayBacKCalc .topSelectSection .group label { font-size: 1.4em; }
+.tablePayBacKCalc .usageSection .row .clm label { font-size: 1.4em; }
+.tablePayBacKCalc .usageSection .row .clm:first-child { padding-left: 10px; }
+.glossarySection .glossaryPagenation .glossaryDesktop { display: none; }
+.glossarySection .glossaryPagenation .glossaryMobile { display: block; }
+/*appStepSection:start*/
+.selectProduct .group { width: 50%; padding: 15px 30px 15px 0; }
+.selectLamp .optionGroup .radioList label { padding-right: 10px; }
+/*appStepSection:end*/
+/*timelineSection:start*/
+.timelineSection ul { padding-top: 10px; margin-left: 0 !important; min-height: inherit; }
+.timelineSection ul li { margin-left: 0; width: 320px; }
+.timelineSection ul li:nth-child(even) { margin-top: 0; }
+.timelineSection .content { padding-left: 15px; }
+.timelineSection .mCSB_scrollTools.mCSB_scrollTools_horizontal { width: 100%; }
+/*timelineSection:end*/
+/*fullContentSection:end*/
+/*product style by raje:end*/
+/*Locate Us Css Start*/
+.locationFinder .lgt, .locationFinder .rgt, .mapBox .addressList, .mapBox .addressMap, .box2.formSection .formLeft, .box2.formSection .formRight { width: 100% }
+.locationFinder .rgt { padding: 20px 0 0 0 }
+.locationFinder .boxBtn { width: auto }
+.locationFinder .boxBtn.arowNext { width: 30% }
+.mapBox .addressMap { display: none }
+.moIcons { display: block; position: absolute; top: 10px; right: 2px; z-index: 1 }
+.moIcons > span { font-size: 20px; padding: 8px; background: #333; color: #fff; border-radius: 5px }
+.moIcons.mapList > span { padding: 8px 12px }
+.box2.formSection .formLeft .group { height: auto; width: 100%; max-width: 100% }
+.box2.formSection .formLeft, .box2.formSection .formRight { max-width: 100% }
+/*Locate Us Css Ends*/
+/*For LightBox*/
+.popArea .lgtBox, .popArea .rgtBox { width: 100%; padding: 0 0 20px 0 }
+/*For LightBox*/
+.menu .submenuBox, .menu .popXbtn, .navTabLink { display: none }
+.rgtMenuBox > ul > li > a, .menuPopup .menutabWrp h3 { display: block }
+.rgtMenuBox > ul > li > a span.sansXbold { padding: 0 0 0 5px }
+.menutabWrp .rgtMenuBox > ul > li > a span.sansXbold { padding: 0 }
+.menuPopup .menutabWrp h3 a { color: #fff; font-size: 1.5em; width: 100%; display: inline-block; }
+.menuPopup .menutabWrp h3 { background: #494949; float: left; width: 100%; padding: 10px 28px; border-top: 1px solid #5c5c5c }
+.menuPopup .menutabWrp .rgtMenuBox { background: #5c5c5c; display: none; }
+.menuPopup ul li, .menuPopup ul li:first-child { width: 100% }
+.rgtMenuBox { padding: 0; margin: 0 }
+.rgtMenuBox > ul > li, .rgtMenuBox > ul > li:first-child { padding: 5px 0 5px 27px; margin: 0; border-top: 1px solid #696969 }
+.rgtMenuBox > ul > li:first-child { border: none }
+.rgtMenuBox .hoverList li, .rgtMenuBox .hoverList li:first-child, .rgtMenuBox > ul > li .hoverList li:first-child { padding: 0; /*padding: 0 0 0 5px*/ }
+.rgtMenuBox .hoverList { float: left; padding: 2px 5px }
+.rgtMenuBox .hoverList a { font-size: 1.3em; color: #ecf2f9; font-family: open_sans; }
+.rgtMenuBox .hoverList p { font-size: 1.1em; width: 100%; padding: 0 0 1% 0 }
+.rgtMenuBox * { color: rgb(236, 242, 249); font-family: "open_sans"; }
+.rgtMenuBox > ul > li > a { font-size: 1.4em; width: 90%; }
+.homepge .rgtMenuBox, .rgtMenuBox { width: 100%; position: relative }
+.menuPopup { position: relative; float: left; background: none; left: 0; transform: none; -webkit-transform: none; -ms-transform: none; -o-transform: none }
+/*Our team*/
+.ourTeamRow .cols, .ourTeamRow .cols.mid { width: 50%; }
+.fullContentSection .listingWrp li { height: auto; width: 100% }
+.careersWrp .hrBox .emailBox a { font-size: 1.6em }
+/*Search*/
+#edit-basic .form-item > .form-text { }
+#edit-basic .form-submit { width: auto }
+.quickLinks a { padding: 10px 20px 10px 10px }
+.quickLinks a .icon:after { top: 15px }
+.quickLinks a.sel .icon:after { top: 8px }
+/*.emplist*/
+.careersWrp .emplist { transform: scale(0.65); -webkit-transform: scale(0.65); -ms-transform: scale(0.65); -o-transform: scale(0.65); }
+.lbVideo .video iframe { height: 300px; }
+/*videoListSection:start*/
+.videoListSection { padding-top: 10px; }
+.videoListSection ul li { width: 50%; }
+.videoListSection ul li:nth-child(odd) { padding-left: 0; }
+.videoListSection ul li:nth-child(even) { padding-right: 0; }
+.videoListSection ul li:nth-child(2n+1) { clear: left; }
+.videoListSection ul li:nth-child(3n+1) { clear: inherit; }
+/*videoListSection:end*/
+/*Sitemap*/
+.site-map-box-terms { position: relative; width: 100%; padding: 10px 0; display: block }
+.faqWrp h3:after { left: 95% }
+.topFaqs li h3:after { left: 97% }
+.menuAdded { position: fixed; width: 100% }
+header .menuBox.scrollAdded { overflow: scroll; left: 0 }
+.fullContentSection .pageContent .pgeCopy h1 { width: 100%; max-width:100%;	}
+.fullContentSection .pageContent .bigImg { float: none; padding: 0; text-align: center; }
+.fullContentSection .pageContent .pgeCopy .bigImgWrp { padding-bottom: 25px; float: left; width: 100%; }
+.fixmenu .fotviewMore { padding: 15px 10px; }
+.fullContentSection .pageContent .pgeCopy h1.limited { width: 100% }
+/*ComboPck Start*/
+.selectProduct .comboPck .group .productImg img, .summarySection .summaryTable table tr td .productImg img { width: 80% }
+/*ComboPck End*/
+.lightbox .lightboxContent .ledGroup li{ width:50%; margin-bottom:15px;}
+.intermediateWrap .left_imgntext .textBand2 h2 .semiBold::after {left: -25px; bottom:-35px;}
+.feedbackForm .row { padding-bottom:0px;}
+.feedbackForm p { padding-bottom:15px;}
+.feedbackForm .row .clm{ float:left; padding:0 0 15px 0; width:100%;}
+.fullContentSection .appContainer ul li{ padding:10px;}
+table.tabledata { width:700px;}
+.registerPage .captcha { width: 45%;}
+.feedbackForm .row .clm { padding: 0 0 30px 0;}
+}
+ @media only screen and (min-width : 0px) and (max-width : 736px) {
+/*Below Iphone6+ Advance */
+/*Product Category Css Start*/
+.gridView > ul li { width: 50%; }
+/*Product Category Css Ends*/
+/*pageInfoSection Css Start*/
+.pageInfoSection .lhsInfo, .pageInfoSection .rhsInfo { width: 100%; float: left; }
+.pageInfoSection .lhsInfo { left: 50%; transform: translateX(-50%); -webkit-transform: translateX(-50%); -ms-transform: translateX(-50%); }
+.pageInfoSection .rhsInfo { padding: 50px 0 0 0 }
+.pageInfoSection .lhsInfo { width: 399px }
+/*Search*/
+#edit-basic .form-item { width: 60% }
+.search-advanced .form-checkboxes .form-item, .search-advanced .form-radios .form-item { padding: 0; width: 100%; }
+/*pageInfoSection Css Ends*/
+.topFaqs { margin: 0 }
+.topFaqs li { padding: 0 15px }
+.contentMaster .ledContainer { width: 96%; margin: 0 2%; }
+.tabWrapper .tabList ul li a { width:100px; height:100px;}
+.tabWrapper .tabContainerWrap .tabContent .features,.tabWrapper .tabContainerWrap .tabContent p.title { width:100%;}
+.tabContent .features .featureHead {width:200px; height:200px;}
+.tabContent .features .textCentrehead {font-size:2.8em;}
+.tabWrapper .tabContainerWrap .tabContent .features ul {  margin: 0 auto; width: 60%;}
+.tabContent .features .featureHead { margin: 30px 0 0;}
+.tabWrapper .tabContainerWrap .tabContent .features ul { margin: 0 auto; width: 45%; float:none;}
+#careers-content .captcha, #write-to-us .captcha, #request-a-quote .captcha {width: 25%;}
+.registerPage .captcha { width: 45%;}
+careers-content .captcha, #write-to-us .captcha, #request-a-quote .captcha {    width: 44%;}
+.feedbackForm .row .fields .radioBtnWrap .group label {
+    position: relative;
+    top: 1px;
+}
+
+}
+
+@media only screen and (min-width : 0px) and (max-width : 667px) {
+
+careers-content .captcha, #write-to-us .captcha, #request-a-quote .captcha {    width: 38%;}
+#careers-content .captcha, #write-to-us .captcha, #request-a-quote .captcha {    width: 39%;}
+.registerPage .captcha { width: 37%;}
+.feedbackForm .row .fields .radioBtnWrap .group label {position: relative; top:3px;}
+
+}
+@media only screen and (min-width : 0px) and (max-width : 640px) {
+#careers-content .captcha, #write-to-us .captcha, #request-a-quote .captcha {    width: 35%;}
+.registerPage .form-item .form-radios .form-type-radio { width: 50%;}
+.registerPage .form-item .form-radios{ width: 300px;}
+.registerPage .form-item .form-radios .form-type-radio input.form-radio { position: relative;top:1px;}
+
+
+}
+
+@media only screen and (min-width : 0px) and (max-width : 639px) {
+.contentMaster .container { width: 90%; margin: 0 5%; }
+.productRhs .productInfo { padding: 20px 0; width: 100%; }
+.productRhs .bestSuited { border-left: medium none; border-top: 1px solid #e1e1e1; padding: 20px 0; width: 100%; }
+/*fullContentSection:start*/
+.fullContentSection h1 { font-size: 3em; }
+.fullContentSection p { font-size: 1.4em; }
+.fullContentSection ul.bulletStyle li{ font-size:1.4em; line-height:18px;}
+.queryForm .formWrap .formValue .group .grpClm { padding-top: 15px; width: 100%; }
+.queryForm .formWrap .formValue .group .grpClm:first-child { padding-top: 0; }
+.queryForm .formWrap .formValue .group .grpClm label { font-size: 1.6em; width: 40%; }
+.queryForm .formWrap .formValue .group .grpClm .value { font-size: 1.6em; }
+.queryForm .formWrap .fieldGroup .group .grpTitle { padding-bottom: 20px; }
+.queryForm .formWrap .fieldGroup .group .row .clm { padding: 0 0 20px 0; width: 100%; }
+.queryForm .formWrap .fieldGroup .group .topSpace .clm:first-child { padding-top: 0; }
+.queryForm .formWrap .fieldGroup .group .row .clm .labelHide { display: none; }
+.contactSection .group h2 { font-size: 1.8em; }
+.contactSection .group p { font-size: 1.4em; padding-top: 10px; }
+/*appStepSection:start*/
+.selectArea ul li { padding: 15px; }
+.lbEmailProject .form .formData .clm { width: 100%; }
+/*appStepSection:end*/
+/*fullContentSection:end*/
+.pageInfoSection .rhsInfo h1 { font-size: 3em; line-height: 30px; }
+/*About Us Content Css Start*/
+.pageContent .bigImg { width: 90%; padding-bottom: 30px }
+/*About Us Content Css Ends*/
+.search-advanced .fieldset-wrapper .form-text { width: 90% }
+.search-form .form-submit { width: auto }
+.globalNav li { margin: 0 0 0 5px; }
+/*.emplist*/
+.careersWrp .emplist { transform: scale(0.48); -webkit-transform: scale(0.48); -ms-transform: scale(0.48); -o-transform: scale(0.48); }
+/**/
+.tablePayBacKCalc .topSelectSection .group .fieldGroup .field { padding: 15px 0 0 0; width: 100%; }
+.tablePayBacKCalc .usageSection .row .clm { padding: 15px 0 0 0; width: 100%; }
+.tablePayBacKCalc .usageSection .row .clm:first-child { padding: 0; }
+
+.intermediateWrap .intermediateContainer {box-sizing: border-box; padding: 2%;}
+.intermediateWrap .clickButton {width: 52%;}
+.intermediateWrap .left_imgntext .textBand2 h2 .semiBold::after {left: 85px;}
+.tabWrapper .tabList ul li a { width:80px; height:80px;}
+.tabContent .features .featureHead { margin: 30px 0 0;}
+#careers-content .captcha, #write-to-us .captcha, #request-a-quote .captcha {    width: 25%;}
+.registerPage .captcha {    width: 26%;}
+}
+ @media only screen and (min-width : 0px) and (max-width : 599px) {
+.pickProductCompare .productList li { width: 50%; }
+.productLhs .brandLogo img { width: 30%; }
+.formSection .formLeft .group { width: 100%; margin: 15px 0 0 0; }
+.caseStudySection .groupFullContent .box { min-height: auto; }
+.caseStudySection .box ul li .content, .caseStudySection .box ul li .banner { width: 100%; }
+/*productListSection:start*/
+.productListSlider .group .productImg img { max-width: 160px; }
+/*productListSection:end*/
+/*articleTopSection:start*/
+.articleTopSection .contentPart .subTitle .date { float: left; padding: 5px 0 0 0; width: 100%; }
+/*articleTopSection:end*/
+/*articleSection:start*/
+.articleSection .articleFilter .articlePagenation { float: left; padding: 15px 0 0 0; width: 100%; }
+.articleSection .contentPart .subTitle .date { float: left; padding: 5px 0 0 0; width: 100%; }
+/*articleSection:end*/
+/*For LightBox*/
+.popArea .rgtBox .col2 { width: 100%; padding: 10px 0 }
+.loginPop h2 { font-size: 2em }
+/*PStatik page Content*/
+.pageContent .bigImg { width: 100%; padding: 0 0 30px 0 }
+/*.pageContent .pgeCopy p, .fullContentSection .openPge p, .fullContentSection .openPge li { font-size: 1.3em }*/
+.pageContent .pgeCopy h1 { font-size: 2em; line-height: normal; padding-bottom: 2%; }
+.openPge h3 { font-size: 1.6em }
+.careersWrp { padding: 0 }
+.careersWrp h2 { font-size: 1.8em }
+.careersWrp h2:after { border-bottom: 2px solid #333; bottom: 10px; }
+.careersWrp h3, .careersWrp .hrBox .emailBox a { font-size: 1.5em; }
+.careersWrp .empData li { width: 100% }
+.careersWrp .hrBox .title { width: 100%; border-bottom: 2px solid #fff; border-right: 0 }
+.careersWrp .hrBox .emailBox { padding: 10px 25px }
+/*our-usps.html*/
+.ourUspsWrp .head { padding: 5px 10px }
+.ourUspsWrp .head h3 { font-size: 1.8em }
+.usprows .cols { padding: 15px 0 }
+.usprows { border: none }
+.usprows .cols { width: 100%; border-top: 1px solid #ececec }
+.usprows .cols:first-child { border: none }
+.faqWrp h3 { font-size: 1.4em; padding: 10px 20px 10px 0 }
+.faqWrp .faqmore p { padding: 0 0 10px 0; font-size: 1.2em }
+/*our-usps.html End*/
+
+/*appStepSection:start*/
+.selectArea ul li { width: 50%; }
+.selectLamp .optionGroup .radioList .group { padding: 0 0 10px 0; width: 100%; }
+.selectLamp .optionGroup .radioList .group label { padding: 0 0 0 70px; }
+.selectLamp .optionGroup .radioList .group .cheked, .selectLamp .optionGroup .radioList .group .uncheked { position: absolute; }
+.selectLamp .optionGroup .radioList .group input { left: 0; }
+.selectLamp .optionGroup:nth-child(2n) .radioList { padding: 20px }
+.appStepSection .centerBtnGrp .arrowLink { width: auto; }
+.viewDesign .viewDesignContent .group .designDetails .clm { width: 100%; }
+.btnGrp .arrowLink { margin: 15px 0 0; max-width: 280px; width: 100%; }
+.btnGrp .innerBtnGrp { padding-top: 0; width: 100%; }
+.summarySection .summaryTable table tr td, .summarySection .summaryTable table tr th { font-size: 1.2em; padding: 5px; }
+/*appStepSection:end*/
+.categoryFilter .filterBar .filterSelect { width: 65%; }
+.filterSelect li { width: 100% }
+.filterSelect li .selBox { padding: 0; }
+/*Spirit of Wipro:start*/
+.spiritWrp .row .titles li { padding: 5% 0 0 0; border: 0 }
+/*Spirit of Wipro:end*/
+.registerPage .queryForm label { width: 100%; }
+.registerPage input[type="text"], .registerPage input[type="password"], .registerPage textarea { width: 100%; }
+.registerPage .queryForm .form-select { width: 100%; }
+.registerPage .form-submit, .registerPage .captcha img {margin:0;}
+.item-list .pager li.pager-ellipsis, .item-list .pager li.pager-first, .item-list .pager li.pager-previous, .item-list .pager li.pager-next, .item-list .pager li.pager-last { display: none }
+.fixmenu .fotviewMore { padding: 20px 10px; }
+.lightbox .lightboxContent .ledGroup li{ width:100%;}
+.fullContentSection .appContainer ul li{ width:50%;}
+#careers-content .captcha, #write-to-us .captcha, #request-a-quote .captcha {    width: 100%;}
+.registerPage .captcha {width: 100%;}
+#user-pass div.messages{margin:0;}
+.careersForm div.messages {margin:0;}
+.careersForm div.messages-inline, .registerPage div.messages-inline{ padding-bottom:20px;}
+.registerPage div.messages {margin-left:0px;}
+}
+/*For LightBox*/
+ @media only screen and (min-width : 0px) and (max-width : 568px) {
+.fixmenu { padding: 5px 0 }
+/*.fixmenu > ul > li { height: 85px }*/
+/* CSS Responsive table */
+.tableView table tr { background: #def3fd; border-top: 2px solid #fff }
+.tableView table tr td, .tableView table tr th, .tableView table tr td:nth-child(1), .tableView table tr th:nth-child(1), .tableView table tr td:nth-child(2), .tableView table tr th:nth-child(1), .tableView table tr td:nth-child(3), .tableView table tr th:nth-child(3), .tableView table tr td:nth-child(4), .tableView table tr th:nth-child(4) { width: auto }
+.tableView table tr td, .tableView .productName { font-size: 1.2em }
+.tableView table, .tableView table tr th, .tableView table tr td, .tableView table tr { display: block; }
+.tableView table tr td { position: relative; padding: 10px 5px 10px 50%; }
+.tableView table tr td:before { position: absolute; top: 50%; left: 5px; transform:translateY(-50%) width: 40%;
+padding: 0 10px 0 0; text-align: left; word-wrap: break-word; transform: translateY(-50%); -webkit-transform: translateY(-50%); -moz-transform: translateY(-50%); -ms-transform: translateY(-50%); -o-transform: translateY(-50%); }
+.tableView table tr:first-child th:nth-child(2), .tableView table tr:first-child th:nth-child(3) { display: none }
+.tableView table tr:first-child th:nth-child(1), .tableView table tr:first-child th:nth-child(4) { background: #fff; width: 50%; float: left; padding: 15px 5px }
+.tableView table tr td:before { content: attr(data-content); }
+/* CSS Responsive End */
+/*Product Category Css Start*/
+.gridView > ul li { width: 100% }
+.productBrochureSection{ width:100%;}
+.productBrochureSection .gridView > ul li { width: 100%; padding-right:0; }
+/*Product Category Css Ends*/
+
+.ourTeamRow .popData h3 { padding: 10px 30px 10px 10px; }
+.ourTeamRow .popData p { padding: 10px; line-height: 20px }
+/*.emplist*/
+.careersWrp .emplist { transform: scale(0.9) rotate(90deg); transform-origin: 160px 160px; -webkit-transform: scale(0.9) rotate(90deg); -webkit-transform-origin: 160px 160px; -ms-transform: scale(0.9) rotate(90deg); -ms-transform-origin: 160px 160px; height: 850px }
+.careersWrp .emplist li .text { transform: rotate(-90deg); -webkit-transform: rotate(-90deg); -ms-transform: rotate(-90deg); left: 2%; top: 40%; }
+.careersForm, #user-pass { padding: 10px }
+.careersForm .form-submit, #user-pass .form-submit { margin: 15px 0 }
+.registerPage div.messages { /*margin: 0 0 0 40%;*/ margin:0;}
+.careersForm div.messages, #user-pass div.messages { margin: 0 }
+#careers-content .captcha, #write-to-us .captcha, #request-a-quote .captcha {width: 100%;}
+.feedbackForm .row .fields .radioBtnWrap .group label {position: relative; top: 3px;}
+
+}
+@media only screen and (min-width : 0px) and (max-width : 480px) {
+.ourTeamRow .cols, .ourTeamRow .cols.mid { width: 100%; }
+.ourTeamRow .popData h3 { padding: 10px 30px 10px 10px; }
+.ourTeamRow .popData p { padding: 10px; line-height: 20px }
+.rgtMenuBox > ul > li > a { font-size: 1.3em; width: 100% }
+#edit-upload-upload { float: left; clear: both }
+.registerPage .form-submit, .registerPage .captcha img { margin: 0 }
+#edit-upload-upload .form-file { width: 180px }
+#edit-upload-upload .form-submit { width: 70px }
+.fixmenu .fotviewMore { padding: 10px; }
+/*ComboPck Start*/
+ 
+.selectProduct .comboPck .group { width: 100%; padding: 0 0 15px 0 }
+.selectProduct .comboPck .group .productImg img, .summarySection .summaryTable table tr td .productImg img { width: 80% }
+/*ComboPck End*/
+
+.intermediateWrap .ledSection .leftSec, .ledSection .rightSec {    float: left;    padding: 0 0 1%;    width: 100%;}
+.intermediateWrap .footerList ul li {  width: 100%;}
+.intermediateWrap .clickButton { width: 50%;}
+.intermediateWrap .ledSection .group {float: left;    padding: 0 1% 2% 0;    width: 100%;}
+.intermediateWrap .left_imgntext .textBand2 h2 .semiBold::after {left:86px;}
+.intermediateWrap .left_imgntext .textBand2 h2 .semiBold::after {left: 10px;}
+.fullContentSection h2.head {font-size: 2em; }
+.registerPage .captcha {    width: 100%;}
+.feedbackForm .row .fields .radioBtnWrap .group label {position: relative; top: 3px;}
+ }
+@media only screen and (min-width : 0px) and (max-width : 479px) {
+.noIco { width: 40px; height: 40px; line-height: 40px; font-size: 2em; }
+.compareBestSuited .group ul li { margin-bottom: 20px; max-width: 100px; width: 50%; }
+.fullWidthCaseStudySection .group h2 { margin-bottom: 40px; }
+.homepge .fixmenu > ul > li.tollNum, .homepge .fixmenu > ul > li.smo, .fixmenu > ul > li.tollNum, .fixmenu > ul > li.smo { width: 100%; }
+.fixmenu > ul > li { width: 100%; border: 0; border-top: 1px solid #d8d8d8; height: auto }
+/*filterSubAppSection:start*/
+.filterSubAppSection .subApps .subAppsInner { padding: 0; }
+.filterSubAppSection .subApps .group { float: left; padding: 15px 0; width: 50%; }
+/*filterSubAppSection:end*/
+.productType { width: 100%; }
+.productType .productTitle { font-size: 1.1em; }
+.productType .productTitle .downArrow{ margin-left:5px;}
+.productType .productView{margin-left: 15px;  font-size: 1.1em;}
+/*productListSection:start*/
+.productListSection h2 { padding-bottom: 40px; }
+.productListSlider .productListWrap, .selectProduct .products { width: 100%; }
+.productListSlider .group { padding: 0; width: 100%; }
+/*productListSection:end*/
+.categoryFilter .filterBar { padding: 8px }
+.filterSelect li { padding: 0 }
+.pageInfoSection .lhsInfo { width: 100% }
+.pageInfoSection .lhsInfo .titleBox { width: 40%; height: 40% }
+/*fullContentSection:start*/
+.fullContentSection { padding: 20px 0 10px 0 }
+.fullContentSection h1 { font-size: 2em; line-height: normal; padding-bottom: 2%; }
+.queryForm .formWrap .formValue .group .grpClm label { font-size: 1.2em; }
+.queryForm .formWrap .formValue .group .grpClm .value { font-size: 1.2em; }
+.queryForm .formTitle { padding: 0 0 10px 60px; }
+.queryForm .formTitle .noIco { left: 5px; top: 5px; }
+.queryForm .formTitle h2 { font-size: 1.8em; }
+.queryForm .formWrap .fieldGroup .group .grpTitle { font-size: 1.6em; }
+.queryForm .formWrap .fieldGroup .group .row .clm { padding: 0 0 15px 0 }
+.contactSection .group { padding: 0 0 0 50px; }
+.contactSection .group h2 { width: 170px; }
+.contactSection .group p { font-size: 1.2em; }
+.contactSection .group p .phoneNo { padding: 10px 0 0 0; width: 100%; }
+/*wpPagenation:start*/
+.wpSection h2 { font-size: 1.8em; line-height: normal; }
+.wpSection .wpRow { border: none; padding: 0; }
+.wpSection .wpRow .wpClm { border-top: solid #dcdcdc 2px; padding: 15px 0; width: 100%; }
+.wpSection .wpRow .wpClm:first-child { border: none; }
+/*wpPagenation:end*/
+/*appStepSection:start*/
+.designSelect .group, .box2.formSection .formRight .form .formData .row { width: 100%; }
+.wpSection h2 { font-size: 1.8em; line-height: normal; }
+.appStepSection .stepContent h2 { font-size: 1.8em; }
+.selectProduct .group { width: 100%; padding: 0; }
+.summarySection .summaryTable table tr td .productImg { width: 70px; height: 70px; }
+.viewDesign .viewDesignContent .group .designDetails .clm label, .viewDesign .viewDesignContent .group .designDetails .clm .value { font-size: 1.4em; }
+/*appStepSection:end*/
+.filterSubAppSection .subApps li { -moz-transform: scale(0.9); -ms-transform: scale(0.9); -o-transform: scale(0.9); -webkit-transform: scale(0.9); transform: scale(0.9); }
+.filterSubAppSection .subApps li p { font-size: 1.2em; }
+/*fullContentSection:end*/
+.locationFinder .boxBtn.arowNext { float: left; clear: both; padding: 15px 0 0 0; width: 120px }
+/*our-usps.html*/
+.ourTeamRow .cols, .ourTeamRow .cols.mid { width: 100%; }
+.usprows .icons { text-align: center; float: none }
+.usprows .infoSide { float: left; padding: 10px 0 0; text-align: center; }
+/*our-usps.html End*/
+/*videoListSection:start*/
+.videoListSection { padding-top: 10px; }
+.videoListSection ul li { padding: 15px 0; width: 100%; font-size:inherit; line-height:normal;}
+.videoListSection ul li:nth-child(2n+1) { clear: inherit; }
+.videoListSection ul li:nth-child(3n+1) { clear: inherit; }
+/*videoListSection:end*/
+.formSection .formRight .form .formData .row { padding: 10px 0 0 0 }
+.childList li { padding-right: 0; width: 100%; }
+/*FormCss Start*/
+.careersForm input[type="text"], .careersForm .form-select, #user-pass input[type="text"] { width: 100% }
+.careersBtn a { clear: both; display: inline-block }
+/*FormCss Start*/
+.pageInfoSection .rhsInfo h1 { font-size: 2em; line-height: 25px; padding-right: 60px }
+.pageInfoSection .rhsInfo p{ font-size:1.4em; line-height:18px;}
+.pageInfoSection .rhsInfo ul li{ font-size:1.4em; line-height:18px;}
+.pageInfoSection .rhsInfo .iconBox { height: 50px; width: 50px; }
+.videoListSection ul li .title { font-size: 1.8em; }
+.formSection.box2 .formRight .form .formData .lefSide, .formSection.box2 .formRight .form .formData .rgtSide { width: 100% }
+.formSection.box2 .formRight .form .formData .capchBox { /*margin: 0 0 0 35px*/ }
+#submitThis { margin-left: 50px }
+.formSection .capchImg, .formSection .capchImg img, .formSection.box2 .capchImg, .formSection.box2 .capchImg img { width: auto }
+.formSection.box2 .formRight .form .formData .rgtSide .row #submitThis { margin-left: 0px }
+/*ComboPck Start*/
+.summarySection .summaryTable.comboPck table tr td{padding:0}
+.summarySection .summaryTable.comboPck table tr td .productName .comboInfo{ padding:0 5px}
+.summarySection .summaryTable.comboPck table tr td .productName .comboInfo p.title{ font-size:0.8rem}
+.summarySection .summaryTable.comboPck table tr td .productName .comboInfo p.code{ font-size:0.7rem}
+.selectProduct .comboPck .group .productImg img, .summarySection .summaryTable table tr td .productImg img { width: 95% }
+.selectProduct .comboPck .group .productImg .comboImg:nth-child(2n):before,.summarySection .summaryTable.comboPck table tr td .productImg .comboImg:nth-child(2n):before{font-size:0.8rem}
+#careers-content .captcha, #write-to-us .captcha, #request-a-quote .captcha{transform:scale(0.9); -webkit-transform:scale(0.9);-moz-transform:scale(0.9);-ms-transform:scale(0.9);-o-transform:scale(0.9);transform-origin:0 0;-webkit-transform-origin:0 0;-moz-transform-origin:0 0;-ms-transform-origin:0 0;-o-transform-origin:0 0;}
+.queryForm .formWrap .fieldGroup .group .row {-webkit-transform:scale(0.8);-moz-transform:scale(0.8);-ms-transform:scale(0.8);-o-transform:scale(0.8);transform-origin:0 0;-webkit-transform-origin:0 0;-moz-transform-origin:0 0;-ms-transform-origin:0 0;-o-transform-origin:0 0;}
+.registerPage .captcha {    width: 100%; transform:scale(0.8);-webkit-transform:scale(0.8);-moz-transform:scale(0.8);-ms-transform:scale(0.8);-o-transform:scale(0.8);transform-origin:0 0;-webkit-transform-origin:0 0;-moz-transform-origin:0 0;-ms-transform-origin:0 0;-o-transform-origin:0 0;}
+/*.feedbackForm .row { width: 100%;-webkit-transform:scale(0.8);-moz-transform:scale(0.8);-ms-transform:scale(0.8);-o-transform:scale(0.8);transform-origin:0 0;-webkit-transform-origin:0 0;-moz-transform-origin:0 0;-ms-transform-origin:0 0;-o-transform-origin:0 0;}*/
+.formSection.box2 .formRight .form .formData .rgtSide .row.capchBox {transform:scale(0.8);-webkit-transform:scale(0.8);-moz-transform:scale(0.8);-ms-transform:scale(0.8);-o-transform:scale(0.8);transform-origin:0 0;-webkit-transform-origin:0 0;-moz-transform-origin:0 0;-ms-transform-origin:0 0;-o-transform-origin:0 0;}
+.formSection .formRight .form .formData .row {transform:scale(0.8);-webkit-transform:scale(0.8);-moz-transform:scale(0.8);-ms-transform:scale(0.8);-o-transform:scale(0.8);transform-origin:0 0;-webkit-transform-origin:0 0;-moz-transform-origin:0 0;-ms-transform-origin:0 0;-o-transform-origin:0 0;}
+.formSection .formRight .form .formData .row .field input {width: 100%;}
+}
+
+@media only screen and (min-width : 0px) and (max-width :414px) {
+.tabWrapper .tabList ul li a { font-size:0.7em; width:65px; height:65px;}
+.tabWrapper .tabList ul { background:none;}
+.mainmidCont p.underhead {font-size:2.2em;}
+.mainmidCont {width: 100%;}
+.tabWrapper .tabContainerWrap .tabContent p.title,.tabWrapper .tabContainerWrap .tabContent p.titleRight{ font-size:2em; line-height:20px;}
+.tabContent .features .textCentrehead { font-size:2em;}
+
+.tabWrapper .tabContainerWrap .tabContent .features ul li{ font-size:1.2em;}
+.tabContent .features .featureHead {width:150px; height:150px;}
+.tabContent .features .textCentrehead:before,.tabContent .features .textCentrehead:after{background:none;}
+.tabWrapper .tabContainerWrap .tabContent .features ul{ width:60%; margin:0 auto; float:none;}
+.feedbackForm .row .fields .radioBtnWrap .group label {    position: relative; top:3px;}
+
+}
+
+@media only screen and (min-width : 0px) and (max-width : 360px) {
+.storeClass img {padding: 10px 0;}
+.fullContentSection h2.head {font-size: 1.8em;}
+.fullContentSection .appContainer ul li{ padding:0 0 10px 0; text-align:center; width:100%;}
+.fullContentSection .storeClass a { margin: 0 10px 0 0;}
+.mainmidCont p.underhead {    font-size: 1.8em;    line-height: 22px;}
+#careers-content .captcha, #write-to-us .captcha, #request-a-quote .captcha { padding: 16px 0 0px;width: 100%;}
+.registerPage .form-item .form-radios .form-type-radio{ width:auto;padding: 0 10px 0 0;}
+.registerPage .form-item .form-radios label {width:auto;padding: 0 5px 0 0;}
+/*.registerPage .form-item .form-radios .form-type-radio { width: 100%;}*/
+/*.queryForm .formWrap .fieldGroup .group .row {
+    -webkit-transform: scale(0.8);
+    -moz-transform: scale(0.8);
+    -ms-transform: scale(0.8);
+    -o-transform: scale(0.8);
+    transform-origin: 0 0;
+    -webkit-transform-origin: 0 0;
+    -moz-transform-origin: 0 0;
+    -ms-transform-origin: 0 0;
+    -o-transform-origin: 0 0;
+   
+}*/
+
+.registerPage .form-item .form-radios .form-type-radio {    width: 50%;}
+.registerPage .form-item .form-radios{ width: 300px;}
+.registerPage .form-item .form-radios .form-type-radio input.form-radio { position: relative;top:1px;}
+
+}
+@media only screen and (min-width : 0px) and (max-width : 320px) {
+#mainWrapper { overflow-x: hidden; }
+.breadcrumbs li { text-transform: capitalize }
+.usprows .cols a { font-size: 1.2em }
+.intermediateWrap .clickButton { width: 52%;}
+.intermediateWrap .left_imgntext .textBand2 h2 .semiBold::after {left: 96px;}	
+.intermediateWrap .left_imgntext h2 .semiBold::after { left: -14px;  }
+.tabWrapper .tabList ul li a { font-size:0.6em; width:55px; height:55px;}
+.mainmidCont p.underhead {    font-size: 1.8em;    line-height: 20px;}
+#careers-content .captcha, #write-to-us .captcha, #request-a-quote .captcha {padding: 16px 0 0px; width: 100%;}
+#careers-content .captcha, #write-to-us .captcha, #request-a-quote .captcha {transform:scale(0.8);-webkit-transform:scale(0.8);-moz-transform:scale(0.8);-ms-transform:scale(0.8);-o-transform:scale(0.8);transform-origin:0 0;-webkit-transform-origin:0 0;-moz-transform-origin:0 0;-ms-transform-origin:0 0;-o-transform-origin:0 0;   }
+.feedbackForm .row .fields .radioBtnWrap .group label {position: relative; top:3px;}
+/*.feedbackForm .row {transform:scale(0.9);-webkit-transform:scale(0.9);-moz-transform:scale(0.9);-ms-transform:scale(0.9);-o-transform:scale(0.9);transform-origin:0 0;-webkit-transform-origin:0 0;-moz-transform-origin:0 0;-ms-transform-origin:0 0;-o-transform-origin:0 0;}*/
+.feedbackForm .capchBox{transform:scale(0.9);-webkit-transform:scale(0.9);-moz-transform:scale(0.9);-ms-transform:scale(0.9);-o-transform:scale(0.9);transform-origin:0 0;-webkit-transform-origin:0 0;-moz-transform-origin:0 0;-ms-transform-origin:0 0;-o-transform-origin:0 0;}
+
+}
+
+@media only screen and (min-height : 0px) and (max-height : 360px) {
+.lbVideo .video iframe { height: 210px; }
+}

@@ -1,0 +1,211 @@
+<?php
+
+  function custom_imports_menu() {
+    $items = array();
+		$items['admin/csv-imports']=array(
+				'title'             => 'CSV Imports',
+				'description'       => 'CSV Imports.',
+				'page callback'     => 'system_admin_menu_block_page',
+				'access arguments'  => array('access administration pages'),
+				'file'              => 'system.admin.inc',
+				'file path'         => drupal_get_path('module', 'system'),
+			);
+		
+	$items['admin/csv-imports/retail-outlets']=array(
+      'title'             => 'Import Store Locator',
+      'description'       => 'Import Store Locator.',
+      'page callback'     => 'drupal_get_form',
+      'page arguments'    => array('store_locator_form'),
+      'weight'            => 0,
+      'type'              => MENU_NORMAL_ITEM,
+      'access arguments'  => array('administer site configuration') ,
+    );
+	$items['admin/csv-imports/callback-data']=array(
+      'title'             => 'Get a call back',
+      'page callback'     => 'get_a_callback_data',
+			'access arguments'  => array('access content'),
+      //'weight'            => 0,
+      'type'              => MENU_NORMAL_ITEM,
+      'access arguments'  => array('administer site configuration') ,
+    );
+	$items['admin/csv-imports/get-a-quote']=array(
+      'title'             => 'Get a quote',
+      'description'       => 'Get a quote.',
+      'page callback'     => 'get_a_quote_data',
+			'access arguments'  => array('access content'),
+      'weight'            => 0,
+      'type'              => MENU_CALLBACK,
+     // 'access arguments'  => array('administer site configuration') ,
+    );
+	$items['admin/csv-imports/support-form-data-grid']=array(
+      'title'             => 'Support Form Data',
+
+      'page callback'     => 'get_support_form_data',
+			'access arguments'  => array('access content'),
+      'weight'            => 0,
+      'type'              => MENU_CALLBACK,
+     // 'access arguments'  => array('administer site configuration') ,
+    );
+	
+		return $items;
+  }
+	
+	function store_locator_form($form, &$form_state) {
+    $form = array();
+    $form['file'] = array(
+        '#type' => 'file',
+        '#description' => t('Upload a CSV file to import'),
+    );
+    $form['submit'] = array(
+      '#type' => 'submit',
+      '#value' => t('Import'),
+    );
+    return $form;
+  }
+
+  function store_locator_form_validate($form, &$form_state) {
+    $file = file_save_upload('file', array(
+      'file_validate_extensions' => array('csv'),
+    ));
+    if ($file) {
+      if ($file = file_move($file, 'public://')) {
+        $form_state['values']['file'] = $file;
+      } else {
+        form_set_error('file', t('Failed to write the uploaded file the site\'s file folder.'));
+      }
+    } else {
+      form_set_error('file', t('No file was uploaded.'));
+    }
+  }
+	
+	function store_locator_form_submit($form, &$form_state) {
+    $count = 0;
+    $allcount = 0;
+    $fid = $form_state['values']['file']->fid;
+    $path = file_create_url($form_state['values']['file']->uri);    
+    if($handle = fopen($path, 'r')) {
+      $row = fgetcsv($handle);
+			db_truncate('locator')->execute();
+      while ($row = fgetcsv($handle)) {
+				//echo '<pre>'; print_r($row); echo '</pre>';
+				if($row[0] != '') {
+					$row[13] = trim($row[13], '()');
+					$lat_long = $row[13];
+					$temp = explode(',', $lat_long);
+					$query = db_insert('locator')
+									->fields(array(
+								'customer_id'       => mb_check_encoding($row[1], 'UTF-8')  ? trim($row[1])  : utf8_encode(trim($row[1])),
+								'store_category'		=> mb_check_encoding($row[2], 'UTF-8')  ? trim($row[2])  : utf8_encode(trim($row[2])),
+								'store_name'        => mb_check_encoding($row[3], 'UTF-8')  ? trim($row[3])  : utf8_encode(trim($row[3])),
+								'contact_person'    => mb_check_encoding($row[4], 'UTF-8')  ? trim($row[4])  : utf8_encode(trim($row[4])),
+								'address1'          => mb_check_encoding($row[5], 'UTF-8')  ? trim($row[5])  : utf8_encode(trim($row[5])),
+								'city'              => mb_check_encoding($row[6], 'UTF-8')  ? trim($row[6])  : utf8_encode(trim($row[6])),
+								'state'             => mb_check_encoding($row[7], 'UTF-8')  ? trim($row[7])  : utf8_encode(trim($row[7])),
+								'pincode'         	=> mb_check_encoding($row[8], 'UTF-8')  ? trim($row[8])  : utf8_encode(trim($row[8])),
+								'mobile'            => mb_check_encoding($row[9], 'UTF-8')  ? trim($row[9])  : utf8_encode(trim($row[9])),
+								'phone'           	=> mb_check_encoding($row[10], 'UTF-8') ? trim($row[10]) : utf8_encode(trim($row[10])),
+								'email'           	=> mb_check_encoding($row[12], 'UTF-8') ? trim($row[12]) : utf8_encode(trim($row[12])),
+								'latitude'      		=> mb_check_encoding($temp[0], 'UTF-8') ? trim($temp[0]) : utf8_encode(trim($temp[0])),
+								'longitude'         => mb_check_encoding($temp[1], 'UTF-8') ? trim($temp[1]) : utf8_encode(trim($temp[1])),
+								'address2'          => '',
+							));
+					$query->execute();
+					//echo $row[1].' inserted<br/>';
+				}
+      }
+    } 
+    fclose($handle);
+    db_delete('file_managed ')
+      ->condition('fid', $fid)
+      ->execute();
+    //drupal_unlink($path);
+  }
+  
+  function get_a_callback_data() {
+ 
+	  $result = db_query("SELECT * FROM  {call_back}");
+		$output = '<table class="sticky-enabled table-select-processed tableheader-processed sticky-table">';
+		$output .= '<thead><tr><th class="select-all">Sr.No.</th><th>Name</th><th>Email</th>';
+		$output .= '<th>Mobile</th><th>IP</th><th>Date</th></tr></thead><tbody>';
+	  foreach($result as $row) {
+		 $output .= '<tr><td>'.$row->id.'</td><td>'.$row->name.'</td><td>'.$row->email.'</td><td>'.$row->mobile.'</td><td>'.$row->ip.'</td><td>'.date('d M, Y',$row->created).'</td></tr>';
+	  }
+    $output .='</tbody></table>';   
+	  return $output;
+  }
+  
+  function get_a_quote_data() {
+ 
+	  $result = db_query("SELECT * FROM  {request_a_quote}");
+		$output = '<table class="sticky-enabled table-select-processed tableheader-processed sticky-table">';
+		$output .= '<thead><tr><th class="select-all">Sr.No.</th><th>Name</th><th>Email</th>';
+		$output .= '<th>Mobile</th><th>Application</th><th>Product</th><th>Wattage</th><th>No of luminaire</th><th>Date</th></tr></thead><tbody>';
+	  foreach($result as $row) {
+		 $output .= '<tr><td>'.$row->id.'</td><td>'.$row->name.'</td><td>'.$row->email.'</td><td>'.$row->mobile.'</td><td>'.$row->application.'</td><td>'.$row->product.'</td><td>'.$row->wattage.'</td><td>'.$row->luminaires.'</td><td>'.date('d M, Y',$row->dates).'</td></tr>';
+	  }
+    $output .='</tbody></table>';   
+	  return $output;
+  }
+  
+  function get_support_form_data() {
+		$build = array();
+		$query = db_select('support_form', 's')
+					 ->fields('s')
+					 ->extend('PagerDefault')
+					 ->limit(3);
+
+		foreach($result as $row){
+			echo '<pre>';
+			print_r($row);
+			echo '</pre>';
+		}
+		/*$headers = array(
+			t('Sr.No'),
+			t('CNN Number'),
+			t('Name'),
+			t('Email'),
+			t('Phone Number'),
+			t('Invoice Number'),
+			t('Invoice Date'),
+			t('Product Complaint'),
+			t('Product Category reference'),
+			t('Product Failure Quantity'),
+			t('Batch Code'),
+			t('Packaging Data'),
+			t('Product Category Reference'),
+			t('Date'),			
+		);
+		$rows = array();
+		$count = 2;
+	  $sql = "SELECT * FROM  {support_form}";
+		$query = pager_query($sql, $count);
+		while ($record = db_fetch_object($query)) {
+			$rows[] = array(
+				$record->id,
+				$record->cnnnumber,
+				$record->name,
+				$record->email,
+				$record->mobile,
+				$record->invoiceId,
+				$record->invoiceDate,
+				$record->complaint,
+				$record->category,
+				$record->quantity,
+				$record->batchCode,
+				$record->packagingDate,
+				$record->reference,
+				date('d M, Y',$record->date_addeded),
+			);
+		}
+		
+		$output = theme('table', $headers, $rows);
+		return $output . theme('pager', $count);*/
+	  /*foreach($result as $row) {
+		 $output .='<tr><td>'.$row->id.'</td><td>'.$row->cnnnumber.'</td><td>'.$row->name.'</td><td>'.$row->email.'</td><td>'.$row->mobile.'</td><td>'.$row->invoiceId.'</td><td>'.$row->invoiceDate.'</td><td>'.$row->complaint.'</td>
+		 <td>'.$row->category.'</td><td>'.$row->quantity.'</td><td>'.$row->batchCode.'</td><td>'.$row->packagingDate.'</td><td>'.$row->reference.'</td><td>'.date('d M, Y',$row->date_addeded).'</td></tr>';
+	  }
+    $output .='</table>';   
+	  return $output;*/
+  }
+  
+  

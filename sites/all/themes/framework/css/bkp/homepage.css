@@ -1,0 +1,590 @@
+/*homePageRoll master Css only Start*/
+body, #mainWrapper.homepge { overflow-x: hidden; }
+#mainWrapper.homepge { overflow: hidden }
+.backtoTop { display: none }
+.homePageRoll { margin: 0 auto; width: 95% }
+.sliderDiv { position: relative }
+.slideBox { position: relative; overflow: hidden; width: 100% }
+.homePageRoll .slide { float: left; height: 100%; position: relative }
+.homePageRoll a.prv, .homePageRoll a.nex { position: absolute; top: 50%; z-index: 1; width: 25px; height: 25px; border-bottom: 2px solid #353535; }
+.homePageRoll a.prv { border-left: 2px solid #353535; transform: rotate(45deg); left: 10px; -moz-transform: rotate(45deg); -webkit-transform: rotate(45deg); -o-transform: rotate(45deg); -ms-transform: rotate(45deg); }
+.homePageRoll a.nex { border-right: 2px solid #353535; transform: rotate(-45deg); -moz-transform: rotate(-45deg); -webkit-transform: rotate(-45deg); -o-transform: rotate(-45deg); -ms-transform: rotate(-45deg); right: 10px; }
+.linkcenter { text-align: center; padding: 10px 0 0 0; }
+.linkcenter, .linkcenter a { color: #0054a6; font-size: 12px; margin: 35px 0 0; text-transform: none; }
+/**/
+.paginav { margin: 0 auto; }
+.paginav .pagiBar { background: #edeceb; height: 3px; position: relative; width: 98%; margin: 45px auto }
+.paginav li { float: left; width: 20%; height: 3px; position: absolute }
+.paginav li .linkName { font-family: 'open_sansbold'; text-transform: uppercase; font-size: 1.1em; margin: -23px 0 0 0; cursor: pointer; left: 50%; transform: translateX(-50%); -moz-transform: translateX(-50%); -webkit-transform: translateX(-50%); -ms-transform: translateX(-50%); -o-transform: translateX(-50%); text-align: center }
+.paginav li .linkName .light { font-family: 'open_sans'; }
+.paginav li.homeNav, .paginav .pagination li.homeNav { left: 0 }
+.paginav li.wwlNav, .paginav .pagination li.wwlNav { left: 20% }
+.paginav li.ilpNav, .paginav .pagination li.ilpNav { left: 40% }
+.paginav li.wlaNav, .paginav .pagination li.wlaNav { left: 60% }
+.paginav li.aeNav, .paginav .pagination li.aeNav { left: 80% }
+.paginav li.fnsNav, .paginav .pagination li.fnsNav { left: 100% }
+/**/
+.pagination li.sel.homeNav:after, .pagination li.visit.homeNav:after { background: #cadb2a }
+.pagination li.sel.wwlNav:after, .pagination li.visit.wwlNav:after { background: #72bff5 }
+.pagination li.sel.ilpNav:after, .pagination li.visit.ilpNav:after { background: #e44d25 }
+.pagination li.sel.wlaNav:after, .pagination li.visit.wlaNav:after { background: #0054a6 }
+.pagination li.sel.aeNav:after, .pagination li.visit.aeNav:after { background: #f7cf38 }
+.pagination li.sel.fnsNav:after, .pagination li.visit.fnsNav:after { background: #cadb2a }
+/**/
+.paginav li:after, .paginav li:before { content: ""; }
+.paginav li:before { background: red; float: left; height: 3px; width: 100%; /*position: absolute*/ }
+.paginav li.homeNav:after, .paginav li.homeNav:before { background: #cadb2a }
+.paginav li.wwlNav:after, .paginav li.wwlNav:before { background: #72bff5 }
+.paginav li.ilpNav:after, .paginav li.ilpNav:before { background: #e44d25 }
+.paginav li.wlaNav:after, .paginav li.wlaNav:before { background: #0054a6 }
+.paginav li.aeNav:after, .paginav li.aeNav:before { background: #f7cf38 }
+.paginav li.fnsNav:after { background: #cadb2a }
+.paginav li:after { background: #edeceb; border-radius: 50%; cursor: pointer; height: 14px; position: absolute; left: -8px; top: -7px; width: 14px; }
+.homePageRoll a.Off { display: none }
+/*homePageRoll master Css only Ends*/
+/*pagination*/
+.animDiv { float: left; height: 15px; overflow: hidden; position: relative; top: -7px; width: 0; z-index: 1 }
+@-moz-document url-prefix() { /*Moz Css hack*/
+ .animDiv {
+ top: -8px;
+}
+}
+@media all and (-webkit-min-device-pixel-ratio:0) and (min-resolution: .001dpcm) {/*Chrome > 29 Css hack*/
+.animDiv { top: -8px; }
+}
+.animDiv ul { position: relative; top: 50%; transform: translateY(-50%); -moz-transform: translateY(-50%); -webkit-transform: translateY(-50%); -ms-transform: translateY(-50%); -o-transform: translateY(-50%); }
+.paginav .pagination li:before { background: none; }
+.paginav .pagination li:after { background: #edeceb; }
+.paginav .pagination li.fnsNav .linkName { transform: translateX(-80%); -moz-transform: translateX(-80%); -webkit-transform: translateX(-80%); -ms-transform: translateX(-80%); -o-transform: translateX(-80%); }
+.paginav .pagination li.fnsNav:before { display: none }
+/**/
+/*Slide Mastre CSS Start*/
+.homePageRoll .slide .copyBox { width: 100%; height: 100%; float: left; position: relative; top: 50%; -webkit-transform: translateY(-50%); -moz-transform: translateY(-50%); -ms-transform: translateY(-50%); transform: translateY(-50%); -o-transform: translateY(-50%); }
+.homePageRoll .slide .title { width: 25%; float: left; padding: 0 0 0 3%; }
+.desktop .homePageRoll .slide .title, .desktop .slide .listData { position: relative; top: 50%; -webkit-transform: translateY(-50%); -moz-transform: translateY(-50%); -ms-transform: translateY(-50%); transform: translateY(-50%); -o-transform: translateY(-50%); }
+.slide .listData { width: 75%; float: left; padding: 0 2%; position: relative; }
+.homePageRoll .slide .title h2 { font-size: 6em; text-transform: uppercase; line-height: 100%; font-family: 'open_sansbold'; color: #231f20; position: relative }
+.homePageRoll .title h2 .open_sanslight { color: #565656 }
+.homePageRoll .title h2:after, .homePageRoll .listData h2:after { content: ""; display: inline-block; position: absolute; }
+.homePageRoll .title h2:after { border-bottom: 4px solid #231f20; bottom: -10px; left: 5px; width: 100px; }
+.homePageRoll .listData h2 { padding-bottom: 5px; position: relative; font-size: 2em }
+.homePageRoll .listData h2:after { border-bottom: 2px solid #333; bottom: 0; height: 2px; left: 0; width: 40px; }
+.homePageRoll .listData h2.centerLine:after { left: 50%; -webkit-transform: translateX(-50%); -moz-transform: translateX(-50%); -ms-transform: translateX(-50%); transform: translateX(-50%); -o-transform: translateX(-50%); }
+/*Slide Mastre CSS Ends*/
+/*Slide Home Start Slide1*/
+ 
+.slide.home .copyBox { -webkit-transform: translateY(-50%) translatex(-50%); -moz-transform: translateY(-50%) translatex(-50%); -ms-transform: translateY(-50%) translatex(-50%); transform: translateY(-50%) translatex(-50%); -o-transform: translateY(-50%) translatex(-50%); height: auto; width: auto; left: 50% }
+.slide.home .copyBox .line { border-top: 4px solid #fff; height: 10px; width: 100px; display: inline-block }
+.slide.home .line, .slide.home h2, .slide.home h3, .slide.home .btnBox, .slide .title h2, .slide.wwl .listData .data, .innovativeBox, .latestBox, .innovativeBox .dotSlideBox, .latestBox .textBox, .awardsBox, .latestNewsBox, .slide.wla .proApp, .slide.wla .exTools, /*.homePageRoll .listData h2:after, .proConImg:before,*/ .proConImg img, .locatebox, .animateMe .awardsBox .textBox, .animateMe .latestNewsBox .textBox { opacity: 0; }
+.slide.home .copyBox h2, .slide.home .copyBox h3 { text-transform: uppercase; line-height: 100%; color: #fff; }
+.slide.home .copyBox h2 { font-size: 4em; font-family: 'open_sansbold'; }
+.slide.home .copyBox h3 { font-size: 2.8em; font-family: 'open_sanssemibold'; margin-bottom: 10px }
+/*banner content in black*/
+.slide.home .banner2 .copyBox .line { border-top: 4px solid #231f20; }
+.slide.home .banner2 .copyBox h2, .slide.home .banner2 .copyBox h3 { color: #231f20; }
+/**/
+.slide.home .btnBox .arow:before { border: 2px solid #231f20; border-left-width: 0; border-top-width: 0; }
+.slide.home .btnBox .arow:after { background: #231f20; height: 2px; }
+.slide.home .banner1 .btnBox { background: #0392ce }
+.slide.home .banner1 .btnBox .arow:before { border-color: #fff }
+.slide.home .banner1 .btnBox .arow:after { background: #fff }
+.slide.home .banner3 .btnBox, .slide.home .banner2 .btnBox { background: #fe2712 }
+.slide.home .banner3 .btnBox { background: #c4151c }
+.slide.home .banner3 .btnBox .arow:before, .slide.home .banner2 .btnBox .arow:before { border-color: #fff }
+.slide.home .banner3 .btnBox .arow:after, .slide.home .banner2 .btnBox .arow:after { background: #fff }
+/*Slide Home End*/
+
+/*Slide Why Wipro Lighting Start Slide2*/
+.slide.wwl { background: #f2f2f2 url(../images/bannerwwl.jpg) no-repeat top right; background-size: 100% }
+.slide.wwl .copyBox, .slide.fns .copyBox, .slide.ilp .copyBox { position: absolute; }
+/*.slide.fns .listData { padding: 0 0 0 2% }*/
+.slide.wwl .listData .data { float: left; width: 33.33%; padding: 0 5px; text-align: center }
+.slide.wwl .listData .data .thum { border-radius: 50%; height: 123px; margin: 0 auto; width: 123px; position: relative }
+.slide.wwl .listData .data .thum.quality { background: #ffcb04 }
+.slide.wwl .listData .data .thum.technology { background: #cadb2a }
+.slide.wwl .listData .data .thum.invDesign { background: #72bff5 }
+.slide.wwl .listData .data .thum img { left: 50%; position: absolute; top: 50%; transform: translateX(-50%) translateY(-50%); -webkit-transform: translateX(-50%) translateY(-50%); -moz-transform: translateX(-50%) translateY(-50%); -o-transform: translateX(-50%) translateY(-50%); -ms-transform: translateX(-50%) translateY(-50%) }
+.slide.wwl .listData .data h3 { font-family: 'open_sanssemibold'; text-transform: uppercase; padding: 15px 0 }
+.slide.wwl .listData .data p, .slide.wwl .listData .data h3 { font-size: 1.4em; }
+.slide.wwl .viwMore { position: absolute; bottom: 5%; right: 50px }
+/*Slide Why Wipro Lighting End*/
+
+/*Slide Inspired Lighting Products Start Slide3*/
+.slide.ilp .lightBlue { background: #0054a6 }
+.slide.ilp { background: #f9f9f9 url(../images/shadowBg.png) no-repeat 0 0; background-size: 100% }
+.slide.ilp .title, .slide.wla .title, .slide.fns .title { width: 30% }
+.slide.ilp .listData, .slide.wla .listData, .slide.fns .listData { width: 70% }
+.slide.ilp .listData { min-height: 450px }
+.innovativeBox, .latestBox { border-radius: 100%; -webkit-transform: translateY(-50%) translateX(-50%); -moz-transform: translateY(-50%) translateX(-50%); -ms-transform: translateY(-50%) translateX(-50%); transform: translateY(-50%) translateX(-50%); position: absolute; -o-transform: translateY(-50%) translateX(-50%); }
+.innovativeBox { background: #cadb2a; height: 380px; width: 380px; z-index: 1; left: 190px; top: 50% }
+.latestBox { float: left; width: 430px; height: 430px; left: 400px; top: 50%; background: #f5f3f4; border: 1px solid #e2e1e1; overflow: hidden; left: 530px }
+.dotSlideBox { height: 100%; width: 100%; }
+.dotSlideBox .dotSlide, .dotSlideBox .dotSlide .dotWrap { float: left; width: 100%; height: 100%; left: 0; position: absolute; top: 0; }
+.dotSlideBox .dotSlide .thum { text-align: center; display: none }
+.dotSlideBox .dotSlide .dotWrap .info { left: 50%; position: relative; top: 50%; transform: translateX(-50%) translateY(-50%); -webkit-transform: translateX(-50%) translateY(-50%); -moz-transform: translateX(-50%) translateY(-50%); -ms-transform: translateX(-50%) translateY(-50%); -o-transform: translateX(-50%) translateY(-50%); width: 80%; text-align: center; }
+.dotSlideBox .dotSlide .dotWrap { opacity: 0 }
+.dotSlideBox .dotSlide .dotWrap.animet { opacity: 1 }
+.dotSlideBox .dotBtns { bottom: -25px; position: absolute; left: 50%; -webkit-transform: translateX(-50%); -moz-transform: translateX(-50%); -ms-transform: translateX(-50%); transform: translateX(-50%); -o-transform: translateX(-50%); }
+.dotSlideBox .dotBtns li { float: left; margin: 0 0 0 5px }
+.dotSlideBox .dotBtns li:first-child { margin: 0 }
+.dotSlideBox .dotBtns li a { border-radius: 100%; background: #d4d4d4; display: inline-block; width: 18px; height: 18px; border: 1px solid transparent; padding: 2px; background-clip: content-box; -webkit-background-clip: content-box; /* support: IE9+ */ font-size: 0 }
+.dotSlideBox .dotBtns li.sel a { border: solid 1px #d4d4d4; background-color: #424242; }
+/*dotSlide Css Start*/
+.dotSlideBox h3, .latestBox h3, .homePageRoll .listData h2 { text-transform: uppercase }
+.dotSlideBox h2, .dotSlideBox h3, .dotSlideBox p { color: #fff; }
+.latestBox h2, .latestBox h3, .latestBox p { color: #242321; }
+.homePageRoll .dotSlideBox h2:after { border-bottom: 2px solid #fff; }
+.dotSlideBox h3, .latestBox h3 { font-size: 3.5em; padding: 20px 0; font-family: 'open_sanssemibold'; line-height: 100% }
+.dotSlideBox h2, .dotSlideBox p { text-align: center }
+.dotSlideBox h2, .dotSlideBox h3, .dotSlideBox p { color: #3269b8 }
+.dotSlideBox p { font-size: 1.4em; padding-top: 10px; display: none }
+/*dotSlide Css End*/
+
+
+.latestBox .textBox { position: relative; width: 100%; height: 100% }
+.latestBox .textBox .datBox { left: 50%; position: relative; text-align: center; top: 50%; transform: translateX(-50%) translateY(-50%); -webkit-transform: translateX(-50%) translateY(-50%); -moz-transform: translateX(-50%) translateY(-50%); width: 75%; -ms-transform: translateX(-50%) translateY(-50%); -o-transform: translateX(-50%) translateY(-50%); }
+.latestBox .textBox .datBox .thum img { height: 158px; width: 344px; }
+.latestBox .triangleBtmRgt { border-bottom: 180px solid #fd9f66; border-left: 180px solid transparent; bottom: 0; height: 0; right: 0; position: absolute; width: 0; z-index: 0; }
+.latestBox h2:after { border-bottom: 2px solid #242321; }
+.latestBox h3 { color: #e44d25; font-family: 'open_sanssemibold'; line-height: 100%; text-align: center }
+.latestBox .innovative { bottom: 35px; left: 50%; position: absolute; transform: translateX(-50%); -webkit-transform: translateX(-50%); -moz-transform: translateX(-50%); -o-transform: translateX(-50%); -ms-transform: translateX(-50%); width: 40% }
+.innovative li { float: left; width: 50%; }
+.innovative li a { font-size: 1em; color: #231f20; }
+.innovative li:before { content: ""; display: inline-block; float: left; padding: 0 0 0 25px; height: 30px; }
+.innovative li.getPdf:before { background-position: -110px 0; }
+.innovative li.viewPro:before { background-position: -130px -32px; }
+/*Slide Inspired Lighting Products End*/
+
+/*Slide Wipro Lighting Application Start Slide4*/
+.slide.wla { background: #fff url(../images/bannerwla.jpg) no-repeat bottom right }
+.slide.wla .proApp { width: 60%; float: left }
+.slide.wla .exTools { width: 40%; float: left; text-align: center }
+.slide.wla .exTools .thum { margin: 15px 0; border-left: 2px dotted #ccc; }
+.slide.wla .listData h2 { font-size: 2em; text-align: center; position: relative }
+/*pro-Carousel*/
+.proCarousel { margin: 10% auto; position: relative; }
+.proCarousel .carouselOuter { float: left; overflow: hidden; width: 100%; margin: 0 0 15px }
+.carouselOuter ul li { width: 140px; float: left; text-align: center }
+.carouselOuter ul { float: left; }
+.carouselOuter .thum { background: #f7931d; width: 83px; height: 83px; border-radius: 50%; margin: 0 auto; position: relative }
+.carouselOuter .thum img { left: 50%; margin: -26px 0 0 -26px; position: absolute; top: 50%; width: 51px; height: 52px }
+.carouselOuter h3 { font-size: 1.6em; color: #1e1b38; font-family: 'open_sanssemibold'; padding: 15px 10px; height: 95px }
+.caroDots { text-align: center; clear: both }
+.caroDots a { border-radius: 100%; background: #d4d4d4; display: inline-block; width: 18px; height: 18px; border: 1px solid transparent; padding: 2px; background-clip: content-box; -webkit-background-clip: content-box;/* support: IE9+ */ font-size: 0; margin: 0 0 0 2px }
+.caroDots a.sel { background-color: #424242; border: 1px solid #d4d4d4; }
+/*Slide Wipro Lighting Application End*/
+
+/*Slide Awards And Events Starts*/
+.slide.wla .copyBox, .slide.ae .copyBox { position: absolute; }
+.slide.ae { background: #f9f9f9 }
+.slide.ae .listData.scale { transform: scale(0.95); -moz-transform: scale(0.95); -webkit-transform: scale(0.95); -o-transform: scale(0.95); -ms-transform: scale(0.95); -o-transform: scale(0.95); }
+.awardsBox, .latestNewsBox { position: relative; border-radius: 50%; float: left; color: #fff; text-align: center }
+.slide.ae .listData .viwMore { display: inline-block; margin: 15px 0 0 0; font-family: 'open_sanssemibold' }
+.slide.wla .listData .viwMore { font-family: 'open_sanssemibold' }
+.awardsBox { background: #0054a6; height: 350px; width: 350px; z-index: 1; position: absolute; left: 40%; top: 50%; -webkit-transform: translateY(-50%) translateX(-50%); -o-transform: translateY(-50%) translateX(-50%); -ms-transform: translateY(-50%) translateX(-50%); transform: translateY(-50%) translateX(-50%); }
+.latestNewsBox { width: 430px; left: 70%; -webkit-transform: translateX(-50%); -o-transform: translateX(-50%); -ms-transform: translateX(-50%); transform: translateX(-50%); }
+.awardsBox .textBox { position: relative; left: -20%; width: 100%; z-index: 1; height: 100%; float: left }
+.awardsBox .textBox .thum, .awardsBox .textBox .info { float: left; top: 50%; -webkit-transform: translateY(-50%); -o-transform: translateY(-50%); -ms-transform: translateY(-50%); transform: translateY(-50%); position: relative }
+.awardsBox .textBox .thum { width: 125px; }
+.awardsBox .textBox .info { position: relative; text-align: center; width: 225px; color: #fff }
+.slide.ae .textBox h2 { font-size: 1.6em; margin-bottom: 15px }
+.slide.ae .textBox h2:after { border-bottom: 2px solid #fff; }
+.slide.ae .textBox h3 { color: #fff; font-family: open_sansbold; font-size: 2.5em; line-height: 100%; padding: 5px 0 }
+.slide.ae .textBox h3 .sansbold { float: left; width: 100%; font-size: 0.6em }
+.slide.ae .textBox p { font-size: 1.1em; padding: 5px 0 10px 0 }
+/**/
+
+.latestNewsBox .textBox { left: 50%; position: absolute; text-align: center; top: 50%; -webkit-transform: translateY(-50%) translateX(-40%); -o-transform: translateY(-50%) translateX(-40%); -ms-transform: translateY(-50%) translateX(-40%); transform: translateY(-50%) translateX(-50%); width: 50%; color: #231f20 }
+.slide.ae .latestNewsBox .textBox h3 { font-size: 3em; text-transform: uppercase; color: #0054a6 }
+.slide.ae .latestNewsBox .textBox h2:after { border-bottom: 2px solid #231f20; }
+/*Slide Awards And Events End*/
+
+/*Slide Find Nearest Stockis Starts*/
+ 
+.slide.fns { background: #f9f9f9 }
+.locateMap { width: 100%; float: left }
+.locatebox .thum { margin: 0 0 15px 0 }
+.locatebox { width: 270px; text-align: center; position: relative; }
+.locatebox h2 { margin: 30px auto; font-size: 2.4em; width: 160px }
+.homePageRoll .listData .locatebox h2:after { width: 40% }
+.locatebox h2:before { background: rgba(0, 0, 0, 0) url("../images/mapCon.png") no-repeat scroll 0 0; content: ""; display: inline-block; height: 55px; left: 50%; position: absolute; top: -63px; -webkit-transform: translateX(-50%); -o-transform: translateX(-50%); -ms-transform: translateX(-50%); transform: translateX(-50%); width: 55px; }
+/*Slide Find Nearest Stockis End*/
+
+/**/
+.bannerShow { overflow: hidden; /*background: #111*/ }
+.banner { height: 100%; width: 100%; z-index: 1; background-size: 100% auto; background-repeat: no-repeat; background-position: center 0; cursor: pointer }
+.banner.banner1 { background-image: url(../images/banner1.jpg); }
+.banner.banner2 { background-image: url(../images/banner2.jpg) }
+.banner.banner3 { background-image: url(../images/banner3.jpg) }
+.thumDot { position: absolute; bottom: 5%; z-index: 1; left: 50%; transform: translateX(-50%); -webkit-transform: translateX(-50%); -ms-transform: translateX(-50%); -o-transform: translateX(-50%) }
+.thumDot li { float: left; padding: 0 6px 0 0; }
+.thumDot li a { text-indent: -999px; border-radius: 100%; background-color: #ffffff; display: inline-block; width: 15px; height: 15px; border: 0; background-clip: content-box; -webkit-background-clip: content-box; box-shadow: 1px 1px 2px #838383; -webkit-box-shadow: 1px 1px 2px #838383; -ms-box-shadow: 1px 1px 2px #838383; -o-box-shadow: 1px 1px 2px #838383;  /* support: IE9+ */ }
+/*.thumDot li a:hover,*/ .thumDot li a.active { border: solid 1px #f2d71f; background-color: #f2d71f; padding: 2px; }
+.homePageRoll .slide .led-edge { position: absolute; left: 3%; bottom: 2%; }
+.homePageRoll .slide .bannerShow .led-edge { right: 1.5%; left: auto }
+.bannerShow .content { float: left; text-align: center }
+.bannerShow .proConImg { display: none; float: left; position: absolute; width: 260px; -webkit-transform: translateY(-50%) translatex(-50%); -o-transform: translateY(-50%) translatex(-50%); -ms-transform: translateY(-50%) translatex(-50%); transform: translateY(-50%) translatex(-50%); left: -30%; top: 50%; }
+.proConImg:before { content: ''; display: inline-block; border-bottom: 200px solid transparent; border-left: 200px solid #cadb2a; z-index: 0; }
+.proConImg img { float: left; position: absolute; z-index: 1; -webkit-transform: translateY(-50%); -o-transform: translateY(-50%); -ms-transform: translateY(-50%); transform: translateY(-50%); top: 50%; left: 0 }
+/*HomeBanner Css End*/
+/**************************************** /// Home page device css Only start here  /// ****************************************/
+/*@media screen and ( max-height: 750px ){*/
+@media only screen and (min-width : 768px) and (max-height: 650px) {
+/*Streng Design Streng media query :(  This is for homepage height Adjustment only */
+.homePageRoll .slide .led-edge { bottom: 0; width: 90px; }
+.homePageRoll .slide .led-edge img { width: 100% }
+.innovativeBox, .latestBox, .awardsBox { transform: scale(0.9) translateY(-50%) translateX(-50%); -webkit-transform: scale(0.9) translateY(-50%) translateX(-50%); -o-transform: scale(0.9) translateY(-50%) translateX(-50%); top: 45%; }
+.latestNewsBox { transform: scale(0.85) translateX(-50%); -webkit-transform: scale(0.85) translateX(-50%); -o-transform: scale(0.85) translateX(-50%); top: 45%; }
+.locatebox .thum { width: 210px; margin: 0 auto 15px }
+.locatebox .thum img { width: 100% }
+.homePageRoll .slide .title h2 { font-size: 4.5em }
+}
+ @media only screen and (min-width : 1441px) and (max-width : 1920px) {
+.paginav .pagination li.fnsNav .linkName { text-align: left; transform: translate(-33%); -webkit-transform: translate(-33%); -o-transform: translate(-33%) }
+}
+@media only screen and (min-width : 1280px) and (max-width : 1440px) {
+.paginav .pagination li.fnsNav .linkName { transform: translate(-73%); -webkit-transform: translate(-73%); -o-transform: translate(-73%) }
+}
+ @media only screen and (min-width : 1024px) and (max-width : 1920px) {
+.banner { background-size: cover; background-position: center center; }
+.paginav .pagiBar { width: 100% }
+.homepge .logo { padding: 0 }
+}
+@media only screen and (min-width : 0px) and (max-width : 1024px) {
+.homePageRoll { width: 100% }
+.homepge .container { max-width: 100% }
+.homePageRoll .slide .title { padding: 0 0 0 35px }
+.homePageRoll .slide .title h2 { font-size: 4em; }
+.latestBox { left: 490px }
+.innovativeBox { left: 150px }
+.bannerShow .proConImg { left: 50%; position: relative; top: 100px; width: auto; }
+.bannerShow .content { clear: both }
+.awardsBox { left: 33% }
+.animDiv { top: -8px; }
+}
+@media only screen and (min-width : 0px) and (max-width : 980px) {
+.homepge .container { width: 100%; margin: 0; }
+.banner { background-size: cover; }
+.innovativeBox, .latestBox { transform: scale(0.9) translateX(-50%) translateY(-50%); -o-transform: scale(0.9) translateX(-50%) translateY(-50%); -webkit-transform: scale(0.9) translateX(-50%) translateY(-50%); }
+.latestBox { left: 460px }
+.awardsBox { left: 30% }
+.slide.wla .exTools { width: 35% }
+.slide.wla .proApp { width: 65% }
+.slide.wla .exTools .thum { padding-left: 5% }
+.slide.wla .exTools .thum img { width: 100% }
+.paginav { width: 95% }
+.paginav li .linkName { font-size: 90%; }
+.paginav .pagination li.fnsNav .linkName { transform: translateX(-80%); -moz-transform: translateX(-80%); -webkit-transform: translateX(-80%); -ms-transform: translateX(-80%); -o-transform: translateX(-80%) }
+.thumDot li { padding: 0 10px 0 0 }
+/*Using Text Shadow for homepage banners More Text visibility*/
+.slide.home .banner1 .copyBox h2, .slide.home .banner1 .copyBox h3, .slide.home .banner3 .copyBox h2, .slide.home .banner3 .copyBox h3 { text-shadow: 1px 1px 1px #333333; }
+}
+ @media only screen and (min-width : 0px) and (max-width : 979px) {
+.homePageRoll .slide .listData { width: 100%; padding: 2% }
+.homePageRoll .slide .title { padding: 3% 0; text-align: center; left: 50%; transform: translateX(-50%); -webkit-transform: translateX(-50%); -o-transform: translateX(-50%); -ms-transform: translateX(-50%); position: relative; width: 40%; }
+.homePageRoll .slide .title h2:after { left: 50%; transform: translateX(-50%); -webkit-transform: translateX(-50%); -ms-transform: translateX(-50%); -o-transform: translateX(-50%); }
+.homePageRoll .slide .copyBox { height: auto }
+.innovativeBox, .latestBox { transform: scale(1) translateX(-50%) translateY(-50%); -ms-transform: scale(1) translateX(-50%) translateY(-50%); -webkit-transform: scale(1) translateX(-50%) translateY(-50%); -o-transform: scale(1) translateX(-50%) translateY(-50%); }
+.latestBox { left: 70% }
+.innovativeBox { left: 30% }
+.slide.wla .exTools .thum img { width: auto }
+.slide.wla .listData > div { padding: 3% 0 }
+.slide.wla .exTools { width: 40% }
+.slide.wla .proApp { width: 60% }
+.locatebox { margin: 10% auto 0 }
+.awardsBox { left: 33% }
+}
+@media only screen and (min-width : 0px) and (max-width : 768px) {
+.latestBox { left: 70% }
+.innovativeBox { left: 26% }
+}
+ @media only screen and (min-width : 0px) and (max-width : 767px) {
+.slide.home .line, .slide.home h2, .slide.home h3, .slide.home .btnBox, .slide .title h2, .slide.wwl .listData .data, .innovativeBox, .latestBox, .innovativeBox .dotSlideBox, .latestBox .textBox, .slide.wla .proApp, .slide.wla .exTools, .locatebox, .awardsBox, .latestNewsBox, .homePageRoll .slide h2:after { opacity: 1; }
+.homePageRoll .slide .listData { padding: 2% 1% 5% }
+.sliderDiv { height: 650px }
+.homePageRoll .slide { width: 100%; height: auto }
+.slide .copyBox { padding: 2% 1% 10%; transform: translate(0); -webkit-transform: translate(0); -o-transform: translate(0) }
+.slide.wwl .copyBox, .slide.ilp .copyBox, .slide.wla .copyBox, .slide.ae .copyBox, .slide.fns .copyBox { position: relative; transform: none; -webkit-transform: none; -moz-transform: none; -o-transform: none; -ms-transform: none }
+.homePageRoll .slide .led-edge { width: 80px }
+.homePageRoll .slide .led-edge img { width: 100% }
+.slide.wwl .listData .data p { font-size: 1.3em }
+}
+ @media only screen and (min-width : 0px) and (max-width :677px) {
+.sliderDiv { height: 600px }
+.bannerShow .proConImg { width: 120px; top: 50px }
+.bannerShow .led-edge img, .bannerShow .proConImg img, .slide.wla .proApp, .slide.wla .exTools { width: 100% }
+.proConImg:before { border-bottom: 130px solid transparent; border-left: 130px solid #cadb2a; }
+.latestBox, .innovativeBox, .awardsBox, .latestNewsBox { left: 50%; margin: 5% 0; position: relative; transform: translateX(-50%) translateY(0px); -o-transform: translateX(-50%) translateY(0px); -webkit-transform: translateX(-50%) translateY(0px); }
+.latestNewsBox .textBox { transform: translateY(-50%) translateX(-50%); -webkit-transform: translateY(-50%) translateX(-50%); -o-transform: translateY(-50%) translateX(-50%) }
+.slide.wla .exTools .thum { border: none }
+.slide.wla .exTools { border-top: 2px dotted #ccc; }
+.homePageRoll .slide .title { width: 30% }
+.homePageRoll .slide .title h2 { font-size: 3em }
+.slide.wwl .viwMore { bottom: 1% }
+}
+ @media only screen and (min-width : 0px) and (max-width : 568px) {
+.sliderDiv { height: 500px }
+.slide.home .copyBox h2 { font-size: 3em }
+.slide.home .copyBox h3 { font-size: 2em }
+.homePageRoll .slide .led-edge { left: 0; bottom: 0 }
+.slide.wwl .listData .data { width: 100%; padding: 15px 20px }
+.awardsBox { left: 55% }
+.homePageRoll .slide .led-edge { display: none }
+.slide .copyBox { padding: 2% 1% }
+.locatebox { margin: 15% auto 0; }
+.homePageRoll .slide .title { width: 50% }
+.homePageRoll .slide .listData { padding: 5% 1% 5%; }
+.carouselOuter h3 { font-size: 1.4em; height: 85px }
+}
+@media only screen and (min-width : 0px) and (max-width : 479px) {
+.sliderDiv { height: 400px }
+.innovativeBox { transform: scale(0.9) translateX(-50%) translateY(0); -o-transform: scale(0.9) translateX(-50%) translateY(0); -webkit-transform: scale(0.9) translateX(-50%) translateY(0); left: 45% }
+.latestBox { left: 38%; transform: scale(0.8) translateX(-50%) translateY(0); -o-transform: scale(0.8) translateX(-50%) translateY(0); -webkit-transform: scale(0.8) translateX(-50%) translateY(0); }
+.awardsBox { width: 300px; height: 300px; left: 50% }
+.latestNewsBox { width: 300px; margin: 15% 0 0 0 }
+.latestNewsBox img, .awardsBox .textBox .thum, .awardsBox .textBox .info { width: 100%; }
+.awardsBox .textBox .thum img { width: 70px; }
+.awardsBox .textBox .thum, .awardsBox .textBox .info { transform: none; -webkit-transform: none; -moz-transform: none; -o-transform: none; -ms-transform: none; top: 0 }
+.latestNewsBox .textBox { width: 80% }
+.awardsBox .textBox { left: 0; top: -5% }
+.slide.ae .textBox h3, .slide.ae .latestNewsBox .textBox h3 { font-size: 2em }
+.homePageRoll .slide .title { width: 40% }
+.homePageRoll .slide .title h2 { font-size: 2.5em }
+.locatebox { margin: 30% auto 0 }
+}
+ @media only screen and (min-width : 0px) and (max-width : 375px) {
+.carouselOuter ul li { width: 106px; }
+.linkcenter { padding: 10px 20px }
+}
+/**************************************** /// Home page device css Only Ends here  /// ****************************************/
+
+/**************************************** /// Home page Animetion css Only Starts  /// ****************************************/
+.btnBox:hover .arow, .viwMore:hover .arow { -webkit-animation: btnBoxHover 0.7s ease-in infinite; animation: btnBoxHover 0.7s ease-in infinite; -moz-animation: btnBoxHover 0.7s ease-in infinite; }
+ @-webkit-keyframes btnBoxHover { 0% {
+ -webkit-transform: translateX(-100%) translateY(-50%);
+-moz-transform: translateX(-100%) translateY(-50%);
+transform: translateX(-100%) translateY(-50%);
+}
+50% {
+ -webkit-transform: translateX(-50%) translateY(-50%) scale(1.5);
+-moz-transform: translateX(-50%) translateY(-50%) scale(1.5);
+ transform: translateX(-50%) translateY(-50%) scale(1.5);
+}
+100% {
+ -webkit-transform: translateX(25%) translateY(-50%);
+-moz-transform: translateX(25%) translateY(-50%);
+ transform: translateX(25%) translateY(-50%);
+}
+}
+ @keyframes btnBoxHover { 0% {
+ -webkit-transform: translateX(-100%) translateY(-50%);
+-moz-transform: translateX(-100%) translateY(-50%);
+ transform: translateX(-100%) translateY(-50%);
+}
+50% {
+ -webkit-transform: translateX(-50%) translateY(-50%) scale(1.5);
+-moz-transform: translateX(-50%) translateY(-50%) scale(1.5);
+ transform: translateX(-50%) translateY(-50%) scale(1.5);
+}
+100% {
+ -webkit-transform: translateX(25%) translateY(-50%);
+-moz-transform: translateX(25%) translateY(-50%);
+ transform: translateX(25%) translateY(-50%);
+}
+}
+/**/
+ @-webkit-keyframes borderLine { 0% {
+ width:0;
+opacity:0
+}
+100% {
+width: 100px;
+opacity:1
+}
+}
+@keyframes borderLine { 0% {
+ width:0;
+opacity:0
+}
+100% {
+width: 100px;
+opacity:1
+}
+}
+/**/
+ @-webkit-keyframes rotetLef { 0% {
+ -webkit-transform: rotate(-45deg);
+ transform: rotate(-45deg);
+opacity:0
+}
+100% {
+ -webkit-transform: rotate(0deg);
+ transform: rotate(0deg);
+opacity:1
+}
+}
+@keyframes rotetLef { 0% {
+ -webkit-transform: rotate(-45deg);
+ transform: rotate(-45deg);
+opacity:0
+}
+100% {
+ -webkit-transform: rotate(0deg);
+ transform: rotate(0deg);
+opacity:1
+}
+}
+.slide.home .animet .line, .slide.home .animet h2, .slide.home .animet h3, .slide.home .animet .btnBox { opacity: 0; -webkit-animation: borderLine 0.8s ease-in forwards 0.4s; animation: borderLine 0.8s ease-in forwards 0.4s; -moz-animation: borderLine 0.8s ease-in forwards 0.4s; }
+.slide.home .animet h2, .slide.home .animet h3 { -webkit-animation-name: fadeIn; animation-name: fadeIn; -moz-animation-name: fadeIn; }
+.slide.home .animet h2 { animation-delay: 0.1s; -webkit-animation-delay : 0.1s; -moz-animation-delay : 0.1s; }
+.slide.home .animet h3 { animation-delay: 0.2s; -webkit-animation-delay : 0.2s; -moz-animation-delay : 0.2s; }
+.slide.home .animet .btnBox { -webkit-animation-name: rotetLef; animation-name: rotetLef; -moz-animation-name: rotetLef; ; animation-delay: 0.3s; -webkit-animation-delay : 0.3s; -moz-animation-delay : 0.3s; }
+.slide.home .animet .proConImg img { animation: leftin 1s ease-in forwards 0.5s; -webkit-animation: leftin 1s ease-in forwards 0.5s; -moz-animation: leftin 1s ease-in forwards 0.5s; }
+/*==============================================
+leftin	
+==============================================*/
+  @keyframes leftin { 0% {
+ transform: scale(0) translateY(-50%);
+ opacity: 0.0;
+}
+ 60% {
+ transform: scale(1.1) translateY(-50%);
+}
+ 80% {
+ transform: scale(0.9) translateY(-50%);
+ opacity: 1;
+}
+ 100% {
+ transform: scale(1) translateY(-50%);
+ opacity: 1;
+}
+}
+@-webkit-keyframes leftin { 0% {
+ -webkit-transform: scale(0) translateY(-50%);
+ opacity: 0.0;
+}
+ 60% {
+ -webkit-transform: scale(1.1) translateY(-50%);
+}
+ 80% {
+ -webkit-transform: scale(0.9) translateY(-50%);
+ opacity: 1;
+}
+ 100% {
+ -webkit-transform: scale(1) translateY(-50%);
+ opacity: 1;
+}
+}
+.slide.animateMe .title h2:after, .slide.animateMe .title h2, .slide.animateMe .locatebox { /*opacity: 0;*/ -webkit-animation: fadeIn 0.5s ease-in forwards 0.4s; animation: fadeIn 0.5s ease-in forwards 0.4s; -moz-animation: fadeIn 0.5s ease-in forwards 0.4s; }
+.slide.animateMe .title h2 { animation-delay: 0.2s; -webkit-animation-delay : 0.2s; -moz-animation-delay : 0.2s; }
+.slide.animateMe .title h2.notIE:after { opacity: 0; animation-name: borderLine; -webkit-animation-name: borderLine; -moz-animation-name : borderLine; animation-delay: 0.8s; -webkit-animation-delay : 0.8s; -moz-animation-delay : 0.8s; }
+.slide.animateMe .title h2:after { opacity: 1; }
+/*//*/
+.slide.wwl.animateMe .listData .data, .animateMe .proApp, .animateMe .exTools { opacity: 0; -webkit-animation: 0.5s ease-in forwards; -moz-animation: 0.5s ease-in forwards; animation: 0.5s ease-in forwards; }
+.slide.wwl.animateMe .listData .data, .animateMe .proApp, .animateMe .exTools { animation-name: fadeIn; -webkit-animation-name: fadeIn; -moz-animation-name: fadeIn; }
+.slide.wwl.animateMe .listData .data:nth-child(1) { -webkit-animation-delay: 0.5s; -moz-animation-delay: 0.5s; animation-delay: 0.5s; }
+.slide.wwl.animateMe .listData .data:nth-child(2), .animateMe .proApp { -webkit-animation-delay: 1s; -moz-animation-delay: 1s; animation-delay: 1s; animation-name: fadeIn; -webkit-animation-name: fadeIn; -moz-animation-name: fadeIn; }
+.slide.wwl.animateMe .listData .data:nth-child(3), .animateMe .exTools { -webkit-animation-delay: 1.5s; -moz-animation-delay: 1.5s; animation-delay: 1.5s; }
+/**/
+.animateMe .innovativeBox, .animateMe .latestBox, .animateMe .awardsBox, .animateMe .latestNewsBox { -webkit-animation: roundBox 0.5s ease-in forwards 0.5s; animation: roundBox 0.5s ease-in forwards 0.5s; -moz-animation: roundBox 0.5s ease-in forwards 0.5s; }
+.animateMe .latestNewsBox { animation-name: fadeIn; -webkit-animation-name: fadeIn; -moz-animation-name: fadeIn; }
+.animateMe .latestBox, .animateMe .latestNewsBox { -webkit-animation-delay: .6s; -moz-animation-delay: .6s; animation-delay: .6s; }
+.animateMe .innovativeBox .dotSlideBox, .animateMe .latestBox .textBox, .animateMe .awardsBox .textBox, .animateMe .latestNewsBox .textBox { animation: fadeIn .6s ease-in forwards .6s; -webkit-animation: fadeIn .6s ease-in forwards .6s; -moz-animation: fadeIn .6s ease-in forwards .6s; }
+.animateMe .latestBox .textBox, .animateMe .awardsBox .textBox, .animateMe .latestNewsBox .textBox { -webkit-animation-delay: .8s; -moz-animation-delay: .8s; animation-delay: .8s; }
+/*==============================================
+roundBox
+==============================================*/
+  @keyframes roundBox { 0% {
+ border-radius:0%;
+}
+ 60% {
+ border-radius:50%;
+}
+ 80% {
+ border-radius:75%;
+}
+ 100% {
+ border-radius:100%;
+ opacity: 1;
+}
+}
+ @-webkit-keyframes roundBox { 0% {
+ border-radius:0%;
+}
+ 60% {
+ border-radius:50%;
+}
+ 80% {
+}
+ 100% {
+ border-radius:100%;
+ opacity: 1;
+}
+}
+/*==============================================
+fadeIn
+==============================================*/
+ @keyframes fadeIn { 0% {
+ opacity: 0.0;
+}
+ 60% {
+}
+ 80% {
+}
+ 100% {
+ opacity: 1;
+}
+}
+ @-webkit-keyframes fadeIn { 0% {
+ opacity: 0.0;
+}
+ 60% {
+ opacity: 0.5;
+}
+ 80% {
+ opacity: 0.75;
+}
+ 100% {
+ opacity: 1;
+}
+}
+/*=============================================
+slideUp
+==============================================*/
+ @keyframes slideUp { 0% {
+ transform: translateY(100%);
+}
+ 100% {
+ transform: translateY(0%);
+ opacity: 1;
+}
+}
+ @-webkit-keyframes slideUp { 0% {
+ -webkit-transform: translateY(100%);
+}
+ 100% {
+ -webkit-transform: translateY(0%);
+opacity: 1;
+}
+}
+/*==============================================
+slideDown
+==============================================*/
+
+ @keyframes slideDown { 0% {
+ transform: translateY(-100%);
+}
+ 100% {
+ transform: translateY(0%);
+opacity: 1;
+}
+}
+ @-webkit-keyframes slideDown { 0% {
+ -webkit-transform: translateY(-100%);
+}
+ 100% {
+ -webkit-transform: translateY(0%);
+opacity: 1;
+}
+}
+/**************************************** /// Home page Animetion css Only Ends  /// ****************************************/

@@ -1,0 +1,35 @@
+name = Framework
+description = Framework is a blank canvas for theme developers. Use Framework as a starting point to facilitate your theme development.
+core = 7.x
+engine = phptemplate
+stylesheets[all][] = style.css
+
+regions[header]                         = Header
+regions[top_navigation]                 = Top Navigation
+regions[menu_product]                   = Menu Product
+regions[menu_resources]                 = Menu Resources
+regions[menu_apps]                      = Menu Apps
+regions[menu_innovate]                  = Menu Innovation
+regions[menu_about]                     = Menu About
+regions[breadcrumb]                     = Breadcrumb
+regions[navigation]                     = Navigation
+regions[banner]                         = Banner
+regions[case_studies]                   = Case Studies
+regions[lighting_app_banner]            = Lighting App Banner
+regions[awards_and_events]              = Awards and Events Banner
+regions[inspired_lighting_products]     = Inspired Lighting Products Banner
+regions[call_back_form]                 = Call Back Form
+regions[highlighted]                    = Highlighted
+regions[help]                           = Help
+regions[content]                        = Content
+regions[sidebar_first]                  = First Sidebar
+regions[sidebar_second]                 = Second Sidebar
+regions[footer]                         = Footer
+
+
+; Information added by drupal.org packaging script on 2011-11-02
+version = "7.x-3.6"
+core = "7.x"
+project = "framework"
+datestamp = "1320214533"
+

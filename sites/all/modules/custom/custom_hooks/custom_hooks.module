@@ -1,0 +1,202 @@
+<?php
+
+  function custom_hooks_form_alter(&$form, &$form_state, $form_id) {
+    //echo $form_id;
+    //echo '<pre>';print_r($form); exit; echo '</pre>';
+    
+    switch($form_id){
+      case 'user_register_form':
+        $form['field_first_name']['#attributes']['autocomplete'] = "off";
+        $form['#validate'][] = 'custom_hooks_reg_validation_handler';
+        $form['#after_build'][] = 'custom_hooks_after_build';
+        $form['#attributes']['autocomplete'] = 'off';
+        $form['#submit'][] = "_custom_hooks_user_register_submit";
+        $form['field_occupation']['und']['#options']['_none'] = '- Select an occupation -';
+        break;
+      
+      case 'search_form':
+        $form['basic']['keys']['#title'] = '';
+        $form['#attributes']['autocomplete'] = 'off';
+        
+      case 'request_a_quote':
+        $form['#attributes']['autocomplete'] = 'off';
+        $form['#after_build'][] = 'custom_hooks_after_build';
+        break;
+      
+      case 'careers_content':
+        $form['#attributes']['autocomplete'] = 'off';
+        break;
+      
+      case 'payback_calculator_matrix_node_form':
+        //$form['field_base_product_name']['#attributes']['class'][3] = get_pc_product_class();
+        $nid = $form['#node']->nid;
+        $form['field_base_product_name']['und']['#options'] = get_pc_product_options($nid);
+        $form['field_associated_product_name']['und']['#options'] = get_pc_product_options($nid);
+        break;
+            
+      case 'user_login_block':
+        $form['name']['#attributes']['placeholder'] = t('Enter Email id');
+        $form['pass']['#attributes']['placeholder'] = t('Enter Password');
+        $form['pass']['#title'] = t('Enter Password');
+        $form['name']['#title'] = t('Enter Password');
+        $form['#attributes']['autocomplete'] = 'off';
+        //$form['#after_build'][] = 'custom_hooks_login_block_after_build';
+        //echo '<pre>';print_r($form); exit; echo '</pre>';
+        break;
+      
+      case 'user_pass':
+        $form['#submit'][] = '_password_recover_submit';
+        $form['#attributes']['autocomplete'] = 'off';
+        break;
+    }
+    //echo '<pre>';print_r($form); exit; echo '</pre>';
+  }
+  
+  function _password_recover_submit($form, &$form_state){
+    $form_state['redirect'] = 'user/password';
+  }
+  
+  /*function custom_hooks_login_block_after_build($form, &$form_state) {
+    //echo '<pre>';print_r($form); exit; echo '</pre>';
+    //$form['name']['#attributes']['placeholder'] = t( 'Enter Email id' );
+  }*/
+  
+  /*function quote_form_app_options() {
+    $options = array();
+    $terms = taxonomy_get_tree(5, $parent = 0, $max_depth = NULL, $load_entities = FALSE);
+    foreach($terms as $term) {
+      if($term->parents[0] == 0) {
+        $options[] = $term->name;
+      } else {
+        $options[] = " --". $term->name;
+      }
+    }
+    return $options;
+  }*/
+
+  
+  function get_pc_product_class() {
+    $classes = array();
+    $result = db_query("SELECT * FROM field_data_field_payback_base_product_name");
+    foreach($result as $row) {
+      $nid = $row->entity_id;
+      $classes[] = $nid;
+      //$options[$id] = $nid;
+    }
+    return $classes;
+  }
+  
+  function get_pc_product_options($nid) {
+    //echo $nid;
+    //echo '<pre>'; //print_r($form_state); echo '</pre>'; exit;
+    $options = array();
+    $result = db_query("SELECT * FROM field_data_field_payback_base_product_name");
+    foreach($result as $row) {
+      $title = $row->field_payback_base_product_name_value;
+      $nid = $row->entity_id;
+      
+      $options[$title-$nid] = $title;
+      //$options[$id] = $nid;
+    }
+    return $options;
+  }
+  
+  function custom_hooks_reg_validation_handler($form, &$form_state) {
+    //echo '<hr><pre>';print_r($form_state);echo '</pre>';exit;
+    $contact_no = $form_state['input']['field_contact_no_']['und'][0]['value'];
+    if($contact_no) {
+      if(!preg_match("/^[789][0-9]{9}$/", $contact_no)) {
+        form_set_error('field_contact_no_][und][0][value', t('Invalid Contact Number.'));
+      }
+    }
+    
+    $city = $form_state['input']['field_city']['und'][0]['value'];
+    if($city) {
+      if(!preg_match("/^[a-zA-Z][a-zA-Z ]*$/", $city)) {
+        form_set_error('field_city][und][0][value', t('Invalid City name.'));
+      }
+    }
+    
+    $dealer_code = $form_state['input']['field_dealer_code_']['und'][0]['value'];
+    if($dealer_code != '') {
+      $result = verify_dealer_code($dealer_code);
+      if(!$result) {
+        //form_unset_error('field_freetext][und][0][value');
+        form_set_error('field_dealer_code_][und][0][value', t('Dealer code does not match.'));
+      }
+    }
+  }
+  
+  function verify_dealer_code($dealer_code) {
+    $result = db_query("SELECT store_category FROM {locator} WHERE customer_id=:arg", array(':arg' => $dealer_code))->fetchField();
+    if($result == 'Channel Partner') {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  function custom_hooks_after_build($form, &$form_state) {
+    $form['captcha']['captcha_widgets']['captcha_response']['#title'] = "Captcha code";
+    $form['captcha']['captcha_widgets']['captcha_response']['#description'] = "";
+    return $form;
+  }
+  
+  function _custom_hooks_user_register_submit($form, &$form_state) {
+    $msg = 'Thank you for registering with us. Please check your email to activate the account.';
+    drupal_set_message(t($msg));
+    $form_state['redirect'] = $GET['q'];
+  }
+  
+  function mail_send() {
+    $my_module = 'custom_hooks';
+    $my_mail_token = 'bar';
+    $from = 'limbuzkid@gmail.com';
+    $to = variable_get('site_mail', ini_get('sendmail_from'));
+    $to = uc_store_rfc2822_display_name(uc_store_name()) . ' <' . $to . '>';
+    $body = 'This is a test for html mail module from a custom module';
+    //echo 'From: '. $from;
+    $message = array(
+      'id' => $my_module . '_' . $my_mail_token,
+      'to' => $to,
+      'subject' => t('Mail Test for Wipro'),
+      'body' => $body,
+      'headers' => array(
+        'From' => $from,
+        'Sender' => $from,
+        'Return-Path' => $from,
+      ),
+    );
+    $system = drupal_mail_system($my_module, $my_mail_token);
+    $system->mail($message);
+  }
+    
+  function custom_hooks_form_node_admin_content_alter(&$form, &$form_state, $form_id) {
+    $form['filter_sku'] = array(
+      '#type' => 'checkbox',
+      '#title' => t("Filter By SKU."),
+      '#id' => 'filter_sku',
+      '#prefix' => '<div class="filterBySku">',
+    );
+    $form['title'] = array(
+      '#type' => 'textfield',
+      '#size' => 60,
+      '#maxlength' => 128,
+      '#id' => 'filter_sku_text',
+    );
+    $form['from'] = array(
+      '#type' => 'item',
+      '#prefix' => '<a href="javascript:;" class="submit_sku form-submit">Go<a>',
+      '#suffix' => '</div><div class="myOutput"></div>'
+    );
+  }
+  
+  function custom_hooks_element_info_alter(&$types) { // removes registration password suggestions and password strengths
+    if (isset($types['password_confirm']['#process']) && (($position = array_search('user_form_process_password_confirm', $types['password_confirm']['#process'])) !== FALSE)) {
+      unset($types['password_confirm']['#process'][$position]);
+    }
+  }
+  
+  
+
+  

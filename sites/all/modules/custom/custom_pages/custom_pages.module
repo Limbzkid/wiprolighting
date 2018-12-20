@@ -1,0 +1,2621 @@
+<?php
+  /**
+  * Implement hook_menu().
+  */
+  function custom_pages_menu() {
+    $items = array();
+   /* $items['applications/%'] = array(
+      'title' => 'Applications',
+      'page callback' => 'get_applications_content',
+      'page arguments' => array(1),
+      'access arguments' => array('access content'),
+      'type' => MENU_CALLBACK,
+    );
+    
+    $items['resources/%'] = array(
+      'title' => '',
+      'page callback' => 'get_resources_content',
+      'page arguments' => array(1),
+      'access arguments' => array('access content'),
+      'type' => MENU_CALLBACK,
+    );
+    
+    $items['innovation-in-lighting/%'] = array(
+      'title' => 'Innovation in Lighting',
+      'page callback' => 'get_innovation_content',
+      'page arguments' => array(1),
+      'access arguments' => array('access content'),
+      'type' => MENU_CALLBACK,
+    );*/
+    
+    $items['dealer-locator/our-office'] = array(
+      'title'            => 'Our Office',
+      'page callback'    => 'get_dealer_locator_content',
+      'page arguments'   => array(1),
+      'access arguments' => array('access content'),
+      'type'             => MENU_CALLBACK,
+      'file'             => 'custom_pages.dealer_locator.inc',
+    );
+    
+    $items['dealer-locator/channel-partner'] = array(
+      'title'            => 'Channel Partner',
+      'page callback'    => 'get_dealer_locator_content',
+      'page arguments'   => array(1),
+      'access arguments' => array('access content'),
+      'type'             => MENU_CALLBACK,
+      'file'             => 'custom_pages.dealer_locator.inc',
+    );
+    
+    $items['dealer-locator-ajax'] = array(
+      'title'            => 'Dealer Locator Ajax',
+      'page callback'    => 'get_dealer_locator_ajax_content',
+      'page arguments'   => array(),
+      'access arguments' => array('access content'),
+      'type'             => MENU_CALLBACK,
+      'file'             => 'custom_pages.dealer_locator.inc',
+    );
+    
+    $items['resources/tools/payback-calculator'] = array(
+      'title'            => 'Payback Calculator',
+      'page callback'    => 'get_payback_calculator_content',
+      'page arguments'   => array(),
+      'access arguments' => array('access content'),
+      'type'             => MENU_CALLBACK,
+      'file'             => 'custom_pages.payback_calc.inc',
+    );
+    
+    $items['payback-calculator/associate-products'] = array(
+      'title'            => 'Payback Calculator',
+      'page callback'    => 'get_associate_products_ajax',
+      'page arguments'   => array(),
+      'access arguments' => array('access content'),
+      'type'             => MENU_CALLBACK,
+      'file'             => 'custom_pages.payback_calc.inc',
+    );
+    
+    $items['payback-calculator/get-matrix-data-ajax'] = array(
+      'title'            => 'Payback Calculator',
+      'page callback'    => 'get_matrix_data_ajax',
+      'page arguments'   => array(),
+      'access arguments' => array('access content'),
+      'type'             => MENU_CALLBACK,
+      'file'             => 'custom_pages.payback_calc.inc',
+    );
+    
+    $items['pc-prod-details'] = array(
+      'title'            => 'Payback Calculator - Product Details',
+      'page callback'    => 'get_pc_prod_details',
+      'page arguments'   => array(),
+      'access arguments' => array('access content'),
+      'type'             => MENU_CALLBACK,
+      'file'             => 'custom_pages.payback_calc.inc',
+    );
+
+    /*return array(
+      'demo/newsletter' => array(
+        'page callback' => 'drupal_get_form',
+        'page arguments' => array('demo_demo_form'),
+        'access callback' => TRUE,
+        'type' => MENU_CALLBACK,
+      ),
+    );*/
+    
+    $items['get-a-call-back'] = array(
+      'title' => 'GET A CALL BACK',
+      'page callback' => 'get_a_call_back',
+      'page arguments' => array(),
+      'access arguments' => array('access content'),
+      'type' => MENU_CALLBACK,
+    );
+  
+    $items['delighted-to-assist/support-form'] = array(
+      'title' => 'Support Form',
+      'page callback' => 'support_form',
+      'page arguments' => array(),
+      'access arguments' => array('access content'),
+      'type' => MENU_CALLBACK,
+    );  
+    
+    $items['delighted-to-assist/write-to-us'] = array( //this creates a URL that will call this form at "examples/form-example"
+      'title' => 'Write to Us', //page title
+      'description' => 'Write to Us.',
+      'page callback' => 'drupal_get_form', //this is the function that will be called when the page is accessed.  for a form, use drupal_get_form
+      'page arguments' => array('write_to_us'), //put the name of the form here
+      'access callback' => TRUE
+    );
+    
+    /*$items['delighted-to-assist/write-to-us'] = array( //this creates a URL that will call this form at "examples/form-example"
+      'title' => 'Write to Us', //page title
+      'page callback' => 'drupal_get_form', //this is the function that will be called when the page is accessed.  for a form, use drupal_get_form
+      'page arguments' => array('write_to_us'), //put the name of the form here
+      'access callback' => TRUE,
+      'type' => MENU_CALLBACK,
+    );*/
+	
+    $items['get-a-support'] = array(
+      'title' => 'Support Form',
+      'page callback' => 'support_form_data',
+      'page arguments' => array(),
+      'access arguments' => array('access content'),
+      'type' => MENU_CALLBACK,
+    );
+	
+    $items['get-a-quote'] = array( //this creates a URL that will call this form at "examples/form-example"
+      'title' => 'Request a Quote', //page title
+      'description' => 'Request a Quote.',
+      'page callback' => 'drupal_get_form', //this is the function that will be called when the page is accessed.  for a form, use drupal_get_form
+      'page arguments' => array('request_a_quote'), //put the name of the form here
+      'access callback' => TRUE
+    );
+   
+    $items['resources/tools/lighting-design'] = array(
+      'title'             => 'Lighting Design App',
+      'page callback'     => 'lighting_design_app',
+      'page arguments'    => array(),
+      'access arguments'  => array('access content'),
+      'type'              => MENU_CALLBACK,
+      'file'              => 'custom_pages.applications.inc',
+    );
+  
+    $items['lighting-design-app/get-products'] = array(
+      'title'             => 'Lighting Design App',
+      'page callback'     => 'get_products',
+      'page arguments'    => array(),
+      'access arguments'  => array('access content'),
+      'type'              => MENU_CALLBACK,
+      'file'              => 'custom_pages.applications.inc',
+    );
+  
+    $items['authenticate-user'] = array(
+      'title'             => 'Authenticate User',
+      'page callback'     => 'authenticate_user',
+      'page arguments'    => array(),
+      'access arguments'  => array('access content'),
+      'type'              => MENU_CALLBACK,
+    );
+
+    /*$items['resources/knowledge-center'] = array(
+      'title'             => 'Knowledge Center',
+      'page callback'     => 'knowledge_center',
+      'page arguments'    => array(),
+      'access arguments'  => array('access content'),
+      'type'              => MENU_CALLBACK,
+    );*/
+  
+    $items['knowledge-center-ajax-asc'] = array(
+      'title'             => 'Knowledge Center Ajax Asc',
+      'page callback'     => 'knowledge_center_ajax_asc',
+      'page arguments'    => array(),
+      'access arguments'  => array('access content'),
+      'type'              => MENU_CALLBACK,
+    );
+  
+    $items['knowledge-center-ajax-desc'] = array(
+      'title'             => 'Knowledge Center Ajax Desc',
+      'page callback'     => 'knowledge_center_ajax_desc',
+      'page arguments'    => array(),
+      'access arguments'  => array('access content'),
+      'type'              => MENU_CALLBACK,
+    );
+  
+    $items['resources/case-studies'] = array(
+      'title'             => 'Case Studies',
+      'page callback'     => 'case_studies',
+      'page arguments'    => array(),
+      'access arguments'  => array('access content'),
+      'type'              => MENU_CALLBACK,
+    );
+
+    $items['case-studies-ajax-asc'] = array(
+      'title'             => 'Case Studies Ajax Asc',
+      'page callback'     => 'case_studies_ajax_asc',
+      'page arguments'    => array(),
+      'access arguments'  => array('access content'),
+      'type'              => MENU_CALLBACK,
+    );
+  
+    $items['case-studies-ajax-desc'] = array(
+      'title'             => 'Case Studies Ajax Desc',
+      'page callback'     => 'case_studies_ajax_desc',
+      'page arguments'    => array(),
+      'access arguments'  => array('access content'),
+      'type'              => MENU_CALLBACK,
+    );
+  
+    $items['lighting-design-app/share-project-via-email'] = array(
+      'title'             => 'Share project via email',
+      'page callback'     => 'share_project_via_email',
+      'page arguments'    => array(),
+      'access arguments'  => array('access content'),
+      'type'              => MENU_CALLBACK,
+    );
+  /***********************************************/
+  
+    $items['news-events-ajax-asc'] = array(
+      'title'             => 'News Events Ajax Asc',
+      'page callback'     => 'news_events_ajax_asc',
+      'page arguments'    => array(),
+      'access arguments'  => array('access content'),
+      'type'              => MENU_CALLBACK,
+    );
+  
+    $items['news-events-ajax-desc'] = array(
+      'title'             => 'News Events Ajax Desc',
+      'page callback'     => 'news_events_ajax_desc',
+      'page arguments'    => array(),
+      'access arguments'  => array('access content'),
+      'type'              => MENU_CALLBACK,
+    );
+  
+  /***********************************************/
+  
+    /*$items['installation-gallery-ajax-asc'] = array(
+      'title'             => 'installation_gallery_ajax_asc',
+      'page callback'     => 'installation_gallery_ajax_asc',
+      'page arguments'    => array(),
+      'access arguments'  => array('access content'),
+      'type'              => MENU_CALLBACK,
+    );
+  
+    $items['installation-gallery-ajax-desc'] = array(
+      'title'             => 'installation_gallery_ajax_desc',
+      'page callback'     => 'installation_gallery_ajax_desc',
+      'page arguments'    => array(),
+      'access arguments'  => array('access content'),
+      'type'              => MENU_CALLBACK,
+    );*/
+  
+    $items['testimonials'] = array(
+      'title'             => 'Testimonials',
+      'page callback'     => 'testimonials_content',
+      'page arguments'    => array(),
+      'access arguments'  => array('access content'),
+      'type'              => MENU_CALLBACK,
+    );
+  
+    $items['about-us/media-center/news-and-events'] = array(
+      'title'             => 'News and Events',
+      'page callback'     => 'news_events_content',
+      'page arguments'    => array(),
+      'access arguments'  => array('access content'),
+      'type'              => MENU_CALLBACK,
+    );
+  
+    $items['about-us/media-center/product-videos'] = array(
+      'title'             => 'Product Videos',
+      'page callback'     => 'advertisements_content',
+      'page arguments'    => array(),
+      'access arguments'  => array('access content'),
+      'type'              => MENU_CALLBACK,
+    );
+    
+    $items['about-us/management-team'] = array(
+      'title'             => 'Our Management Team',
+      'page callback'     => 'management_content',
+      'page arguments'    => array(),
+      'access arguments'  => array('access content'),
+      'type'              => MENU_CALLBACK,
+    );
+    
+    $items['about-us/wipro-lighting/awards-and-recognitions'] = array(
+      'title'             => 'Awards and Recognition',
+      'page callback'     => 'awards_and_recognitions',
+      'page arguments'    => array(),
+      'access arguments'  => array('access content'),
+      'type'              => MENU_CALLBACK,
+    );
+    
+    $items['resources/installation-gallery'] = array(
+      'title'             => 'Installation Gallery',
+      'page callback'     => 'installation_gallery',
+      'page arguments'    => array(),
+      'access arguments'  => array('access content'),
+      'type'              => MENU_CALLBACK,
+    );
+  
+  
+    $items['about-us/careers/career-form'] = array(
+      'title'             => 'Career Form',
+      'page callback'     => 'drupal_get_form', 
+      'page arguments'    => array('careers_content'),
+      'access arguments'  => array('access content'),
+      'type'              => MENU_CALLBACK,
+      'file'              => 'custom_pages.careers.inc',
+    );
+  
+    $items['about-us/careers/career-positions'] = array(
+      'title'             => 'Career Form',
+      'page callback'     => 'career_positions', 
+      'page arguments'    => array(),
+      'access arguments'  => array('access content'),
+      'type'              => MENU_CALLBACK,
+      'file'              => 'custom_pages.careers.inc',
+    );
+  
+    $items['about-us/careers/career-submit'] = array(
+      'title'             => 'Client Form',
+      'page callback'     => 'career_form_submit',
+      'page arguments'    => array(),
+      'access arguments'  => array('access content'),
+      'file'              => 'custom_pages.careers.inc',
+      'type'              => MENU_CALLBACK,
+    );
+  
+    $items['about-us/client-appreciation'] = array(
+      'title'             => 'Client Appreciation',
+      'page callback'     => 'client_appreciation',
+      'page arguments'    => array(),
+      'access arguments'  => array('access content'),
+      'type'              => MENU_CALLBACK,
+    );
+  
+    $items['about-us/client-appreciation-ajax-asc'] = array(
+      'title'             => 'Client Appreciation',
+      'page callback'     => 'client_appreciation_ajax_asc',
+      'page arguments'    => array(),
+      'access arguments'  => array('access content'),
+      'type'              => MENU_CALLBACK,
+    );
+  
+    $items['about-us/client-appreciation-ajax-desc'] = array(
+      'title'             => 'Client Appreciation',
+      'page callback'     => 'client_appreciation_ajax_desc',
+      'page arguments'    => array(),
+      'access arguments'  => array('access content'),
+      'type'              => MENU_CALLBACK,
+    );
+  
+    $items['resources/lighting-glossary'] = array(
+      'title'             => 'Lighting Glossary',
+      'page callback'     => 'lighting_glossary',
+      'page arguments'    => array(),
+      'access arguments'  => array('access content'),
+      'type'              => MENU_CALLBACK,
+    );
+  
+    $items['edit-product-details'] = array(
+      'title' => 'Product Details Edit',
+      'page callback' => 'edit_product_details',
+      'access arguments' => array('access content'),
+      'type' => MENU_CALLBACK,
+    );
+  
+    $items['sitemap'] = array(
+      'title' => 'Sitemap',
+      'page callback' => 'sitemap_content',
+      'access arguments' => array('access content'),
+      'type' => MENU_CALLBACK,
+    );
+  
+    $items['innovation-in-lighting/our-innovation-journey'] = array(
+      'title' => 'Our Innovation Journey',
+      'page callback' => 'innov_journey_content',
+      'access arguments' => array('access content'),
+      'type' => MENU_CALLBACK,
+    );
+  
+    $items['resources/product-brochures'] = array(
+      'title' => t('Product Brochures'),
+      'page callback' => 'brochures_archives_content',
+      'access arguments' => array('access content'),
+      'type' => MENU_CALLBACK,
+    );
+  
+    $items['resources/product-brochures/archives'] = array(
+      'title' => t('Archives'),
+      'page callback' => 'brochures_archives_content',
+      'access arguments' => array('access content'),
+      'type' => MENU_CALLBACK,
+    );
+    
+    $items['page-not-found'] = array(
+      'title' => t('Page Not Found'),
+      'page callback' => 'page_not_found',
+      'access arguments' => array('access content'),
+      'type' => MENU_CALLBACK,
+    );
+    
+    $items['lighting-app-office-sub-area'] = array(
+      'title' => t('Office Sub Area'),
+      'page callback' => 'office_sub_area',
+      'access arguments' => array('access content'),
+      'type' => MENU_CALLBACK,
+    );
+    
+    $items['lighting-app-factory-sub-area'] = array(
+      'title' => t('Factory Sub Area'),
+      'page callback' => 'office_sub_area',
+      'access arguments' => array('access content'),
+      'type' => MENU_CALLBACK,
+    );
+    
+    $items['payback-select-data'] = array(
+      'title' => t('Payback Admin'),
+      'page callback' => 'payback_select_data',
+      'access arguments' => array('access content'),
+      'type' => MENU_CALLBACK,
+    );
+    
+    
+    $items['ajax-file-upload'] = array(
+      'title' => t('Ajax File Upload'),
+      'page callback' => 'ajax_file_upload',
+      'access arguments' => array('access content'),
+      'type' => MENU_CALLBACK,
+    );
+    
+    $items['ajax-upload'] = array(
+      'title' => t('Ajax File Upload'),
+      'page callback' => 'ajax_upload',
+      'access arguments' => array('access content'),
+      'type' => MENU_CALLBACK,
+    );
+    
+    $items['feedback-form-data'] = array(
+      'title' => t('Feedback Form Data'),
+      'page callback' => 'feedback_form_data',
+      'access arguments' => array('access content'),
+      'type' => MENU_CALLBACK,
+    );
+    
+    $items['lighting-form-data'] = array(
+      'title' => t('Lighting Form Data'),
+      'page callback' => 'lighting_form_data',
+      'access arguments' => array('access content'),
+      'type' => MENU_CALLBACK,
+    );
+    
+    $items['inter'] = array(
+      'title' => t('Wipro Lighting'),
+      'page callback' => 'intermediate_page',
+      'access arguments' => array('access content'),
+      'type' => MENU_CALLBACK,
+    );
+    
+    $items['url-clicked'] = array(
+      'title' => t('Wipro Lighting'),
+      'page callback' => 'url_clicked',
+      'access arguments' => array('access content'),
+      'type' => MENU_CALLBACK,
+    );
+    
+    $items['recaptcha-verify'] = array(
+      'title' => t('Recaptcha Response'),
+      'page callback' => 'recaptcha_response',
+      'access arguments' => array('access content'),
+      'type' => MENU_CALLBACK,
+    );
+    return $items;
+  
+  }
+  
+  
+  function recaptcha_response() {
+    $captcha = '';
+    if(isset($_POST['g-recaptcha-response'])) {
+      $captcha = $_POST['g-recaptcha-response'];
+    }
+    if (!$captcha) {
+      $msg = 'Captcha has not been checked.';
+    }
+    // handling the captcha and checking if it's ok
+    $secret = '6LfdChsTAAAAAM1f_D_CkdSdRaz-H5rSejkTwzm7';
+    $response = json_decode(file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=".$secret."&response=".$captcha."&remoteip=".$_SERVER['REMOTE_ADDR']), true);
+
+    //var_dump($response);
+    // if the captcha is cleared with google, send the mail and echo ok.
+    if($response['success'] != false) {
+      $msg = 'ok';
+    } else {
+      if($captcha) {
+        $msg = 'Captcha Verification failed';
+      }
+      
+    }
+    echo $msg;
+  }
+  
+  function url_clicked() {
+    $sess = $_SESSION['first_visit'] = true;
+    echo json_encode($sess);
+  }
+  
+  
+  function lighting_form_data() {
+    $error = false;
+    $status = 0;
+    $msg = array();
+    $name   = filter_xss(trim($_POST['name']));
+    $phone  = filter_xss(trim($_POST['phone']));
+    $mail   = filter_xss(trim($_POST['mail']));
+    $fid    = filter_xss(trim($_POST['fileId']));
+        
+    if($name == '') {
+      $error = true;
+      $msg[] = 'errCat-Please enter a name';
+    }
+    
+    if(!preg_match("/^([a-zA-Z.\']+\s?)*$/", $name) && $name != '') {
+      $error = true;
+      $msg[] = 'errName-Please enter valid name.';
+		}
+    
+    if($phone == '') {
+      $error = true;
+      $msg[] = 'errPhone-Please enter a phone number';
+    }
+    
+    if(!preg_match("/^[789][0-9]{9}$/", $phone) && $phone != '') {
+			$error = true;
+      $msg[] = 'errPhone-Please enter valid mobile number.';
+		}
+    
+    if($mail == '') {
+      $error = true;
+      $msg[] = 'errMail-Please enter an email';
+    }
+    
+    if(!valid_email_address($mail) && $mail != '') {
+			$error = true;
+      $msg[] = 'errMail-Please enter a valid email';
+		}
+    
+    if($fid == '') {
+      $error = true;
+      $msg[] = 'errPro-Please upload a file';
+    }
+    
+    if(!$error) {
+      $id = db_insert('wipro_lighting_app_data')
+							->fields(array(
+								'name'    => $name,
+								'phone'   => $phone,
+								'mail'    => $mail,
+								'fid'     => $fid,
+								'created' => REQUEST_TIME,
+							)
+					)->execute();
+              
+      if($id) {
+        global $base_url;
+        $path = drupal_get_path('theme', 'framework');
+        require ($path . '/PHPMailer/PHPMailerAutoload.php');
+        $uri = db_query("SELECT uri from {file_managed} WHERE fid = :arg", array(":arg" => $fid))->fetchField();
+        $temp = explode("//", $uri);
+        $filename = $temp[1];
+        $file_url = file_create_url($uri);
+        $data = array();
+        $data['from'] = $mail;
+        $data['subject'] = 'Lighting Design Tool Autocad Drawing File by customer';
+        $body = '<table align="center" border="0" cellpadding="0" cellspacing="0" width="600" style="border:solid #ccc 1px">
+                  <tr>
+                      <td style="border-bottom:solid #ccc 1px;">
+                        <table align="center" cellpadding="0" cellspacing="0" width="560">
+                          <tr>
+                            <td style="padding:15px 0"><img src="'.$base_url.'/sites/default/files/logo_3.jpg" alt="Wipro Industrial Lighting" title="Wipro Industrial Lighting"></td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  <tr>
+                  <td><table align="center" border="0" cellpadding="0" cellspacing="0" width="560">
+                    <tr>
+                      <td style="font-family:Arial; font-size:12px; font-weight:bold; padding-top:15px;">Dear Admin,</td>
+                    </tr>
+                    <tr>
+                      <td style="font-family:Arial; font-size:12px; padding:15px 0;">Below are the details of customer along with download link for drawing file uploaded.
+                      Please find the data as below.<br/><br/><table><tr>
+                      <td>Name</td><td>'.$name.'</td></tr><tr>
+                      <td>Email</td><td>'.$mail.'</td></tr>
+                      <tr><td>Mobile</td><td>'.$phone.'</td></tr>';
+          $body .= '<tr><td>Drawing File Link:</td><td>'.$file_url.'</td></tr>
+
+                    </table></td></tr></table></td></tr></table>';
+            
+        $mail = new PHPMailer;								// Set PHPMailer to use the sendmail transport
+        //$mail->isSendmail();									//Set who the message is to be sent from
+        $mail->setFrom($mail, $name);
+        //Set an alternative reply-to address
+        //$mail->addReplyTo('replyto@example.com', 'First Last');
+        //Set who the message is to be sent to
+        //$career_mail = variable_get('careers_mail');
+        //echo $career_mail ; exit;
+        //$career_mail_name = variable_get('careers_mail_name');
+        //$mail->addAddress('limbuzkid@gmail.com', 'Sunil');
+        //$mail->addAddress($career_mail, $career_mail_name);
+        $mail->addAddress('helpdesk.lighting@wipro.com', 'Helpdesk Lighting');
+        $mail->Subject = 'Lighting Design Tool Autocad Drawing File by customer';
+        $mail->msgHTML($body);
+        //Replace the plain text body with one created manually
+        $mail->AltBody = 'This is a plain-text message body';
+        //Attach an image file
+        //if(file_exists($uri)) {
+        //  $mail->addAttachment($uri);
+        //} else {
+        //  drupal_set_message('file not found');
+        //}
+        //send the message, check for errors
+        if (!$mail->send()) {
+          echo "Mailer Error: " . $mail->ErrorInfo;
+          //exit;
+        } else {
+          $status = 1;
+        }	
+      } else {
+        // database insert failed
+      }  
+    }
+    echo json_encode(array('status' => $status, 'msg' => $msg));
+  }
+  
+  function intermediate_page() {
+    return '';
+  }
+  
+  function feedback_form_data() {
+    $error = false;
+    $status = 0;
+    $msg = array();
+    $category     = filter_xss(trim($_POST['classify']));
+    $feed_view    = filter_xss(trim($_POST['feedView']));
+    $feed_purpose = filter_xss(trim($_POST['feedPurpose']));
+    $feed_radio   = filter_xss(trim($_POST['feedradio']));
+    $feed_prof    = filter_xss(trim($_POST['feedProfession']));
+    $feed_mail    = filter_xss(trim($_POST['feedMail']));
+    $feed_txt     = filter_xss(trim($_POST['feedTxt']));
+    if($feed_view == 0) {
+      $feed_view = 'Select';
+    } else if($feed_view == 1) {
+      $feed_view = 'Suggest your views';
+    } else if($feed_view == 2) {
+      $feed_view = 'Compliment';
+    } else if($feed_view == 3) {
+      $feed_view = 'Report an error';
+    } else if($feed_view == 4) {
+      $feed_view = 'Other feedback';
+    }
+    
+    if($category == '' || $category == 'Select') {
+      $error = true;
+      $msg[] = 'errCat-Please select a category';
+    }
+    
+    if($feed_view == '' || $feed_view == 'Select') {
+      $error = true;
+      $msg[] = 'errView-Please select a view';
+    }
+    
+    if($feed_purpose == '' || $feed_purpose == 'Select') {
+      $error = true;
+      $msg[] = 'errPurpose-Please select a purpose';
+    }
+    
+    if($feed_prof == '' || $feed_prof == 'Select') {
+      $error = true;
+      $msg[] = 'errPro-Please select an profession';
+    }
+    
+    if($feed_radio == '') {
+      $error = true;
+      $msg[] = 'errRadio-Please select an option';
+    }
+    
+    if($feed_txt == '') {
+      $error = true;
+      $msg[] = 'errTxt-Please enter your feedback';
+    }
+    
+    if($feed_mail == '') {
+			$error = true;
+      $msg[] = 'errMail-Please enter an email';
+		}
+    
+    
+    if(!valid_email_address($feed_mail) && $feed_mail != '') {
+			$error = true;
+      $msg[] = 'errMail-Please enter a valid email';
+		}
+    
+    if(!$error) {
+      $id = db_insert('wipro_feedback')
+							->fields(array(
+								'feedback_category'     => $category,
+								'feedback_view' 	      => $feed_view,
+								'feedback_purpose'      => $feed_purpose,
+								'feedback_profession'   => $feed_prof,
+								'feedback_text' 	      => $feed_txt,
+								'email' 		            => $feed_mail,
+								'created'               => REQUEST_TIME,
+							)
+					)->execute();
+              
+      if($id) {
+        $mail_to = variable_get('feedback_mail');
+        $data = array();
+        $data['from'] = $email;
+        $data['subject'] = 'Wipro Lighting website feedback.';
+        $data['mail_body'] ='<table align="center" border="0" cellpadding="0" cellspacing="0" width="600" style="border:solid #ccc 1px">
+                  <tr>
+                      <td style="border-bottom:solid #ccc 1px;">
+                        <table align="center" cellpadding="0" cellspacing="0" width="560">
+                          <tr>
+                            <td style="padding:15px 0"><img src="'.$base_url.'/sites/all/themes/framework/images/wipro-logo.jpg" alt="Wipro Industrial Lighting" title="Wipro Industrial Lighting"></td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  <tr>
+                  <td><table align="center" border="0" cellpadding="0" cellspacing="0" width="560">
+                    <tr>
+                      <td style="font-family:Arial; font-size:12px; font-weight:bold; padding-top:15px;">Dear Admin,</td>
+                    </tr>
+                    <tr>
+                      <td style="font-family:Arial; font-size:12px; padding:15px 0;">A user has given feedback on the website experience. Please find the details below.<br/><br/><table><tr>
+                      <td>Category</td><td>:</td><td>'.$category.'</td></tr><tr>
+                      <td>View</td><td>:</td><td>'.$feed_view.'</td></tr><tr>
+                      <td>Purpose</td><td>:</td><td>'.$feed_purpose.'</td></tr>
+                      <tr><td>Profession</td><td>:</td><td>'.$feed_prof.'</td></tr><tr>
+                      <td>Feedback</td><td>:</td><td>'.$feed_txt.'</td></tr><tr>
+                      <td>email</td><td>:</td><td>'.$feed_mail.'</td></tr></table></td>
+                    </tr>
+                    </table></td>
+                  </tr>
+                </table>';
+        if(email_send($data, $mail_to)) {
+          //drupal_set_message('Thank you for contacting us. Our service team will get back to you shortly.');
+          $status = 1;
+        } else {
+          $msg[] = 'thanxMsg-Unable to send email.';
+        }
+        
+      } else {
+        // database insert failed
+      }  
+    }
+    echo json_encode(array('status' => $status, 'msg' => $msg));
+    
+  }
+  
+  function file_get_url($fid) {
+    $uri = db_query("SELECT uri FROM {file_managed} WHERE fid=:arg", array(':arg' => $fid))->fetchField();
+    if($uri) {
+      return file_create_url($uri);
+    } else {
+      return '';
+    }
+  }
+  
+  function awards_and_recognitions() {
+    $output = '';
+    $query = db_select('node', 'n');
+    $query->leftJoin('field_data_body', 'fdb', 'fdb.entity_id = n.nid');
+    $query->leftJoin('field_data_field_upload_pdf', 'pdf', 'pdf.entity_id = n.nid');
+    $query->leftJoin('field_data_field_award_icon', 'ai', 'ai.entity_id = n.nid');
+    $query->leftJoin('weight_weights', 'ww', 'ww.entity_id = n.nid');
+    $query->fields('n', array('nid', 'status', 'created', 'title'))
+          ->fields('fdb', array('body_value'))
+          ->fields('pdf', array('field_upload_pdf_fid'))
+          ->fields('ai', array('field_award_icon_fid'))
+          ->condition('n.status', 1)
+          ->condition('n.type', array('awards'), '=')
+          ->orderBy('ww.weight', DESC);
+    $result = $query->execute();
+    $count = 1;
+    $col_count = 1;
+    $first = true;
+    foreach($result as $row) {
+      //echo '<pre>'; print_r($row); echo '</pre>';
+      $title = $row->title;
+      if($row->body_value != '') {
+        $desc = $row->body_value;
+      } else {
+        $desc = '';
+      }
+      $pdf = file_get_url($row->field_upload_pdf_fid);
+      $image = file_get_url($row->field_award_icon_fid);
+      if($first) {
+        $output .= '<div class="usprows">';
+        $first = false;
+      } else {
+        if($col_count > 2) {
+          $output .= '</div><div class="usprows">';
+          $col_count = 1;
+        }
+      }
+      $output .= '<div class="cols"><div class="icons"><img src="'.$image.'" alt="" /></div>';
+      $output .= '<div class="infoSide"><h3>'.$title.'</h3><p>'.$desc.'</p></div>';
+      if($pdf != '') {
+        $output .= '<a href="'.$pdf.'" class="actionLink awardsPdf" target="_blank"><i class="fa fa-file-pdf-o"></i>View Details </a>';
+      }
+      $output .= '</div>';
+    }
+    return $output;
+  }
+  
+  function ajax_upload() {
+    global $user;
+		$status = 0;
+		$msg = '';
+		if($user->uid) {
+			$uid = $user->uid;
+		} else {
+			$uid = 0;
+		}
+    if(isset($_FILES["myfile"])) {
+			$allowedExts = array("dwg","dxf");
+			$extension = end(explode(".", $_FILES["myfile"]["name"]));
+      $size = $_FILES["myfile"]["size"]/(1024*1024);
+      //echo $size;
+			$uri = "public://uploads";
+			if ($_FILES["myfile"]["error"] > 0)	{
+				$msg = "Error: " . $_FILES["myfile"]["error"] . "<br>";
+			}	else	{
+        
+				if(!(in_array($extension, $allowedExts))) {
+					$msg = "Only files with extensions dwg and dxf allowed.";
+				} elseif($size > 10) {
+          $msg = "Max upload size of 10MB exceeded.";
+        } else {  
+					$file_name = $_FILES["myfile"]['name'];
+					$prefix = 1;
+					if(file_exists($uri.'/'.$file_name)) {
+						while(file_exists($uri.'/'.$file_name)) {
+							$temp = explode('.', $_FILES["myfile"]['name']);
+              $first = true;
+              foreach($temp as $name) {
+                if($first) {
+                  $tmp_name = $name.'_'.$prefix;
+                  $first = false;
+                } else {
+                  $tmp_name = $tmp_name.'.'.$name;
+                  
+                }
+                
+              }
+              $prefix++;
+							//$temp[0] = $temp[0].'_'.$prefix;
+							//$prefix++;
+							//$file_name = $temp[0].'.'.$temp[1];
+              $file_name = $tmp_name;
+						}
+					}
+					$last_id = db_query("SELECT MAX(fid) FROM {file_managed}")->fetchField();
+					$fid = $last_id + 1;
+					$nid = db_insert('file_managed')
+							->fields(array(
+								'fid' 			=> $fid,
+								'uid' 			=> $uid,
+								'filename' 	=> $file_name,
+								'uri' 			=> $uri.'/'.$file_name,
+								'filemime' 	=> $_FILES["myfile"]['type'],
+								'filesize' 	=> $_FILES["myfile"]['size'],
+								'status' 		=> 1,
+								'timestamp' => REQUEST_TIME,
+								//'origname' 	=> $file_name,
+							)
+					)->execute();
+					if($nid) {
+						//move the uploaded file to uploads folder;
+						if(drupal_move_uploaded_file($_FILES["myfile"]["tmp_name"], $uri.'/'.$file_name)) {
+							// file uploaded
+              $file_name = substr($file_name, 0, 20). '...';
+							$msg = $file_name;
+							$status = 1;
+						} else {
+							$msg = "Error: There was a problem uploading the file.";
+						}
+					}
+				}
+			}
+		}    
+    echo json_encode(array('status'=>$status, 'msg'=>$msg, 'nid'=>$nid));
+  }
+  
+  
+  
+  function ajax_file_upload() {
+    if(isset($_FILES["file"]["type"])) {
+      $validextensions = array("jpeg", "jpg", "png");
+      $temporary = explode(".", $_FILES["file"]["name"]);
+      $file_extension = end($temporary);
+      if ((($_FILES["file"]["type"] == "image/png") || ($_FILES["file"]["type"] == "image/jpg") || ($_FILES["file"]["type"] == "image/jpeg")
+        ) && ($_FILES["file"]["size"] < 10000000)//Approx. 100kb files can be uploaded.
+        && in_array($file_extension, $validextensions)) {
+        if ($_FILES["file"]["error"] > 0) {
+          echo "Return Code: " . $_FILES["file"]["error"] . "<br/><br/>";
+        } else {
+          if (file_exists("upload/" . $_FILES["file"]["name"])) {
+            echo $_FILES["file"]["name"] . " <span id='invalid'><b>already exists.</b></span> ";
+          } else {
+            $sourcePath = $_FILES['file']['tmp_name']; // Storing source path of the file in a variable
+            $targetPath = "upload/".$_FILES['file']['name']; // Target path where file is to be stored
+            move_uploaded_file($sourcePath,$targetPath) ; // Moving Uploaded file
+            echo "<span id='success'>Image Uploaded Successfully...!!</span><br/>";
+            echo "<br/><b>File Name:</b> " . $_FILES["file"]["name"] . "<br>";
+            echo "<b>Type:</b> " . $_FILES["file"]["type"] . "<br>";
+            echo "<b>Size:</b> " . ($_FILES["file"]["size"] / 1024) . " kB<br>";
+            echo "<b>Temp file:</b> " . $_FILES["file"]["tmp_name"] . "<br>";
+          }
+        }
+      } else  {
+        echo "<span id='invalid'>***Invalid file Size or Type***<span>";
+      }
+    }
+  }
+  
+  function management_content() {
+    $output = '';
+    $query = new EntityFieldQuery();
+    $query->entityCondition('entity_type', 'node')
+          ->entityCondition('bundle', 'management_team')
+          ->propertyCondition('status', NODE_PUBLISHED)
+          ->propertyOrderBy('created', 'ASC');
+    $result = $query->execute();
+    if(isset($result['node'])) {
+      $nids = array_keys($result['node']);
+      $nodes = node_load_multiple($nids);
+      $count = 1;
+      foreach($nodes as $node) {
+        $title = $node->title;
+        $title_class = str_replace(' ', '', $title);
+        $tmp = explode(' ', $node->title);
+        $node_title1 = array_shift($tmp) . ' ';
+        $node_title2 = implode(' ',$tmp);
+        $designation = $node->field_wp_designation['und'][0]['value'];
+        $dept = $node->field_department['und'][0]['value'];
+        $image = file_create_url($node->field_profile_image['und'][0]['uri']);
+        //echo '<pre>'; print_r($node); echo '</pre>';exit;
+        if($count == 2) {
+          $output .= '<div class="cols mid '.$title_class.'">';
+        } else {
+          $output .= '<div class="cols '.$title_class.'">';
+        }
+        $output .= '<div class="imageContainer"> <img alt="'.$title.'" src="'.$image.'" ></div>';
+        $output .= '<div class="content"><h2>'.$node_title1.'<span class="semiBold">'.$node_title2.'</span></h2><p class="desi">'.$designation.'</p>';
+        $output .= '<a class="redArrow" href="javascript:;"><span class="arow"></span></a> </div>';
+        $output .= '<div class="VineetAgrawal popUp"> <a href="javascript:;" class="popXBtn"></a>';
+        $output .= '<h3 class="'.$title_class.'">'.$designation.', '.$dept.'</h3>'.$node->body['und'][0]['value'].'</div></div>';
+        $count++;
+        if($count > 3) { $count = 1; }
+      }
+    }
+    return $output;
+    
+  }
+  
+  function write_to_us_validate($form, &$form_state) {
+    //echo '<pre>';print_r($form_state); exit; echo '</pre>';
+    if(!preg_match("/^([a-zA-Z.\']+\s?)*$/", $form_state['input']['name'])) {
+			form_set_error('name', t('Invalid entry in name field.'));
+		}
+    if(!valid_email_address($form_state['input']['email'])) {
+			form_set_error('email', t('Invalid Email Format.'));
+		}
+    if(!preg_match("/^[789][0-9]{9}$/", $form_state['input']['mobile'])) {
+			form_set_error('mobile', t('Invalid Mobile Number.'));
+		}
+    
+    /*if(!preg_match("/^[A-Za-z0-9_~\-!@#\$%\^&\(\)]+$/", $form_state['input']['comments'])) {
+			form_set_error('comments', t('Invalid Text.'));
+		}*/
+    
+    if(!preg_match("/^([a-zA-Z.\']+\s?)*$/", $form_state['input']['city'])) {
+      form_set_error('city', t('Invalid City Name.'));
+    }
+    /*if($form_state['input']['g-recaptcha-response'] == '') {
+			form_set_error('captcha', t('Please check the captcha box.'));
+		}*/
+  }
+  
+  function write_to_us_submit($form, &$form_state) {
+    global $base_url;
+    //echo'<pre>'; print_r($form_state['input']); echo'</pre>';
+    foreach($form_state['input'] as $key => $value) {
+      $form_state['input'][$key] = filter_xss($value);
+      if($key == 'Individual/Company') {
+        if($form_state['input']['Individual/Company'] == 0) {
+          $status = 'Individual';
+        } else {
+          $status = 'Company';
+        }
+      }
+    }
+    //echo $status; exit;
+    
+    $query = db_insert('write_to_us')
+				->fields(array(
+					'name'            => filter_xss($form_state['input']['name']),
+					'email'           => filter_xss($form_state['input']['email']),
+					'contact_no'      => filter_xss($form_state['input']['mobile']),
+					'city'            => filter_xss($form_state['input']['city']),
+					'comments'        => filter_xss($form_state['input']['comments']),
+					'status'          => filter_xss($status),
+					'created'         => REQUEST_TIME,
+				));
+    $query->execute();
+    $name = filter_xss($form_state['input']['name']);
+    $status = NULL;
+    if(filter_xss($form_state['input']['comments']) == 0) {
+      $status = 'Individual';
+    } else {
+      $status = 'Company';
+    }
+		$data = array();
+    $data['from'] = $form_state['input']['email'];
+		$data['subject'] = 'Write to us';
+		$data['mail_body'] ='<table align="center" border="0" cellpadding="0" cellspacing="0" width="600" style="border:solid #ccc 1px">
+							<tr>
+									<td style="border-bottom:solid #ccc 1px;">
+										<table align="center" cellpadding="0" cellspacing="0" width="560">
+											<tr>
+												<td style="padding:15px 0"><img src="'.$base_url.'/sites/all/themes/framework/images/wipro-logo.jpg" alt="Wipro Industrial Lighting" title="Wipro Industrial Lighting"></td>
+											</tr>
+										</table>
+									</td>
+								</tr>
+						  <tr>
+							<td><table align="center" border="0" cellpadding="0" cellspacing="0" width="560">
+								<tr>
+								  <td style="font-family:Arial; font-size:12px; font-weight:bold; padding-top:15px;">Dear Admin,</td>
+								</tr>
+								<tr>
+								  <td style="font-family:Arial; font-size:12px; padding:15px 0;">'.$name.' has submitted a comment.Please find the data as below.<br/><br/><table><tr>
+                  <td>Name</td><td>:</td><td>'.filter_xss($form_state['input']['name']).'</td></tr><tr>
+                  <td>Email</td><td>:</td><td>'.filter_xss($form_state['input']['email']).'</td></tr><tr>
+                  <td>Mobile</td><td>:</td><td>'.filter_xss($form_state['input']['mobile']).'</td></tr>
+                  <tr><td>City</td><td>:</td><td>'.filter_xss($form_state['input']['city']).'</td></tr><tr>
+                  <td>Status</td><td>:</td><td>'.$status.'</td></tr><tr>
+                  <td>Comments</td><td>:</td><td>'.filter_xss($form_state['input']['comments']).'</td></tr></table></td>
+								</tr>
+							  </table></td>
+						  </tr>
+						</table>';
+		if(email_send($data)) {
+      drupal_set_message('Thank you for contacting us. Our service team will get back to you shortly.');
+    } else {
+      drupal_set_message('Unable to send mail.');
+    }
+  }
+  
+  function write_to_us() { //Build a form
+    global $user;
+    $user_name = db_query("SELECT field_first_name_value FROM {field_data_field_first_name} WHERE entity_id=:arg", array(':arg' => $user->uid))->fetchField();
+    $contact_number = db_query("SELECT field_contact_no__value FROM {field_data_field_contact_no_} WHERE entity_id=:arg", array(':arg' => $user->uid))->fetchField();
+    if($user->uid) {
+      $name = $user_name;
+      $mail = $user->mail;
+      $contact = $contact_number;
+    } else {
+      $name = '';
+      $mail = '';
+      $contact = '';
+    }
+        
+    $form['name'] = array(
+      '#type'           => 'textfield', 
+      '#title'          => 'Name',
+      '#size'           => 50,
+      '#maxlength'      => 50,
+      '#required'       => TRUE, //make this field required
+      '#default_value'  => $name,
+    );
+    
+    $form['city'] = array(
+      '#type'           => 'textfield', 
+      '#title'          => 'City',
+      '#size'           => 50,
+      '#maxlength'      => 50,
+      '#required'       => TRUE, //make this field required
+      '#default_value'  => '',
+    );
+      
+    $form['email'] = array(
+      '#type'           => 'textfield', 
+      '#title'          => 'Email',
+      '#size'           => 50,
+      '#maxlength'      => 50,
+      '#required'       => TRUE, //make this field required
+      '#default_value'  => $mail,
+    );
+    
+     $form['mobile'] = array(
+      '#type'           => 'textfield', 
+      '#title'          => 'Contact No',
+      '#size'           => 10,
+      '#maxlength'      => 10,
+      '#required'       => TRUE,
+      '#default_value'  => $contact,
+    );
+    
+    $form['comments'] = array(
+      '#type' => 'textarea', 
+      '#title' => 'Comments',
+      //'#options' => $options,
+      '#required' => TRUE, 
+    );
+
+    $form['Individual/Company'] = array(
+      '#type' => 'radios', 
+      '#title' => t('Individual/Company'), 
+      '#default_value' => 'Individual', 
+      '#options' => array(t('Individual'), t('Company')), 
+    );
+    
+    $form['captcha'] = array(
+			'#type' => 'captcha',
+			'#captcha_type' => 'recaptcha/reCAPTCHA',
+			'#required' => TRUE,
+		);
+    
+    $form['submit_button'] = array(
+      '#type' => 'submit',
+      '#value' => t('Submit'),
+    );
+    
+    return $form;  
+  }
+  
+  function office_sub_area() {
+    $area = filter_xss($_POST['area']);
+    $options = '';
+    $sql = "SELECT sat.field_sub_area_type_tid, fi.field_icon_fid, fm.uri, ttd.name
+            FROM field_data_field_sub_area_type sat
+            LEFT JOIN field_data_field_icon fi ON fi.entity_id = sat.field_sub_area_type_tid
+            LEFT JOIN file_managed fm ON fm.fid = fi.field_icon_fid
+            LEFT JOIN taxonomy_term_data ttd ON ttd.tid = sat.field_sub_area_type_tid
+            LEFT JOIN field_data_field_space fs ON fs.entity_id = sat.entity_id
+            WHERE fs.field_space_value = '".$area."'
+            GROUP BY sat.field_sub_area_type_tid
+            ORDER BY ttd.name";
+    $result = db_query($sql);
+    foreach($result as $row) {
+      $icon_img = file_create_url($row->uri);
+      $options .='<li class="areaType"><div class="iconBox"><span class="checkedArrow">&nbsp;</span> <img src="'.$icon_img.'"></div><p>'.$row->name.'</p></li>';
+    }
+		echo $options;
+  }
+    
+  function page_not_found() {
+    return '';
+  }
+  
+  
+
+  function advertisements_content() {
+    $output = '';
+    $query = new EntityFieldQuery();
+    $query->entityCondition('entity_type', 'node')
+          ->entityCondition('bundle', 'product_videos')
+          ->propertyCondition('status', NODE_PUBLISHED)
+          ->propertyOrderBy('created', 'ASC');
+    $result = $query->execute();
+    if(isset($result['node'])) {
+      $nids = array_keys($result['node']);
+      $nodes = node_load_multiple($nids);
+      $count = 1;
+      foreach($nodes as $node) {
+        //echo '<pre>'; print_r($node); echo '</pre>'; exit;
+        $title = $node->title;
+        $tmp = explode(' ', $node->title);
+        $node_title1 = array_shift($tmp) . ' ';
+        $node_title2 = implode(' ',$tmp);
+        $image = file_create_url($node->field_video_thumbnail['und'][0]['uri']);
+        $video_id = $node->field_video_id['und'][0]['value'];
+        $output .= '<li> <a data-video="https://www.youtube.com/embed/'.$video_id.'?autoplay=1&amp;rel=0" href="javascript:;">';
+        $output .= '<img alt="" src="'.$image.'"><span class="videoThumb">&nbsp;</span></a>';
+        $output .= '<p class="title">'.$node_title1.' <span class="semiBold">'.$node_title2.'</span></p></li>';
+      }
+    }
+    return $output;
+  }
+  
+  
+  function brochures_archives_content() {
+    $archived = '';
+    $latest_brochures = '';
+    $output = '<h1 class="bighead">Product <span class="semiBold">Brochures</span></h1>';
+    $output .= '<div class="productBrochureSection"><div class="gridView"><ul>';
+    $query = new EntityFieldQuery();
+    $query->entityCondition('entity_type', 'node')
+          ->entityCondition('bundle', 'product_brochures')
+          ->propertyCondition('status', NODE_PUBLISHED)
+          ->propertyOrderBy('created', 'DESC');
+    $result = $query->execute();
+    if(isset($result['node'])) {
+      $nids = array_keys($result['node']);
+      $nodes = node_load_multiple($nids);
+      foreach($nodes as $node) {
+        //echo '<pre>'; print_r($node); echo '</pre>';
+        //echo $node->title . '<br/>';
+        $cat = explode(' ', $node->title);
+        $title1 = array_shift($cat);
+        $title2 = implode(' ' , $cat);
+        if(!empty($node->field_brochure_upload['und'][0]['uri'])) {
+          $brochure_path = file_create_url($node->field_brochure_upload['und'][0]['uri']);
+        } else {
+          $brochure_path = '';
+        }
+        if(!empty($node->field_thumbnail_image)) {
+          $thumbnail = file_create_url($node->field_thumbnail_image['und'][0]['uri']);
+        } else {
+          $thumbnail = '';
+        }
+        /*$is_archive = $node->field_archived['und'][0]['value'];
+        if($is_archive == 'Yes') {
+          $archived .= '<div class="wpClm"><h2>'.$title1. ' <span class="semiBold"> '.$title2.'</span></h2>';
+          $archived .= '<a class="actionLink" href="'.$brochure_path.'" target="_blank"><i class="fa fa-file-pdf-o"></i> Download Brochure</a></div>';
+        } else {
+          $latest_brochures .= '<div class="wpClm"><h2><a href="'.$brochure_path.'" target="_blank">'.$title1. ' <span class="semiBold"> '.$title2.'</span></a></h2>';
+          //$latest_brochures .= '<i class="fa fa-file-pdf-o"></i> Download Brochure';
+          $latest_brochures .= '</div>';
+        }*/
+        $output .= '<li><div class="productImg"><a href="'.$brochure_path.'" target="_blank"><img alt="" src="'.$thumbnail.'"></div><div class="productContent">';
+        $output .= '<h2><span class="bottomLine">'.$title1.' <span class="semiBold">'.$title2.'</span></span> <span class="redArrow ornegArow"></span></a></h2>';
+        $output .= '</div></li>';
+        
+      }
+    }
+    //if(arg(2) == 'archives') {
+    //  $output .= $archived;
+    //} else {
+    //  $output .= $latest_brochures;
+    //}
+    $output .= '</ul></div></div>';
+    return $output;
+  }
+  
+  function innov_journey_content() {
+    $breadcrumb[0] = l('Home', '<front>');
+    $breadcrumb[1] = 'Innovation in Lighting';
+    drupal_set_breadcrumb($breadcrumb);
+    return '';
+  }
+  
+  function sitemap_content() {
+    $breadcrumb[0] = l('Home', '<front>');
+    $breadcrumb[1] = 'Sitemap';
+    drupal_set_breadcrumb($breadcrumb);
+    $output = '<div class="sitemapPge"><div class="site-map-box-front"><ul><li><a href="'.base_path().'"><h2 class="title">Home<h2></a></li></ul></div>';
+    $app_terms = 	taxonomy_get_tree(5, $parent = 0, $max_depth = 1, $load_entities = TRUE);
+    $output .= '<div class="doubleWrap"><div class="site-map-box-terms site-map-box-apps"><h2 class="title">Applications</h2><div class="content"><ul>';
+    foreach($app_terms as $term) {
+      $url = base_path() . $term->field_app_path['und'][0]['value'];
+      $output .= '<li><a href="'.$url.'">'.$term->name.'</a></li>';
+    }
+    $output .= '</ul></div></div>';
+    // Product pages
+    $prod_terms = 	taxonomy_get_tree(3, $parent = 0, $max_depth = NULL, $load_entities = TRUE);
+    $output .= '<div class="site-map-box-terms site-map-box-prod"><h2 class="title">Products</h2><div class="content"><ul class="first">';
+    //echo '<pre>';
+    $prod_first = true;
+    $second_level_first = true;
+    $top_level_op = '';
+    $bot_level_op = '';
+    $second_level_op = '';
+    $third_level_first = true;
+    $third_level_op = '';
+    foreach($prod_terms as $term) {
+      //echo $term->tid .' - '. $parent_tid . '<br/>';
+      $term_url = base_path().drupal_get_path_alias('taxonomy/term/'.$term->tid);
+      
+      if($term->parents[0] == 0) {
+        if($prod_first) {
+          $top_level_op .= '<li><a href="javascript:;">'.$term->name.'</a><ul class="second">';
+        } else {
+          $top_level_op .= $second_level_op .'</ul></li><li><a href="javascript:;">'.$term->name.'</a><ul class="second">';
+        }
+        $prod_first = false;
+        $parent_tid = $term->tid;
+        $second_level_first = true;
+        $second_level_op = '';
+        $third_level_op = '';
+      } else {
+        if($term->parents[0] == $parent_tid) { // second level term
+          if($second_level_first) {
+            $second_level_op .= '<li><a href="'.$term_url.'">'.$term->name.'</a>';
+            $second_level_first = false;
+          } else {
+            if($third_level_op) {
+              $second_level_op .= '<ul>'.$third_level_op.'</ul></li><li><a href="'.$term_url.'">'.$term->name.'</a>';
+              $third_level_op = '';
+            } else {
+              $second_level_op .= '</li><li><a href="'.$term_url.'">'.$term->name.'</a>';
+            }
+          }
+          $second_level_tid = $term->tid; 
+        } else {
+          if($term->parents[0] == $second_level_tid) {
+            $third_level_op .= '<li><a href="'.$term_url.'">'.$term->name.'</a></li>';
+            if($third_level_first) {  
+              $third_level_first = false;
+            } 
+          }
+        }
+      }
+    }
+    $bot_level_op .= '</ul></li></ul></div></div>';
+    $output .= $top_level_op . $second_level_op . $bot_level_op;
+    // Resources Links
+    $output .= '<div class="site-map-box-terms site-map-box-resc"><h2 class="title">Resources</h2><div class="content"><ul class="first">';
+    $terms = 	taxonomy_get_tree(4, $parent = 0, $max_depth = NULL, $load_entities = TRUE);
+    $resc_first = true;
+    $resc_sec_level = '';
+    foreach($terms as $term) {
+      $url = base_path() . $term->field_resources_path['und'][0]['value'];
+      if($term->parents[0] == 0) {
+        if($resc_first) {
+          $output .= '<li><a href="'.$url.'">'.$term->name.'</a>';
+          $resc_first = false;
+        } else {
+          if($resc_sec_level) {
+            $output .= '<ul>'.$resc_sec_level.'</ul></li><li><a href="'.$url.'">'.$term->name.'</a>';
+          } else {
+            $output .= '</li><li><a href="'.$url.'">'.$term->name.'</a>';
+          }
+        }
+        $resc_sec_level = '';
+        $par_tid = $term->tid;
+      } else {
+        $resc_sec_level .= '<li><a href="'.$url.'">'.$term->name.'</a></li>';
+      }
+    }
+    $output .= '</li></ul></div></div>';
+    
+    // Innovation Links
+    $output .= '<div class="site-map-box-terms site-map-box-resc"><h2 class="title">Innovation in Lighting</h2><div class="content"><ul class="first">';
+    $terms = 	taxonomy_get_tree(12, $parent = 0, $max_depth = NULL, $load_entities = TRUE);
+    $resc_first = true;
+    $resc_sec_level = '';
+    foreach($terms as $term) {
+      $url = base_path() . $term->field_innovation_path['und'][0]['value'];
+      if($term->parents[0] == 0) {
+        if($resc_first) {
+          $output .= '<li><a href="'.$url.'">'.$term->name.'</a>';
+          $resc_first = false;
+        } else {
+          if($resc_sec_level) {
+            $output .= '<ul>'.$resc_sec_level.'</ul></li><li><a href="'.$url.'">'.$term->name.'</a>';
+          } else {
+            $output .= '</li><li><a href="'.$url.'">'.$term->name.'</a>';
+          }
+        }
+        $resc_sec_level = '';
+        $par_tid = $term->tid;
+      } else {
+        $resc_sec_level .= '<li><a href="'.$url.'">'.$term->name.'</a></li>';
+      }
+    }
+    $output .= '</li></ul></div></div>';
+    
+    // About Us Links
+    $output .= '<div class="site-map-box-terms site-map-box-resc"><h2 class="title">About Us</h2><div class="content"><ul class="first">';
+    $terms = 	taxonomy_get_tree(11, $parent = 0, $max_depth = NULL, $load_entities = TRUE);
+    $resc_first = true;
+    $resc_sec_level = '';
+    foreach($terms as $term) {
+      $url = base_path() . $term->field_about_path['und'][0]['value'];
+      if($term->parents[0] == 0) {
+        if($resc_first) {
+          $output .= '<li><a href="'.$url.'">'.$term->name.'</a>';
+          $resc_first = false;
+        } else {
+          if($resc_sec_level) {
+            $output .= '<ul>'.$resc_sec_level.'</ul></li><li><a href="'.$url.'">'.$term->name.'</a>';
+          } else {
+            $output .= '</li><li><a href="'.$url.'">'.$term->name.'</a>';
+          }
+        }
+        $resc_sec_level = '';
+        $par_tid = $term->tid;
+      } else {
+        $resc_sec_level .= '<li><a href="'.$url.'">'.$term->name.'</a></li>';
+      }
+    }
+    $output .= '</li></ul></div></div></div></div>';
+    
+    
+    return $output;
+  }
+  
+  
+  function client_appreciation() {
+    $breadcrumb[0] = l('Home', '<front>');
+    $breadcrumb[1] = t('About Us');
+    drupal_set_breadcrumb($breadcrumb);
+    return '';
+  }
+  function installation_gallery() {
+    $breadcrumb[0] = l('Home', '<front>');
+    $breadcrumb[1] = 'Resources';
+    drupal_set_breadcrumb($breadcrumb);
+    return '';
+  }
+  function lighting_glossary() {
+    $query = new EntityFieldQuery();
+    $query->entityCondition('entity_type', 'node')
+          ->entityCondition('bundle', 'lighting_glossary')
+          ->propertyCondition('status', NODE_PUBLISHED)
+          ->propertyOrderBy('title', 'ASC');
+    $result = $query->execute();
+    if(isset($result['node'])) {
+      $nids = array_keys($result['node']);
+      $nodes = node_load_multiple($nids);
+      $count = 1;
+      $index = '';
+      $first = true;
+      foreach($nodes as $node) {
+        $title = $node->title;
+        $desc = $node->body['und'][0]['value'];
+        $temp_index = substr($node->title, 0, 1);
+        if($temp_index != $index) {
+          if($first) {
+            $output .= '<div class="atozContent" rel="'.$temp_index.'"><div class="group"><div class="pagenationTitle">'.$temp_index.'</div></div>';
+            $first = false;
+          } else {
+            $output .= '</div><div class="atozContent" rel="'.$temp_index.'"><div class="group"><div class="pagenationTitle">'.$temp_index.'</div></div>';
+          }
+          $index = $temp_index;
+        }
+        $output .= '<div class="group"><p class="title">'.$title.'</p>'.$desc.'</div>';
+      }
+    }
+    return $output;
+  }
+  function news_events_content() {
+    $breadcrumb[0] = l('Home', '<front>');
+    //$breadcrumb[1] = 'Resources';
+    drupal_set_breadcrumb($breadcrumb);
+    return '';
+  }
+  
+  function testimonials_content() {
+    $output = '<h1>Latest <span class="semiBold">Testimonials</span></h1>';
+    $output .= '<p class="bold">Latest Testimonials</p>';
+    $query = new EntityFieldQuery();
+    $query->entityCondition('entity_type', 'node')
+          ->entityCondition('bundle', 'testimonials')
+          ->propertyCondition('status', NODE_PUBLISHED);
+    $result = $query->execute();
+    if(isset($result['node'])) {
+      $nids = array_keys($result['node']);
+      $nodes = node_load_multiple($nids);
+      //echo '<pre>';
+      $first = true;
+      $count = 0;
+      $wp_row = '<div class="wpRow">';
+      foreach($nodes as $node) {
+        $count++;
+        
+        $cat = explode(' ', $node->title);
+        $title1 = array_shift($cat);
+        $title2 = implode(' ', $cat);
+        $pdf = file_create_url($node->field_testimonial_pdfs['und'][0]['uri']);
+        $desc = $node->body['und'][0]['value'];
+        $term_first = true;
+        $terms = '';
+        foreach($node->field_testimonial_apps['und'] as $row) {
+          $term = taxonomy_term_load($row['tid']);
+          $name = $term->name;
+          if($term_first) {
+            $terms .= $name;
+            $term_first = false;
+          } else {
+            $terms .= ' | '.$name;
+          }
+          
+        }
+        //print_r($node);
+        if($first) {
+          $wpsection = '<h2>'.$title1.' <span class="semiBold">'.$title2.'</span></h2>';
+          $wpsection .= '<a class="actionLink" href="'.$pdf.'" target="_blank"><i class="fa fa-file-pdf-o"></i> Download Brochure</a>';
+          $wpsection .= '<p class="subTitle">'.$terms.'</p><p>'.$desc.'</p>';
+          $first = false;
+          $wp_row .= '<div class="wpClm"><h2>'.$title1.'<span class="semiBold">'.$title2.'</span></h2>';
+          $wp_row .= '<a class="actionLink" href="'.$pdf.'" target="_blank"><i class="fa fa-file-pdf-o"></i> Download Brochure</a>';
+          $wp_row .= '<p class="subTitle">'.$terms.'</p><p>'.$desc.'</p></div>'; 
+        } else {
+          $wp_row .= '<div class="wpClm"><h2>'.$title1.' <span class="semiBold">'.$title2.'</span></h2>';
+          $wp_row .= '<a class="actionLink" href="'.$pdf.'" target="_blank"><i class="fa fa-file-pdf-o"></i> Download Brochure</a>';
+          $wp_row .= '<p class="subTitle">'.$terms.'</p><p>'.$desc.'</p></div>';
+        }
+        if($count%2 == 0) {
+          $wp_row .= '</div><div class="wpRow">';
+        }
+      }
+      //echo '</pre>';
+      $output .= '<div class="wpSection"><div class="wpRow"><div class="wpClm">'.$wpsection.'</div></div></div>';
+      $output .= '<div class="filterSubAppSection mBottom">';
+      $output .= '<div class="titleBox"> <span class="greyBorder"><span class="spireIcon filterIco"></span></span>';
+      $output .= '<h3>Filter By Application</h3></div><div class="subApps">';
+      $output .= '<div class="subAppsInner">'.get_all_applications().'</div></div><div class="downArrow"></div></div>';
+
+      $output .= '<div class="chooseOptionSection">
+        <div class="radioToggle">
+          <label for="latest">Latest</label>
+          <div class="inputToggle">
+            <input id="latest" type="radio" name="radio" value="Latest">
+            <input id="oldest" type="radio" name="radio" value="Oldest">
+              <span class="switch"></span>
+          </div>
+          <label for="oldest">Oldest</label>
+        </div>
+      </div>
+      <div class="wpPagenation">Showing 4 of 35 Case Studies</div>
+      <div class="wpSection">'.$wp_row.'</div>
+      <a class="loadmoreBtn" href="javascript:;">Load More Products</a>';
+      
+    }
+    return $output;
+  }
+    
+  function case_studies() {
+    $breadcrumb[0] = l('Home', '<front>');
+    $breadcrumb[1] = 'Resources';
+    drupal_set_breadcrumb($breadcrumb);
+    return '';
+  } 
+  
+  function knowledge_center_ajax_asc() {
+	$query = new EntityFieldQuery();
+	$query->entityCondition('entity_type', 'node')
+		->entityCondition('bundle', 'kniowledge_center')
+		->propertyCondition('status', NODE_PUBLISHED)
+		->propertyOrderBy('created', 'ASC');
+	$result = $query->execute();
+	if(isset($result['node'])) {
+		$nids = array_keys($result['node']);
+		$nodes = node_load_multiple($nids);
+		$i = $j = 0;
+		foreach($nodes as $nod) {
+			if($i%6 == 0 && $i != 0)
+				$j++;
+			?>
+				<div class="wpClm" dspl="<?php echo $j; ?>" tid="<?php echo $nod->field_application['und'][0]['tid']; ?>" <?php if($i == 0){ echo 'style ="border-top: none;"'; } else if($j >= 1){ echo 'style ="display: none;"'; } ?>>
+				  <h2><a class="actionLink" target="_blank" href="<?php echo file_create_url($nod->field_pdf_file['und'][0]['uri']); ?>"><?php echo $nod->title; ?></a></h2>
+				  <?php /*?><i class="fa fa-file-pdf-o"></i> Download<?php */?>
+				  <p><?php echo $nod->body['und'][0]['value']; ?></p>
+				</div>
+				
+			
+			
+			<?php
+			$i++;
+		}
+	}
+
+	
+  } 
+  
+  function knowledge_center_ajax_desc() {
+	$query = new EntityFieldQuery();
+	$query->entityCondition('entity_type', 'node')
+		->entityCondition('bundle', 'kniowledge_center')
+		->propertyCondition('status', NODE_PUBLISHED)
+		->propertyOrderBy('created', 'DESC');
+	$result = $query->execute();
+	if(isset($result['node'])) {
+		$nids = array_keys($result['node']);
+		$nodes = node_load_multiple($nids);
+		$i = $j = 0;
+		foreach($nodes as $nod) {
+			if($i%6 == 0 && $i != 0)
+				$j++;
+			if($i==0) {
+			
+			} else {
+			?>
+				<div class="wpClm" dspl="<?php echo $j; ?>" tid="<?php echo $nod->field_application['und'][0]['tid']; ?>" <?php if($i == 0){ echo 'style ="border-top: none;"'; }  else if($j >= 1){ echo 'style ="display: none;"'; } ?>>
+				  <h2><a class="actionLink" target="_blank" href="<?php echo file_create_url($nod->field_pdf_file['und'][0]['uri']); ?>"><?php echo $nod->title; ?></a></h2>
+				  <?php /*?><i class="fa fa-file-pdf-o"></i> Download<?php */?>
+				  <p><?php echo $nod->body['und'][0]['value']; ?></p>
+				</div>
+				
+			
+			
+			<?php
+			}
+			$i++;
+		}
+	}
+
+	
+  } 
+  /***************************Cleint Appreciation Start*********************************/
+  
+  function client_appreciation_ajax_asc() {
+	$query = new EntityFieldQuery();
+	$query->entityCondition('entity_type', 'node')
+		->entityCondition('bundle', 'testimonials')
+		->propertyCondition('status', NODE_PUBLISHED)
+		->propertyOrderBy('created', 'ASC');
+	$result = $query->execute();
+	if(isset($result['node'])) {
+		$nids = array_keys($result['node']);
+		$nodes = node_load_multiple($nids);
+		$i = $j = 0;
+		foreach($nodes as $nod) {
+			if($i%6 == 0 && $i != 0)
+				$j++;
+			?>
+				<div class="wpClm" dspl="<?php echo $j; ?>" tid="<?php echo $nod->field_testimonial_apps['und'][0]['tid']; ?>" <?php if($i == 0){ echo 'style ="border-top: none;"'; } else if($j >= 1){ echo 'style ="display: none;"'; }  ?>>
+				  <h2><a class="actionLink" target="_blank" href="<?php echo file_create_url($nod->field_testimonial_pdfs['und'][0]['uri']); ?>"><?php echo $nod->title; ?></a></h2>
+				  <?php /*?><i class="fa fa-file-pdf-o"></i> Download<?php */?>
+				  <p><?php echo $nod->body['und'][0]['value']; ?></p>
+				</div>
+				
+			
+			
+			<?php
+			$i++;
+		}
+	}
+
+	
+  } 
+  
+  function client_appreciation_ajax_desc() {
+    
+	$query = new EntityFieldQuery();
+	$query->entityCondition('entity_type', 'node')
+		->entityCondition('bundle', 'testimonials')
+		->propertyCondition('status', NODE_PUBLISHED)
+		->propertyOrderBy('created', 'DESC');
+	$result = $query->execute();
+	if(isset($result['node'])) {
+		$nids = array_keys($result['node']);
+		$nodes = node_load_multiple($nids);
+		$i = $j = 0;
+		foreach($nodes as $nod) {
+			if($i%6 == 0 && $i != 0)
+				$j++;
+			?>
+				<div class="wpClm" dspl="<?php echo $j; ?>" tid="<?php echo $nod->field_testimonial_apps['und'][0]['tid']; ?>" <?php if($i == 0){ echo 'style ="border-top: none;"'; } else if($j >= 1){ echo 'style ="display: none;"'; }  ?>>
+				  <h2><a class="actionLink" target="_blank" href="<?php echo file_create_url($nod->field_testimonial_pdfs['und'][0]['uri']); ?>"><?php echo $nod->title; ?></a></h2>
+				  <?php /*?><i class="fa fa-file-pdf-o"></i> Download<?php */?>
+				  <p><?php echo $nod->body['und'][0]['value']; ?></p>
+				</div>
+				
+			
+			
+			<?php
+			$i++;
+		}
+	}
+
+	
+  } 
+  
+  /***************************Cleint Appreciation End*********************************/
+  function case_studies_ajax_asc() {
+	$query = new EntityFieldQuery();
+	$query->entityCondition('entity_type', 'node')
+		->entityCondition('bundle', 'case_studies')
+		->propertyCondition('status', NODE_PUBLISHED)
+		->propertyOrderBy('created', 'ASC');
+	$result = $query->execute();
+	if(isset($result['node'])) {
+		$nids = array_keys($result['node']);
+		$nodes = node_load_multiple($nids);
+		$i = $j = 0;
+		foreach($nodes as $nod) {
+			if($i%6 == 0 && $i != 0)
+				$j++;
+			if($i == (count($nodes)-1)) {
+			
+			} else {
+			?>
+				<div class="wpClm" dspl="<?php echo $j; ?>" tid="<?php echo $nod->field_application['und'][0]['tid']; ?>" <?php if($i == 0){ echo 'style ="border-top: none;"'; } else if($j >= 1){ echo 'style ="display: none;"'; } ?>>
+				  <h2><a class="actionLink" target="_blank" href="<?php echo file_create_url($nod->field_pdf_download['und'][0]['uri']); ?>"><?php echo $nod->title; ?></a></h2>
+				  <!--<i class="fa fa-file-pdf-o"></i> Download-->
+				  <p><?php echo $nod->body['und'][0]['value']; ?></p>
+				</div>
+				
+			
+			
+			<?php
+			}
+			$i++;
+		}
+	}
+
+	
+  } 
+  
+  function case_studies_ajax_desc() {
+    
+	$query = new EntityFieldQuery();
+	$query->entityCondition('entity_type', 'node')
+		->entityCondition('bundle', 'case_studies')
+		->propertyCondition('status', NODE_PUBLISHED)
+		->propertyOrderBy('created', 'DESC');
+	$result = $query->execute();
+	if(isset($result['node'])) {
+		$nids = array_keys($result['node']);
+		$nodes = node_load_multiple($nids);
+		$i = $j = 0;
+		foreach($nodes as $nod) {
+			if($i%6 == 0 && $i != 0)
+				$j++;
+			if($i==0) {
+			
+			} else {
+			?>
+				<div class="wpClm" dspl="<?php echo $j; ?>" tid="<?php echo $nod->field_application['und'][0]['tid']; ?>" <?php if($i == 0){ echo 'style ="border-top: none;"'; }  else if($j >= 1){ echo 'style ="display: none;"'; } ?>>
+				  <h2><a class="actionLink" target="_blank" href="<?php echo file_create_url($nod->field_pdf_download['und'][0]['uri']); ?>"><?php echo $nod->title; ?></a></h2>
+				  <!--<i class="fa fa-file-pdf-o"></i> Download-->
+				  <p><?php echo $nod->body['und'][0]['value']; ?></p>
+				</div>
+				
+			
+			
+			<?php
+			}
+			$i++;
+		}
+	}
+
+	
+  } 
+  
+  /**************************************************************/
+  
+  function news_events_ajax_asc() {
+	$query = new EntityFieldQuery();
+	$query->entityCondition('entity_type', 'node')
+		->entityCondition('bundle', 'news')
+		->propertyCondition('status', NODE_PUBLISHED)
+		->fieldOrderBy('field_news_date', 'value', 'ASC');
+	$result = $query->execute();
+	if(isset($result['node'])) {
+		$nids = array_keys($result['node']);
+		$nodes = node_load_multiple($nids);
+		$i = $j = 0;
+		foreach($nodes as $nod) {
+			if($i%6 == 0 && $i != 0)
+				$j++;
+			if($i == (count($nodes)-1)) {
+			
+			} else {
+			?>
+				<div class="wpClm" dspl="<?php echo $j; ?>" tid="<?php echo $nod->field_application['und'][0]['tid']; ?>" <?php if($i == 0){ echo 'style ="border-top: none;"'; } else if($j >= 1){ echo 'style ="display: none;"'; } ?>>
+				  <h2><a class="actionLink" target="_blank" href="<?php echo file_create_url($nod->field_news_pdf['und'][0]['uri']); ?>"><?php echo $nod->title; ?></a></h2>
+				  <!--<i class="fa fa-file-pdf-o"></i> Download-->
+				  <p class="subTitle"><?php echo $nod->field_sub_title['und'][0]['value']; ?> | <?php echo date('d M Y',strtotime($nod->field_news_date['und'][0]['value'])); ?></p>
+											  
+				  <p><?php echo $nod->body['und'][0]['value']; ?></p>
+				</div>
+				
+			
+			
+			<?php
+			}
+			$i++;
+		}
+	}
+
+	
+  } 
+  
+  function news_events_ajax_desc() {
+    
+	$query = new EntityFieldQuery();
+	$query->entityCondition('entity_type', 'node')
+		->entityCondition('bundle', 'news')
+		->propertyCondition('status', NODE_PUBLISHED)
+		->fieldOrderBy('field_news_date', 'value', 'DESC');
+	$result = $query->execute();
+	if(isset($result['node'])) {
+		$nids = array_keys($result['node']);
+		$nodes = node_load_multiple($nids);
+		$i = $j = 0;
+		foreach($nodes as $nod) {
+			if($i%6 == 0 && $i != 0)
+				$j++;
+			if($i == 0) {
+			
+			} else {
+			?>
+				<div class="wpClm" dspl="<?php echo $j; ?>" tid="<?php echo $nod->field_application['und'][0]['tid']; ?>" <?php if($i == 0){ echo 'style ="border-top: none;"'; }  else if($j >= 1){ echo 'style ="display: none;"'; } ?>>
+				  <h2><a class="actionLink" target="_blank" href="<?php echo file_create_url($nod->field_news_pdf['und'][0]['uri']); ?>"><?php echo $nod->title; ?></a></h2>
+				  <!--<i class="fa fa-file-pdf-o"></i> Download-->
+				  <p class="subTitle"><?php echo $nod->field_sub_title['und'][0]['value']; ?> | <?php echo date('d M Y',strtotime($nod->field_news_date['und'][0]['value'])); ?></p>
+				  <p><?php echo $nod->body['und'][0]['value']; ?></p>
+				</div>
+			<?php
+			}
+			$i++;
+		}
+	}
+
+	
+  }
+  
+  /**************************************************************/
+  
+   /*function installation_gallery_ajax_desc() {
+	$count = 0;
+	$query = new EntityFieldQuery();
+	$query->entityCondition('entity_type', 'node')
+				->entityCondition('bundle', 'installation_gallery')
+				->propertyCondition('status', NODE_PUBLISHED)
+				->propertyOrderBy('created', 'DESC');
+	$result = $query->execute();
+	if(isset($result['node'])) {
+		$nids = array_keys($result['node']);
+		$nodes = node_load_multiple($nids);
+		$i = $j = 0;
+		foreach($nodes as $nod) {
+      $app_ids = $nod->field_applications['und'][0]['tid'];
+			if($i%6 == 0 && $i != 0)
+				$j++;
+			if($i == (count($nodes)-1)) {
+			
+			} else {
+			?>
+				<div class="group" dspl="<?php echo $j; ?>" tid="<?php echo $app_ids; ?>" <?php if($j >= 1){ echo 'style ="display: none;"'; } ?>>
+				  <div class="actionDiv"> <span class="slideLength"> <span class="sel">4</span>/<span class="total">12</span></span> <span class="slideArrow"> <span class="prevArrow">&nbsp;</span> <span class="nextArrow">&nbsp;</span> </span> </div>
+					<div class="imgPart">
+					<div class="sliderHidden">
+					  <ul>
+					  <?php foreach($nod->field_ins_image['und'] as $image) { ?>
+						<li><img src="<?php echo file_create_url($image['uri']); ?>" alt=""></li>
+					  <?php } ?>
+					  </ul>      
+					</div>
+				  </div>
+					<div class="contentPart">
+					  <p class="title"><?php echo $nod->title; ?></p>
+					  <p class="subTitle"><?php echo $appsList; ?></p>
+					</div>
+				</div>
+			<?php
+			}
+			$i++;
+		}
+	}
+  } 
+  
+  function installation_gallery_ajax_asc() {
+	$count = 0;
+	$query = new EntityFieldQuery();
+	$query->entityCondition('entity_type', 'node')
+				->entityCondition('bundle', 'installation_gallery')
+				->propertyCondition('status', NODE_PUBLISHED)
+				->propertyOrderBy('created', 'ASC');
+	$result = $query->execute();
+	if(isset($result['node'])) {
+		$nids = array_keys($result['node']);
+		$nodes = node_load_multiple($nids);
+    
+		$i = $j = 0;
+		foreach($nodes as $nod) {
+      //print_r($nod);
+      $app_ids = $nod->field_applications['und'][0]['tid'];
+			if($i%6 == 0 && $i != 0)
+				$j++;
+			if($i == (count($nodes)-1)) {
+			
+			} else {
+			?>
+				<div class="group" dspl="<?php echo $j; ?>" tid="<?php echo $app_ids; ?>" <?php if($j >= 1){ echo 'style ="display: none;"'; } ?>>
+				  <div class="actionDiv"> <span class="slideLength"> <span class="sel">4</span>/<span class="total">12</span></span> <span class="slideArrow"> <span class="prevArrow">&nbsp;</span> <span class="nextArrow">&nbsp;</span> </span> </div>
+					<div class="imgPart">
+					<div class="sliderHidden">
+					  <ul>
+					  <?php foreach($nod->field_ins_image['und'] as $image) { ?>
+						<li><img src="<?php echo file_create_url($image['uri']); ?>" alt=""></li>
+					  <?php } ?>
+					  </ul>      
+					</div>
+				  </div>
+					<div class="contentPart">
+					  <p class="title"><?php echo $nod->title; ?></p>
+					  <p class="subTitle"><?php echo $appsList; ?></p>
+					</div>
+				</div>
+			<?php
+			}
+			$i++;
+		}
+	}
+  }  */
+  
+  function authenticate_user() {
+    $error = false;
+    $msg = array();
+    $email = filter_xss(trim($_POST['uname']));
+    if(!valid_email_address($email)) {
+      $error = true;
+      $uid = 0;
+      $msg[] = 'userLoginName-Please enter a valid email id.';
+    }
+    if(!$error) {
+      $pass = filter_xss(trim($_POST['pass']));
+      $uname = db_query("SELECT name FROM {users} WHERE mail=:arg", array(':arg' => $email))->fetchField();
+      if($uname) {
+        $uid = user_authenticate($uname, $pass);
+        if($uid) {
+          $msg[] = 'Success';
+        } else {
+          $error = true;
+          $uid = 0;
+          $msg[] = 'userLoginPass-Incorrect Password.';
+        }
+      } else {
+        $error = true;
+        $uid = 0;
+        $msg[] = 'userLoginName-User has not registered yet.';
+      }
+    }
+    
+    
+    echo json_encode(array('uid' => $uid, 'msg' => $msg));
+  }
+  
+  function support_form() {
+    return '';
+  } 
+  
+  function request_a_quote() { //Build a form
+    global $user;
+    $user_name = db_query("SELECT field_first_name_value FROM {field_data_field_first_name} WHERE entity_id=:arg", array(':arg' => $user->uid))->fetchField();
+    $contact_number = db_query("SELECT field_contact_no__value FROM {field_data_field_contact_no_} WHERE entity_id=:arg", array(':arg' => $user->uid))->fetchField();
+    if($user->uid) {
+      $name = $user_name;
+      $mail = $user->mail;
+      $contact = $contact_number;
+    } else {
+      $name = '';
+      $mail = '';
+      $contact = '';
+    }
+    $options = array();
+    $terms = taxonomy_get_tree(5, $parent = 0, $max_depth = NULL, $load_entities = FALSE);
+    foreach($terms as $term) {
+      if($term->parents[0] == 0) {
+        $options[$term->name] = $term->name;
+      } else {
+        $options[$term->name] = " --". $term->name;
+      }
+    }
+    $form['name'] = array(
+      '#type'           => 'textfield', 
+      '#title'          => 'Name',
+      '#size'           => 50,
+      '#maxlength'      => 50,
+      '#required'       => TRUE, //make this field required
+      '#default_value'  => $name,
+    );
+      
+     $form['email'] = array(
+      '#type'           => 'textfield', 
+      '#title'          => 'Email',
+      '#size'           => 50,
+      '#maxlength'      => 50,
+      '#required'       => TRUE, //make this field required
+      '#default_value'  => $mail,
+    );
+    
+     $form['mobile'] = array(
+      '#type'           => 'textfield', 
+      '#title'          => 'Contact No',
+      '#size'           => 10,
+      '#maxlength'      => 10,
+      '#required'       => TRUE,
+      '#default_value'  => $contact,
+    );
+    
+     $form['application'] = array(
+      '#type' => 'select', 
+      '#title' => 'Application',
+      '#options' => $options,
+      '#required' => TRUE, 
+    );
+    
+    $form['product'] = array(
+      '#type' => 'textfield', 
+      '#title' => 'Product',
+      '#size' => 50,
+      '#maxlength' => 255,
+      '#required' => TRUE, 
+    );
+    
+    $form['wattage'] = array(
+      '#type' => 'textfield', 
+      '#title' => 'Wattage',
+      '#size' => 50,
+      '#maxlength' => 50,
+      '#required' => TRUE, 
+    );
+    
+    $form['luminaire'] = array(
+      '#type' => 'textfield', 
+      '#title' => 'No. of luminaire(s)',
+      '#size' => 50,
+      '#maxlength' => 50,
+      '#required' => TRUE, 
+    );
+    
+    $form['captcha'] = array(
+			'#type' => 'captcha',
+			'#captcha_type' => 'recaptcha/reCAPTCHA',
+      '#required' => TRUE,
+		);
+  
+    $form['submit_button'] = array(
+      '#type' => 'submit',
+      '#value' => t('Submit'),
+    );
+    
+    return $form;  
+  }
+  
+  function request_a_quote_validate($form, &$form_state) {
+    //echo '<pre>';print_r($form_state); exit; echo '</pre>';
+    if(!preg_match("/^([a-zA-Z.\']+\s?)*$/", $form_state['input']['name'])) {
+			form_set_error('name', t('Invalid entry in name field.'));
+		}
+    if(!valid_email_address($form_state['input']['email'])) {
+			form_set_error('email', t('Invalid Email Format.'));
+		}
+    if(!preg_match("/^[789][0-9]{9}$/", $form_state['input']['mobile'])) {
+			form_set_error('mobile', t('Invalid Mobile Number.'));
+		}
+    
+    if(!preg_match("/^[A-Za-z0-9_~\-!@#\$%\^&\(\)]+$/", $form_state['input']['product'])) {
+			form_set_error('product', t('Invalid Product Name.'));
+		}
+    
+    if(!preg_match("/^[1-9][0-9]*$/", $form_state['input']['wattage'])) {
+      form_set_error('wattage', t('Invalid Wattage value.'));
+    }
+	  if(!preg_match("/^[1-9][0-9]*$/", $form_state['input']['luminaire'])) {
+      form_set_error('luminaire', t('Invalid Luminaire value.'));
+    }
+    /*if($form_state['input']['g-recaptcha-response'] == '') {
+			form_set_error('captcha', t('Please check the captcha box.'));
+		}*/
+  }
+
+function request_a_quote_submit($form, &$form_state) {
+  global $base_url;
+	//echo'<pre>'; print_r($form_state['input']); echo'</pre>';
+	foreach($form_state['input'] as $key => $value) 
+	$form_state['input'][$key] = filter_xss($value);
+	$query = db_insert('request_a_quote')
+				->fields(array(
+					'name'            => $form_state['input']['name'],
+					'email'           => $form_state['input']['email'],
+					'mobile'          => $form_state['input']['mobile'],
+					'application'     => $form_state['input']['application'],
+					'product'         => $form_state['input']['product'],
+					'wattage'         => $form_state['input']['wattage'],
+					'luminaires'      => $form_state['input']['luminaire'],
+					'dates'           => REQUEST_TIME,
+				));
+    $query->execute();
+		$data = array();
+		$data['from'] = $form_state['input']['email'];
+		$data['subject'] = 'Quote Enquiry';
+		$data['mail_body'] ='<table align="center" border="0" cellpadding="0" cellspacing="0" width="600" style="border:solid #ccc 1px">
+							<tr>
+									<td style="border-bottom:solid #ccc 1px;">
+										<table align="center" cellpadding="0" cellspacing="0" width="560">
+											<tr>
+												<td style="padding:15px 0"><img src="'.$base_url.'/sites/all/themes/framework/images/wipro-logo.jpg" alt="Wipro Industrial Lighting" title="Wipro Industrial Lighting"></td>
+											</tr>
+										</table>
+									</td>
+								</tr>
+						  <tr>
+							<td><table align="center" border="0" cellpadding="0" cellspacing="0" width="560">
+								<tr>
+								  <td style="font-family:Arial; font-size:12px; font-weight:bold; padding-top:15px;">Dear Admin,</td>
+								</tr>
+								<tr>
+								  <td style="font-family:Arial; font-size:12px; padding:15px 0;">There is request for quote.Please find the data as below.<br/><br/><table><tr>
+                  <td>Name</td><td>:</td><td>'.$form_state['input']['name'].'</td></tr><tr>
+                  <td>Email</td><td>:</td><td>'.$form_state['input']['email'].'</td></tr><tr>
+                  <td>Application</td><td>:</td><td>'.$form_state['input']['application'].'</td></tr>
+                  <tr><td>Product</td><td>:</td><td>'.$form_state['input']['product'].'</td></tr><tr>
+                  <td>Wattage</td><td>:</td><td>'.$form_state['input']['wattage'].'</td></tr><tr>
+                  <td>Luminaires</td><td>:</td><td>'.$form_state['input']['luminaire'].'</td></tr><tr>
+                  <td>Date </td><td>:</td><td>'.date('d M Y', REQUEST_TIME).'</td></tr></table></td>
+								</tr>
+							  </table></td>
+						  </tr>
+						</table>';
+		if(email_send($data)) {
+      drupal_set_message('Mail has been sent.');
+    } else {
+      drupal_set_message('Unable to send mail.');
+    }
+}
+  
+  function email_send($data, $to = '') {
+    $my_module = 'custom_pages';
+    $my_mail_token = 'bar';
+    $from = $data['from'];
+    //echo $from; exit;
+    if($to == '') {
+      $to = variable_get('site_mail', ini_get('sendmail_from'));
+      $to = uc_store_rfc2822_display_name(uc_store_name()) . ' <' . $to . '>';
+    }
+    $subject = $data['subject'];
+    $body = $data['mail_body'];  
+    $message = array(
+      'id' => $my_module . '_' . $my_mail_token,
+      'to' => $to,
+      'subject' => $subject,
+      'body' => $body,
+      'headers' => array(
+        'From' => $from,
+        'Sender' => $from,
+        'Return-Path' => $from,
+        'Content-type' => 'text/html; charset=UTF-8',
+      ),
+    );   
+    $system = drupal_mail_system($my_module, $my_mail_token);
+    if($system->mail($message)) {
+      return true;
+    } else {
+      echo 'Failure';
+      return false;
+    }
+  }
+  
+  function get_a_call_back() {
+    $msg = array();
+    $status = "1";
+    $name   = filter_xss($_POST['name']);
+    $mail   = filter_xss($_POST['mail']);
+    $mobile = filter_xss($_POST['mobile']);
+    $city   = filter_xss($_POST['city']);
+    if(!preg_match("/^([a-zA-Z.\']+\s?)*$/", $name)) {
+			$status = "0";
+      $msg[] = 'name-Please enter valid name.';
+		}
+		if(!valid_email_address($mail)) {
+			$status = "0";
+      $msg[] = 'email-Please enter valid email.';
+		}
+		if(!preg_match("/^[789][0-9]{9}$/", $mobile)) {
+			$status = "0";
+      $msg[] = 'mobile-Please enter valid mobile number.';
+		}
+    if(!preg_match("/^[a-zA-Z][a-zA-Z ]*$/", $city)) {
+      $status = "0";
+      $msg[] = 'city-Please enter valid city name.';
+    }
+    if($status) {
+      $ip = $_SERVER['REMOTE_ADDR'];
+      $query = db_insert('call_back')
+          ->fields(array(
+            'name'      => filter_xss($_POST['name']),
+            'email'     => filter_xss($_POST['mail']),
+            'mobile'    => filter_xss($_POST['mobile']),
+            'city'      => filter_xss($_POST['city']),
+            'ip'        => ip_address(),
+            'created'   => time(),
+          ));
+      $query->execute();
+      $msg[] =  'success';
+    }
+    echo json_encode(array('status' => $status, 'msg' => $msg));
+  }
+  
+  
+  function support_form_data(){
+    global $base_url;
+    $email1 = variable_get('support_form_mail1');
+    $email2 = variable_get('support_form_mail2');
+    $email3 = variable_get('support_form_mail3');
+    $to = $email1 .','. $email3;
+    //echo $email1 .' - '. $email2 .' - '. $email3;
+    foreach($_POST as $key => $value) 
+      $_POST[$key] = filter_xss($value);
+      if($_POST['name'] == '' || strlen($_POST['name']) > 50 || strlen($_POST['name']) < 2 ) {
+        echo 'name';
+      } else if($_POST['email'] != '' && (strlen($_POST['email']) > 50 || strlen($_POST['email']) < 6 || !filter_var($_POST['email'], FILTER_VALIDATE_EMAIL))) {
+        echo 'email';
+      } else if($_POST['mobile'] == '' || $_POST['mobile'] == 0 || !is_numeric($_POST['mobile'])) {
+        echo 'mobile';
+      } else if($_POST['invoiceId'] == '' || $_POST['invoiceId'] == 0 || !is_numeric($_POST['invoiceId'])) {
+        echo 'mobile';
+      } else if($_POST['invoiceDate'] == '') {
+        echo 'invoiceDate';
+      } else if($_POST['complaint'] == '') {
+        echo 'complaint';
+      } else if($_POST['category'] == '') {
+        echo 'category';
+      } else if($_POST['quantity'] == '' || $_POST['quantity'] == 0 || !is_numeric($_POST['quantity'])) {
+        echo 'quantity';
+      } else if($_POST['reference'] == '') {
+        echo 'reference';
+      } else {
+        $year = date("Y");
+        $month= date("m");
+        if($month < 4) {
+          $year = $year-1;
+        }
+        $startTime = DateTime::createFromFormat('d-m-Y', '01-04-'.$year);
+        $endTime = DateTime::createFromFormat('d-m-Y', '31-03-'.($year+1));
+        $st = $startTime->getTimestamp();
+        //echo $st .' - '.date('d m Y', $st).'<br/>';
+        $en = $endTime->getTimestamp();
+        //echo $en .' - '.date('d m Y', $en). '<br/>';
+        $checkCnt = db_query("SELECT count(id) as cnt FROM {support_form} WHERE date_addeded BETWEEN $st and $en ")->fetchField();
+        //echo $checkCnt .'<br/>';
+        $checkCnt = strrev(substr(strrev('00000'.(string)($checkCnt + 1)),0,5));
+        //echo $checkCnt .'<br/>';
+        $cnnNumber = (string)$year.(string)$month.$checkCnt;
+        $ip = $_SERVER['REMOTE_ADDR'];
+        $query = db_insert('support_form')
+          ->fields(array(
+            'name'          => filter_xss($_POST['name']),
+            'email'         => filter_xss($_POST['email']),
+            'mobile'        => filter_xss($_POST['mobile']),
+            'cnnnumber'     => filter_xss($cnnNumber),
+            'invoiceId'     => filter_xss($_POST['invoiceId']),
+            'invoiceDate'   => filter_xss($_POST['invoiceDate']),
+            'complaint'     => filter_xss($_POST['complaint']),
+            'category'      => filter_xss($_POST['category']),
+            'quantity'      => filter_xss($_POST['quantity']),
+            'batchCode'     => filter_xss($_POST['batchCode']),
+            'packagingDate' => filter_xss($_POST['packagingDate']),
+            'reference'     => filter_xss($_POST['reference']),
+            'ip'            => filter_xss(ip_address()),
+            'date_addeded'  => REQUEST_TIME,
+          ));
+        $query->execute();
+		
+		
+		$data = array();
+		$data['from'] = $_POST['email'];
+		$data['subject'] = 'Support form data';
+		$data['mail_body'] ='<table align="center" border="0" cellpadding="0" cellspacing="0" width="600" style="border:solid #ccc 1px">
+							<tr>
+									<td style="border-bottom:solid #ccc 1px;">
+										<table align="center" cellpadding="0" cellspacing="0" width="560">
+											<tr>
+												<td style="padding:15px 0"><img src="'.$base_url.'/sites/all/themes/framework/images/wipro-logo.jpg" alt="Wipro Industrial Lighting" title="Wipro Industrial Lighting"></td>
+											</tr>
+										</table>
+									</td>
+								</tr>
+						  <tr>
+							<td><table align="center" border="0" cellpadding="0" cellspacing="0" width="560">
+								<tr>
+								  <td style="font-family:Arial; font-size:12px; font-weight:bold; padding-top:15px;">Dear Admin,</td>
+								</tr>
+								<tr>
+								  <td style="font-family:Arial; font-size:12px; padding:15px 0;">We have received your request for support and your Complaint Number is '.$cnnNumber.'. <br/><br/>Please find additional details below:
+                    <table>
+                      <tr><td>Name</td><td>:</td><td>'.$_POST['name'].'</td></tr>
+                      <tr><td>Email</td><td>:</td><td>'.$_POST['email'].'</td></tr>
+                      <tr><td>Mobile</td><td>:</td><td>'.$_POST['mobile'].'</td></tr>
+                      <tr><td>Complaint Number</td><td>:</td><td>'.$cnnNumber.'</td></tr>
+                      <tr><td>Complaint</td><td>:</td><td>'. $_POST['complaint'].'</td></tr>
+                      <tr><td>Invoice Id</td><td>:</td><td>'.$_POST['invoiceId'].'</td></tr>
+                      <tr><td>Invoice Date</td><td>:</td><td>'.$_POST['invoiceDate'].'</td></tr>
+                      <tr><td>Category</td><td>:</td><td>'.$_POST['category'].'</td></tr>
+                      <tr><td>Quantity</td><td>:</td><td>'.$_POST['quantity'].'</td></tr>
+                      <tr><td>Batch Code</td><td>:</td><td>'.$_POST['batchCode'].'</td></tr>
+                      <tr><td>Packaging Date</td><td>:</td><td>'.$_POST['packagingDate'].'</td></tr>
+                      <tr><td>Reference</td><td>:</td><td>'.$_POST['reference'].'</td></tr>
+                    </table>
+                  </td>
+								</tr>
+							  </table></td>
+						  </tr>
+						</table>';
+		
+		email_send($data, $to);
+		
+		
+		$data = array();
+		$from = variable_get('site_mail', ini_get('sendmail_from'));
+		$from = uc_store_rfc2822_display_name(uc_store_name()) . ' <' . $from . '>';
+		$to = $_POST['name'].' <'.$_POST['email'].'>';
+		$data['from'] = $from;
+		$data['subject'] = 'Wipro Lighting Support';
+		$data['mail_body'] ='<table align="center" border="0" cellpadding="0" cellspacing="0" width="600" style="border:solid #ccc 1px">
+							<tr>
+									<td style="border-bottom:solid #ccc 1px;">
+										<table align="center" cellpadding="0" cellspacing="0" width="560">
+											<tr>
+												<td style="padding:15px 0"><img src="'.$base_url.'/sites/all/themes/framework/images/wipro-logo.jpg" alt="Wipro Industrial Lighting" title="Wipro Industrial Lighting"></td>
+											</tr>
+										</table>
+									</td>
+								</tr>
+						  <tr>
+							<td><table align="center" border="0" cellpadding="0" cellspacing="0" width="560">
+								<tr>
+								  <td style="font-family:Arial; font-size:12px; font-weight:bold; padding-top:15px;">Dear '.$_POST['name'].',</td>
+								</tr>
+								<tr>
+								  <td style="font-family:Arial; font-size:12px; padding:15px 0;">We have received your request for support and your CNN Number is <b>'.$cnnNumber.'</b>.<br/>Please find additional details below:<br/><br/>
+                    <table>
+                      <tr><td>Name</td><td>:</td><td>'.$_POST['name'].'</td></tr>
+                      <tr><td>Email</td><td>:</td><td>'.$_POST['email'].'</td></tr>
+                      <tr><td>Mobile</td><td>:</td><td>'.$_POST['mobile'].'</td></tr>
+                      <tr><td>CNN Number</td><td>:</td><td>'.$cnnNumber.'</td></tr>
+                      <tr><td>Complaint</td><td>:</td><td>'. $_POST['complaint'].'</td></tr>
+                      <tr><td>Invoice Id</td><td>:</td><td>'.$_POST['invoiceId'].'</td></tr>
+                      <tr><td>Invoice Date</td><td>:</td><td>'.$_POST['invoiceDate'].'</td></tr>
+                      <tr><td>Category</td><td>:</td><td>'.$_POST['category'].'</td></tr>
+                      <tr><td>Quantity</td><td>:</td><td>'.$_POST['quantity'].'</td></tr>
+                      <tr><td>Batch Code</td><td>:</td><td>'.$_POST['batchCode'].'</td></tr>
+                      <tr><td>Packaging Date</td><td>:</td><td>'.$_POST['packagingDate'].'</td></tr>
+                      <tr><td>Reference</td><td>:</td><td>'.$_POST['reference'].'</td></tr>
+                    </table>
+                  </td>
+								</tr>
+                <tr><td style="font-family:Arial; font-size:12px; padding-top:15px;">Thank you! We\'re always delighted to assist you! </td></tr>
+							  <tr><td style="font-family:Arial; font-size:12px; padding-top:10px;">You will be hearing from us shortly. </td></tr>
+                <tr><td style="font-family:Arial; font-size:12px; padding-top:15px;">Regards,</td></tr>
+                <tr><td style="font-family:Arial; font-size:12px; padding-top:10px;">Wipro Lighting</td></tr>
+                </table></td>
+						  </tr>
+						</table>';
+		
+		email_send($data,$to);
+		
+		
+		echo $cnnNumber;
+	}
+  }
+  
+  
+  function get_content_test($arg1, $arg2 = FALSE) {
+    if($arg2 !== FALSE) {
+      return MENU_NOT_FOUND;
+    }
+    return 'This should be it';
+  }
+  
+  function whatever() {
+    $content['raw_markup'] = array(
+      '#type' => 'markup',
+      '#markup' => '<p>whatever</p>',
+    );
+    return $content;
+  }
+
+
+  
+
+  
+  /*function get_applications_content() {
+    return 'Good to Go';
+  }
+  
+  function get_resources_content() {
+    return 'Good to Go';
+  }
+  
+  function get_innovation_content() {
+    return 'Good to Go';
+  }*/
+  
+/************************************Send Project Mail Starts********************************/  
+	function share_project_via_email() {
+		$productsJsonString = json_decode($_POST['productsJsonString']);
+		$areasJsonString = json_decode($_POST['areasJsonString']);
+		$sendersName = filter_xss($_POST['sendersName']);
+		$projectName = filter_xss($_POST['projectName']);
+		$toMail = filter_xss($_POST['toMail']);
+		$project_id = rand(10000,10000000000);
+			
+		/***********/
+    //echo '<pre>';
+    //foreach($productsJsonString as $row) {
+    //  print_r($row);
+    //  echo $row->lum_type. ' - '. $row->lamp_type. '<br/>';
+    //}
+    //echo '</pre>';
+   // print_r($productsJsonString);
+		$query = db_insert('lighting_app_project')
+            ->fields(array(
+              'project_id'  => $project_id,
+              'project_name'=> $projectName,
+              'sender_name' => $sendersName,
+              'email'       => $toMail,
+              'date_added'  => time()
+				));
+        $query->execute();
+		/***********/
+		$counter1 = $counter2 = 1;
+		$bodyMsg = '<table>';
+		foreach($productsJsonString as $row) {
+			//echo '<pre>'; print_r($val); echo '</pre>';
+			//echo $val['product-name'] . ' - '. $val['product-code'] .' - '.$val['product-quantity'] .' - '.$val['lum-type'] .' - '.$val['lamp-type'] .'<br/>';
+			$query = db_insert('lighting_app_products')
+              ->fields(array(
+                'project_id'        => $project_id,
+                'product_name'      => $row->product_name,
+                'product_code'      => $row->product_code,
+                'product_quantity'  => $row->product_quantity,
+                'lum_type'          => $row->lum_type,
+                'lamp_type'         => $row->lamp_type
+			));
+			
+			$query->execute();
+			
+			$bodyMsg .= '<tr><td colspan="2">Product-'.$counter1++.'</td></tr>';
+			$bodyMsg .= '<tr><td>Project Name</td><td>'.$projectName.'</td></tr>';
+      $bodyMsg .= '<tr><td>Product Name</td><td>'.$row->product_name.'</td></tr>';
+      $bodyMsg .= '<tr><td>Product Code</td><td>'.$row->product_code.'</td></tr>';
+      $bodyMsg .= '<tr><td>Product Quantity</td><td>'.$row->product_quantity.'</td></tr>';
+      $bodyMsg .= '<tr><td>Luminaire Type</td><td>'.$row->lum_type.'</td></tr>';
+      $bodyMsg .= '<tr><td>Lamp Type</td><td>'.$row->lamp_type.'</td></tr>';
+      
+
+			$bodyMsg .= '<tr><td colspan="2">&nbsp;</td></tr>';
+		}
+		
+		foreach($areasJsonString as $row) {
+			//echo '<pre>'; print_r($val); echo '</pre>';
+			
+			
+			$query = db_insert('lighting_app_areas')
+				->fields(array(
+					'project_id'          => $project_id,
+					'area_title'          => $row->area_title,
+					'maintance_factor'    => $row->maintance_factor,
+					'reflectance_celling' => $row->reflectance_celling,
+					'reflectance_wall'    => $row->reflectance_wall,
+					'mounting_height'     => $row->mounting_height,
+					'average_lux'         => $row->average_lux,
+				));
+			$query->execute();
+			
+			$bodyMsg .= '<tr><td colspan="2">Area-'.$counter1++.'</td></tr>';
+			//$bodyMsg .= '<tr><td>'.$key1.'</td><td>'.$val1.'</td></tr>';
+      
+      $bodyMsg .= '<tr><td colspan="2">Product-'.$counter1++.'</td></tr>';
+			$bodyMsg .= '<tr><td>Project Name</td><td>'.$projectName.'</td></tr>';
+      $bodyMsg .= '<tr><td>Area Title</td><td>'.$row->area_title.'</td></tr>';
+      $bodyMsg .= '<tr><td>Maintainence Factor</td><td>'.$row->maintance_factor.'</td></tr>';
+      $bodyMsg .= '<tr><td>Reflectance Celling</td><td>'.$row->reflectance_celling.'</td></tr>';
+      $bodyMsg .= '<tr><td>Reflectance Wall</td><td>'.$row->reflectance_wall.'</td></tr>';
+      $bodyMsg .= '<tr><td>Mounting Height</td><td>'.$row->mounting_height.'</td></tr>';
+      $bodyMsg .= '<tr><td>Average Lux</td><td>'.$row->average_lux.'</td></tr>';
+			$bodyMsg .= '<tr><td colspan="2">&nbsp;</td></tr>';
+		}
+		
+		$bodyMsg .= '</table>';
+		/********************Mailer Starts************************/
+		global $base_url;
+		$data = array();
+		$from = variable_get('site_mail', ini_get('sendmail_from'));
+		$from = uc_store_rfc2822_display_name(uc_store_name()) . ' <' . $from . '>';
+		$to = 'Recipient <'.$toMail.'>';
+		$data['from'] = $from;
+		$data['subject'] = 'Wipro Lighting -'.$projectName;
+		$data['mail_body'] ='<table align="center" border="0" cellpadding="0" cellspacing="0" width="600" style="border:solid #ccc 1px">
+							<tr>
+									<td style="border-bottom:solid #ccc 1px;">
+										<table align="center" cellpadding="0" cellspacing="0" width="560">
+											<tr>
+												<td style="padding:15px 0"><img src="'.$base_url.'/sites/default/files/logo_3.jpg" alt="Wipro Industrial Lighting" title="Wipro Industrial Lighting"></td>
+											</tr>
+										</table>
+									</td>
+								</tr>
+						  <tr>
+							<td><table align="center" border="0" cellpadding="0" cellspacing="0" width="560">
+								<tr>
+								  <td style="font-family:Arial; font-size:12px; font-weight:bold; padding-top:15px;">Dear Recipient,</td>
+								</tr>
+								<tr>
+								  <td style="font-family:Arial; font-size:12px; padding:15px 0;">
+                    There is a Project for you.Please find the data as below.<br/><br/>'.$bodyMsg.'</td>
+								</tr>
+							  </table></td>
+						  </tr>
+						</table>';
+		
+		email_send($data, $to);
+		
+		/********************Mailer Ends**************************/
+		echo json_encode(array('status'=>'success'));
+	}
+/************************************Send Project Mail Ends*********************************/  
+
+function get_all_applications() {
+		$output = '';
+    $img = '';
+    $count = 0;
+    $vocabulary = taxonomy_vocabulary_machine_name_load('applications');
+    $terms = taxonomy_get_tree(5, $parent = 0, $max_depth = 1, $load_entities = TRUE);
+    foreach($terms as $term) {
+      $url = drupal_get_path_alias('taxonomy/term/' . $term->tid);
+      if($term->field_icon_image) {
+        $img = file_create_url($term->field_icon_image['und'][0]['uri']);
+      }		
+			$output .= '<div class="group"><div class="iconBox" rel="'.$term->tid.'"><img src="'.$img.'" alt=""></div><p>'.$term->name.'</p></div>';
+    }
+    return $output;
+	}
+  
+  
+  
+  function edit_product_details() {
+    $output = '';
+    $sku = $_POST['psku'];
+    $qry = db_select('node', 'n');
+      $qry->join('uc_products', 'ucp', 'ucp.nid = n.nid');
+      $qry->join('users', 'u', 'u.uid = n.uid');
+      $qry->condition('n.type', array('product'), 'IN')
+          ->condition('ucp.model', $sku, '=')
+          ->fields('n', array('nid', 'uid', 'title', 'changed', 'type'))
+          ->fields('u', array('name'));
+      //print_r($qry->__toString());
+    $res = $qry->execute();
+    if($row = $res->fetchAssoc()) {
+      /*$output .= '<tbody><tr class="odd"><td><div class="form-item form-type-checkbox form-item-nodes-'.$row['nid'].'">';
+      $output .= '<label class="element-invisible" for="edit-nodes-'.$row['nid'].'">'.$row['title'].'</label>';
+      $output .= '<input type="checkbox" id="edit-nodes-'.$row['nid'].'" name="nodes['.$row['nid'].']" value="'.$row['nid'].'" class="form-checkbox"></div></td>';
+      $output .= '<td><a href="'.base_path().'node/'.$row['nid'].'">'.$row['title'].'</a> </td>';
+      $output .= '<td>'. $row['type'] .'</td>';
+      $output .= '<td><a href="'.base_path().'user/'.$row['uid'].'" title="View user profile." class="username" xml:lang="" about="'.base_path().'user/1" typeof="sioc:UserAccount" property="foaf:name" datatype="">'.$row['name'].'</a></td><td>published</td>';
+      $output .= '<td>'. gmdate("m/d/Y - H:i", $row['changed']). '</td>';
+      $output .= '<td><ul class="links inline"><li class="edit first"><a href="'.base_path().'node/'.$row['nid'].'/edit?destination=admin/content">edit</a></li>';
+      $output .= '<li class="delete last"><a href="'.base_path().'node/'.$row['nid'].'/delete?destination=admin/content">delete</a></li></ul></td> </tr></tbody>';*/
+    
+      
+      
+      $output .= '<table class="sticky-enabled table-select-processed tableheader-processed sticky-table">
+  <thead>
+    <tr>
+      <th class="select-all"><input type="checkbox" class="form-checkbox" title="Select all rows in this table"></th>
+      <th><a class="active" title="sort by Title" href="/wiprolighting/admin/content?page=7&amp;sort=asc&amp;order=Title">Title</a></th>
+      <th><a class="active" title="sort by Type" href="/wiprolighting/admin/content?page=7&amp;sort=asc&amp;order=Type">Type</a></th>
+      <th>Author</th>
+      <th><a class="active" title="sort by Status" href="/wiprolighting/admin/content?page=7&amp;sort=asc&amp;order=Status">Status</a></th>
+      <th class="active"><a class="active" title="sort by Updated" href="/wiprolighting/admin/content?page=7&amp;sort=asc&amp;order=Updated">Updated<img width="13" height="13" title="sort ascending" alt="sort ascending" src="http://10.132.150.4:8081/wiprolighting/themes/seven/images/arrow-asc.png" typeof="foaf:Image"></a></th>
+      <th>Operations</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="odd">
+      <td>
+        <div class="form-item form-type-checkbox form-item-nodes-'.$row['nid'].'">
+          <label for="edit-nodes-'.$row['nid'].'" class="element-invisible">Update '.$row['title'].' </label>
+          <input type="checkbox" class="form-checkbox" value="'.$row['nid'].'" name="nodes['.$row['nid'].']" id="edit-nodes-'.$row['nid'].'">
+        </div>
+      </td>
+      <td><a href="'.drupal_get_path_alias("node/".$row['nid']).'">'.$row['title'].'</a> </td>
+      <td>'.$row['type'].'</td>
+      <td><a datatype="" property="foaf:name" typeof="sioc:UserAccount" about="/wiprolighting/user/1" xml:lang="" class="username" title="View user profile." href="/wiprolighting/user/1">spradmin</a></td>
+      <td>published</td><td>'.gmdate("m/d/Y - H:i", $row['changed']).'</td>
+      <td>
+        <ul class="links inline">
+          <li class="edit first"><a href="/wiprolighting/node/'.$row['nid'].'/edit?destination=admin/content%3Fpage%3D7">edit</a></li>
+          <li class="delete last"><a href="/wiprolighting/node/'.$row['nid'].'/delete?destination=admin/content%3Fpage%3D7">delete</a></li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>';
+    
+    
+    
+    
+    
+    
+    
+    } else {
+      $output .= 'No Products found for the specified SKU';
+    }
+    echo $output;
+  }
+  
+  function payback_select_data() {
+    $nid = $_POST['nid'];
+    $base_prod = db_query("SELECT field_base_product_name_value FROM {field_data_field_base_product_name} WHERE entity_id=:arg", array(':arg' => $nid))->fetchField();
+    $assoc_prod = db_query("SELECT field_associated_product_name_value FROM {field_data_field_associated_product_name} WHERE entity_id=:arg", array(':arg' => $nid))->fetchField();
+    echo json_encode(array('base'=> $base_prod, 'assoc'=> $assoc_prod));
+  }

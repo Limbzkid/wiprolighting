@@ -1,0 +1,3 @@
+name = Custom Blocks Module
+description = All custom blocks will be defined here.
+core = 7.x

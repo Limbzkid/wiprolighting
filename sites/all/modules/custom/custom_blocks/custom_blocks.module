@@ -1,0 +1,714 @@
+<?php
+
+  function custom_blocks_block_info() {
+    $blocks['menu_product'] = array(
+      'info' => t('Menu Product'),
+      'cache' => DRUPAL_NO_CACHE,
+    );
+    
+    $blocks['menu_resources'] = array(
+      'info' => t('Menu Resources'),
+      'cache' => DRUPAL_NO_CACHE,
+    );
+    
+    $blocks['menu_apps'] = array(
+      'info' => t('Menu Applications'),
+      'cache' => DRUPAL_NO_CACHE,
+    );
+    
+    $blocks['menu_innovate'] = array(
+      'info' => t('Menu Innovation'),
+      'cache' => DRUPAL_NO_CACHE,
+    );
+    
+    $blocks['menu_about'] = array(
+      'info' => t('Menu About'),
+      'cache' => DRUPAL_NO_CACHE,
+    );
+    
+    $blocks['home_banner'] = array(
+      'info' => t('Home Page Banner'),
+      'cache' => DRUPAL_NO_CACHE,
+    );
+    
+    $blocks['inspired_lighting_products'] = array(
+      'info' => t('Inspired Lighting Products Banner'),
+      'cache' => DRUPAL_NO_CACHE,
+    );
+    
+    $blocks['wipro_lighting_application'] = array(
+      'info' => t('Wipro Lighting Application Banner'),
+      'cache' => DRUPAL_NO_CACHE,
+    );
+    
+    $blocks['awards_and_events'] = array(
+      'info' => t('Awards and Events Banner'),
+      'cache' => DRUPAL_NO_CACHE,
+    );
+    
+    return $blocks;
+  }
+  
+  function custom_blocks_block_view($delta = '') {
+    $block = array();
+    switch ($delta) {
+      case 'menu_product':
+        $block['subject'] = t('Menu Product');
+        $block['content'] = get_menu_product_content();
+        break;
+      
+      case 'menu_resources':
+        $block['subject'] = t('Menu Resources');
+        $block['content'] = get_menu_resources_content();
+        break;
+      
+      case 'menu_apps':
+        $block['subject'] = t('Menu Applications');
+        $block['content'] = get_menu_apps_content();
+        break;
+      
+      case 'menu_innovate':
+        $block['subject'] = t('Menu Innovation');
+        $block['content'] = get_menu_innovation_content();
+        break;
+      
+      case 'menu_about':
+        $block['subject'] = t('Menu About');
+        $block['content'] = get_menu_about_content();
+        break;
+      
+      case 'home_banner':
+        $block['subject'] = t('Home Page Banner');
+        $block['content'] = get_homepage_banner_content();
+        break;
+      
+      case 'inspired_lighting_products':
+        $block['subject'] = t('Inspired Lighting Products Banner');
+        $block['content'] = inspired_lighting_products_content();
+        break;
+      
+      case 'wipro_lighting_application':
+        $block['subject'] = t('Wipro Lighting Application Banner');
+        $block['content'] = wipro_lighting_application_content();
+        break;
+      
+      case 'awards_and_events':
+        $block['subject'] = t('Awards and Events Banner');
+        $block['content'] = awards_and_events_content();
+        break;
+      
+    }
+    
+    return $block;
+  }
+  
+  /*function get_menu_about_content() {
+    $output = '';
+    $prod_level1 = '';
+    $prod_level2 = '';
+    $second_level_li = '';
+    $first = true;
+    $terms = 	taxonomy_get_tree(11, $parent = 0, $max_depth = NULL, $load_entities = TRUE);
+    $second_level_in = false;
+    //echo '<pre>' ; print_r($terms); exit; echo '</pre>';
+    //foreach($terms as $term) {
+    //  echo '<pre>'; print_r($term);echo '</pre>';
+    //}
+    //exit;
+    foreach($terms as $term) {
+      if($term->parents[0] == 0) { // level 1        
+        $cat = explode(' ', $term->name);
+        $title1 = array_shift($cat);
+        $title2 = implode(' ', $cat);
+        $url = base_path() . $term->field_about_path['und'][0]['value'];
+        
+        if($first) {
+          $prod_level1 .= '<li><a href="'.$url.'">'.$title1.'<span class="sansXbold"> '.$title2.'</span> <span class="arow"></span></a></li>';
+          $first = false;
+        } else {          
+          if(!$second_level_in) {
+            $prod_level2 .= '<li>';
+            if($desc) {
+              $prod_level2 .= '<p>'.$desc.'</p>';
+            }
+            $prod_level2 .= '</li>';
+          }
+          $prod_level1 .= '<li><a href="'.$url.'">'.$title1.'<span class="sansXbold"> '.$title2.'</span> <span class="arow"></span></a></li>';
+          $second_level_li .= '<li><a href="'.$url.'">'.$title1.'<span class="sansXbold">'.$title2.'</span> <span class="arow"></span></a>';
+          $second_level_li .= '<div class="hoverList"><ul> '.$prod_level2.' </ul></li>';
+          $prod_level2 = '';
+        
+        }
+        
+        $parent_tid = $term->tid;
+        $second_level_in = false;
+        $desc = $term->description;
+      } else { //level2
+        $second_level_in = true;
+        $url = base_path() . $term->field_about_path['und'][0]['value'];
+        $prod_level2 .= '<li><a href="'.$url.'">'.$term->name.'<span class="arow"></span></a>';
+        if($term->description) {
+          $prod_level2 .= '<p>'.$term->description.'</p>';
+        }
+        $prod_level2 .= '</li>';
+      }
+    }
+    if(!$second_level_in) {
+      $second_level_li .= '<li><a href="'.$url.'">'.$title1.'<span class="sansXbold">'.$title2.'</span> <span class="arow"></span></a>';
+      $second_level_li .= '<div class="hoverList"><ul><li>'.$desc.' </li></ul></li>';
+    }
+    $sub_menu_box = '<div class="submenuBox"><ul>'.$prod_level1.'</ul></div>';
+    $rgt_menu_box = '<div class="rgtMenuBox"><ul> '.$second_level_li.'</ul></div>';
+    $output .= '<div class="menuSection">'.$sub_menu_box.$rgt_menu_box.'</div>';
+    return $output;
+  }*/
+  
+  function get_menu_about_content() {
+    $output = '';
+    $top_level_html = '';
+    $second_level_html = '';
+    $hover_show_html = '';
+    $first = true;
+    $second_level_in = false;
+    $terms = 	taxonomy_get_tree(11, $parent = 0, $max_depth = NULL, $load_entities = TRUE);
+    //foreach($terms as $term) {
+    //  echo '<pre>'; print_r($term); echo '</pre>';
+    //}
+    //exit;
+    
+    foreach($terms as $term) {
+      //echo $term->tid .' - '. $parent_tid . '<br/>';
+      $cat = explode(' ', $term->name);
+      $title1 = array_shift($cat);
+      $title2 = implode(' ', $cat);
+
+      if(!empty($term->field_about_path)) {
+
+        $url = base_path() . $term->field_about_path['und'][0]['value'];
+        $top_html = '<a href="'.$url.'" >'.$title1.' <span class="sansXbold">'.$title2.'</span> <span class="arow"></span></a>';
+      } else {
+        $url = 'javascript:;';
+        $top_html = '<a href="'.$url.'" class="noLink">'.$title1.' <span class="sansXbold">'.$title2.'</span> <span class="arow"></span></a>';
+      }
+      
+      if($term->parents[0] == 0) { // top level term
+        if(!$first) {
+          if($second_level_in) {
+            $second_level_html .= $hover_show_html. '</ul></div></li>';
+            $hover_show_html = '';
+            $second_level_in = false;
+          } else {
+            $second_level_html .= $prev_desc. '</ul></div></li>';
+          }
+          //if($term === end($terms)) {
+          //  $second_level_html .= $term->description. '</ul></div></li>';
+          //}
+          
+        }
+        if(!empty($term->field_about_menu_description['und'][0]['value'])) {
+          $description = $term->field_about_menu_description['und'][0]['value']; 
+        } else {
+          $description = ''; 
+        }
+        $prev_desc = $description;
+        $top_level_html .= '<li>'.$top_html.'</li>'; 
+        $parent_tid = $term->tid;
+        $temp_url = $url;
+        $temp_title1 = $title1;
+        $temp_title2 = $title2;
+        if($url == 'javascript:;') {
+          $second_level_html .= '<li><a class="noLink" href="'.$url.'">'.$title1.'<span class="sansXbold">'.$title2.'</span> <span class="arow"></span></a>';
+        } else {
+          $second_level_html .= '<li><a href="'.$url.'">'.$title1.'<span class="sansXbold">'.$title2.'</span> <span class="arow"></span></a>';
+        }
+        
+        $second_level_html .= '<div class="hoverList"><ul>';
+
+        
+        $first = false;
+        
+      } else { // second level term
+        if(!empty($term->field_about_menu_description['und'][0]['value'])) {
+          $description = $term->field_about_menu_description['und'][0]['value']; 
+        } else {
+          $description = ''; 
+        }
+        $hover_show_html .= '<li><a href="'.$url.'">'.$term->name.'<span class="arow"></span></a>';
+        $hover_show_html .= $description . '</li>';
+        $second_level_in = true;
+      }
+      
+    }
+    if($term === end($terms)) {
+      $second_level_html .= $description. '</ul></div></li>';
+    } else {
+      $second_level_html .= '</ul></div></li>';
+    }
+    //echo $second_level_html;
+    
+    $left_menu = '<div class="submenuBox"><ul>'.$top_level_html.'</ul></div>';
+    $right_menu = '<div class="rgtMenuBox"><ul>'.$second_level_html.'</ul></div>';
+    $output .= '<div class="menuSection">'.$left_menu.$right_menu. '</div>';
+    //echo $output;
+    return $output;
+  }
+  
+  function get_menu_innovation_content() {
+    $output = '';
+    $top_level_html = '';
+    $second_level_html = '';
+    $hover_show_html = '';
+    $first = true;
+    $second_level_in = false;
+    $terms = 	taxonomy_get_tree(12, $parent = 0, $max_depth = NULL, $load_entities = TRUE);
+    $second_level_in = false;
+    //echo '<pre>' ; print_r($terms); exit; echo '</pre>';
+    foreach($terms as $term) {
+      //echo $term->tid .' - '. $parent_tid . '<br/>';
+      $cat = explode(' ', $term->name);
+      $title1 = array_shift($cat);
+      $title2 = implode(' ', $cat);
+      $url = base_path() . $term->field_innovation_path['und'][0]['value'];
+      
+      
+      if($term->parents[0] == 0) { // top level term
+        
+        
+        
+        if(!$first) {
+          if($second_level_in) {
+            $second_level_html .= $hover_show_html. '</ul></div></li>';
+            $hover_show_html = '';
+            $second_level_in = false;
+          } else {
+            $second_level_html .= $prev_desc. '</ul></div></li>';
+          }
+          //if($term === end($terms)) {
+          //  $second_level_html .= $term->description. '</ul></div></li>';
+          //}
+          
+        }
+        if(!empty($term->field_innov_menu_description['und'][0]['value'])) {
+          $description = $term->field_innov_menu_description['und'][0]['value']; 
+        } else {
+          $description = ''; 
+        }
+        $prev_desc = $description;
+        $top_level_html .= '<li><a href="'.$url.'">'.$title1.' <span class="sansXbold">'.$title2.'</span> <span class="arow"></span></a></li>'; 
+        $parent_tid = $term->tid;
+        $temp_url = $url;
+        $temp_title1 = $title1;
+        $temp_title2 = $title2;
+        $second_level_html .= '<li><a href="'.$url.'">'.$title1.'<span class="sansXbold">'.$title2.'</span> <span class="arow"></span></a>';
+        $second_level_html .= '<div class="hoverList"><ul>';
+
+        
+        $first = false;
+        
+      } else { // second level term
+        if(!empty($term->field_innov_menu_description['und'][0]['value'])) {
+          $description = $term->field_innov_menu_description['und'][0]['value']; 
+        } else {
+          $description = ''; 
+        }
+        $hover_show_html .= '<li><a href="'.$url.'">'.$term->name.'<span class="arow"></span></a>';
+        $hover_show_html .= $description . '</li>';
+        $second_level_in = true;
+      }
+      
+    }
+    if($term === end($terms)) {
+      $second_level_html .= $description. '</ul></div></li>';
+    } else {
+      $second_level_html .= '</ul></div></li>';
+    }
+    //echo $second_level_html;
+    
+    $left_menu = '<div class="submenuBox"><ul>'.$top_level_html.'</ul></div>';
+    $right_menu = '<div class="rgtMenuBox"><ul>'.$second_level_html.'</ul></div>';
+    $output .= '<div class="menuSection">'.$left_menu.$right_menu. '</div>';
+    //echo $output;
+    return $output;
+  }
+  
+  function get_menu_apps_content() {  
+    $output = '';
+    $prod_level1 = '';
+    $prod_level2 = '';
+    $second_level_li = '';
+    $first = true;
+    $terms = 	taxonomy_get_tree(5, $parent = 0, $max_depth = 1, $load_entities = TRUE);
+    $second_level_in = false;
+    foreach($terms as $term) {
+      //print_r($term);
+      $cat = explode(' ', $term->name);
+      $title1 = array_shift($cat);
+      $title2 = implode(' ', $cat);
+      if($term->field_app_path) {
+        $url = base_path() . $term->field_app_path['und'][0]['value'];
+      } else {
+        $url = '';
+      }
+      if(!empty($term->field_app_menu_description['und'][0]['value'])) {
+        $desc = $term->field_app_menu_description['und'][0]['value'];
+      } else {
+        $desc = '';
+      }
+      if($term->parents[0] == 0) { // level 1        
+        $cat = explode(' ', $term->name);
+        $title1 = array_shift($cat);
+        $title2 = implode(' ', $cat);
+        if($term->field_app_path) {
+          $url = base_path() . $term->field_app_path['und'][0]['value'];
+        } else {
+          $url = '';
+        }
+        $prod_level1 .= '<li><a href="'.$url.'">'.$title1.'<span class="sansXbold"> '.$title2.'</span> <span class="arow"></span></a></li>';
+        $second_level_li .= '<li><a href="'.$url.'">'.$title1.'<span class="sansXbold">'.$title2.'</span> <span class="arow"></span></a>';
+        $second_level_li .= '<div class="hoverList">'.$desc.'</div></li>';
+      } 
+    }
+    $sub_menu_box = '<div class="submenuBox"><ul>'.$prod_level1.'</ul></div>';
+    $rgt_menu_box = '<div class="rgtMenuBox"><ul> '.$second_level_li.'</ul></div>';
+    $output .= '<div class="menuSection">'.$sub_menu_box.$rgt_menu_box.'</div>';
+    return $output;
+  }
+  
+  function get_menu_resources_content() {
+    $output = '';
+    $top_level_html = '';
+    $second_level_html = '';
+    $hover_show_html = '';
+    $first = true;
+    $second_level_in = false;
+    $terms = 	taxonomy_get_tree(4, $parent = 0, $max_depth = NULL, $load_entities = TRUE);
+    $second_level_in = false;
+    //echo '<pre>' ; print_r($terms); exit; echo '</pre>';
+    //foreach($terms as $term) {
+    //  echo '<pre>';
+    //  print_r($term);
+    //  echo '</pre>';
+    //}
+    //exit;
+    foreach($terms as $term) {
+      //echo $term->tid .' - '. $parent_tid . '<br/>';
+      $cat = explode(' ', $term->name);
+      $title1 = array_shift($cat);
+      $title2 = implode(' ', $cat);
+      if(!empty($term->field_resources_path)) {
+        $url = base_path() . $term->field_resources_path['und'][0]['value'];
+        $top_html = '<a href="'.$url.'" >'.$title1.' <span class="sansXbold">'.$title2.'</span> <span class="arow"></span></a>';
+      } else {
+        $url = 'javascript:;';
+        $top_html = '<a href="'.$url.'" class="noLink">'.$title1.' <span class="sansXbold">'.$title2.'</span> <span class="arow"></span></a>';
+      }
+      
+      
+      
+      if($term->parents[0] == 0) { // top level term
+        
+        
+        
+        if(!$first) {
+          if($second_level_in) {
+            $second_level_html .= $hover_show_html. '</ul></div></li>';
+            $hover_show_html = '';
+            $second_level_in = false;
+          } else {
+            $second_level_html .= $prev_desc. '</ul></div></li>';
+          }
+          //if($term === end($terms)) {
+          //  $second_level_html .= $term->description. '</ul></div></li>';
+          //}
+          
+        }
+        if(!empty($term->field_res_menu_description['und'][0]['value'])) {
+          $description = $term->field_res_menu_description['und'][0]['value']; 
+        } else {
+          $description = ''; 
+        }
+        $prev_desc = $description;
+        $top_level_html .= '<li>'.$top_html.'</li>'; 
+        $parent_tid = $term->tid;
+        $temp_url = $url;
+        $temp_title1 = $title1;
+        $temp_title2 = $title2;
+        if($url == 'javascript:;') {
+          $second_level_html .= '<li><a class="noLink" href="'.$url.'">'.$title1.'<span class="sansXbold">'.$title2.'</span> <span class="arow"></span></a>';
+        } else {
+          $second_level_html .= '<li><a href="'.$url.'">'.$title1.'<span class="sansXbold">'.$title2.'</span> <span class="arow"></span></a>';
+        }
+        //$second_level_html .= '<li><a href="'.$url.'">'.$title1.'<span class="sansXbold">'.$title2.'</span> <span class="arow"></span></a>';
+        $second_level_html .= '<div class="hoverList"><ul>';
+
+        
+        $first = false;
+        
+      } else { // second level term
+        if(!empty($term->field_res_menu_description['und'][0]['value'])) {
+          $description = $term->field_res_menu_description['und'][0]['value']; 
+        } else {
+          $description = ''; 
+        }
+        $hover_show_html .= '<li><a href="'.$url.'">'.$term->name.'<span class="arow"></span></a>';
+        $hover_show_html .= $description . '</li>';
+        $second_level_in = true;
+      }
+      
+    }
+    if($term === end($terms)) {
+      $second_level_html .= $description. '</ul></div></li>';
+    } else {
+      $second_level_html .= '</ul></div></li>';
+    }
+    //echo $second_level_html;
+    
+    $left_menu = '<div class="submenuBox"><ul>'.$top_level_html.'</ul></div>';
+    $right_menu = '<div class="rgtMenuBox"><ul>'.$second_level_html.'</ul></div>';
+    $output .= '<div class="menuSection">'.$left_menu.$right_menu. '</div>';
+    //echo $output;
+    return $output;
+  }
+  
+ function get_menu_product_content() {
+  $output = '';
+    $prod_tree = taxonomy_get_tree(3, $parent = 0, $max_depth = NULL, $load_entities = FALSE);
+    //echo '<pre>' ; print_r($prod_tree); exit; echo '</pre>';
+    //echo '<pre>'; foreach($prod_tree as $term) { print_r($term); } echo '</pre>'; exit;
+    $outer_level = '<div class="menuSection"><div class="menutabWrp">';
+    $outer_first = true;
+    $mid_level = '<div class="submenuBox"><ul>';
+    $mid_level_first = true;
+    $right_menu_box = '<div class="rgtMenuBox"><ul>';
+    $last_level = '';
+    $mid_parent_tid = '';
+    foreach($prod_tree as $term) {
+      //if($term->name == 'Indoor' || $term->name == 'Outdoor') {
+        //$term_url = 'javascript:;';
+      //} else {
+        $term_url = base_path() . drupal_get_path_alias('taxonomy/term/'.$term->tid);
+      //}
+      if($term->parents[0] == 0) { // top level
+        if($outer_first) {
+          $outer_level .= '<h3><a href="javascript:;"> '.$term->name.' </a></h3>';
+          $outer_first = false;
+        } else {
+          $outer_level .= $mid_level .'</ul></div>'.$right_menu_box.'</ul></div>'; // rmb should go in here
+          $outer_level .= '</div></div></div><div class="menuSection"><div class="menutabWrp">';
+          $outer_level .= '<h3><a href="javascript:;"> '.$term->name.' </a></h3><div class="submenuBox"><ul>';
+          $right_menu_box = '<div class="rgtMenuBox"><ul>';
+          $mid_level = '';
+          $mid_level_first = true;
+        }
+        $outer_parent_tid = $term->tid;
+      }
+      if($term->parents[0] == $outer_parent_tid) { // second level
+        if($term->name != 'Cleanray') {
+          if($mid_level_first) {
+            if($term->name == 'Indoor' || $term->name == 'Outdoor') {
+              $mid_level .= '<li><a href="'.$term_url.'" class="noLink"> <span class="sansXbold">'.$term->name.'</span> <span class="arow"></span></a></li>';
+              $right_menu_box .= '<li><a href="'.$term_url.'" class="noLink"> <span class=" xxx sansXbold">'.$term->name.'</span> <span class="arow"></span></a><div class="hoverList"><ul>';
+            } else {
+              $mid_level .= '<li><a href="'.$term_url.'"> <span class="sansXbold">'.$term->name.'</span> <span class="arow"></span></a></li>';
+              $right_menu_box .= '<li><a href="'.$term_url.'"> <span class=" xxx sansXbold">'.$term->name.'</span> <span class="arow"></span></a><div class="hoverList"><ul>';
+            }
+            
+            
+            $mid_level_first = false;
+          } else {
+            $right_menu_box .= '</ul></div></li>';
+            $last_level = '<div class="hoverList"><ul>'.$last_level.'</ul></div></li></ul></div>';
+            //echo $last_level;
+            $last_level = '';
+            if($term->name == 'Indoor' || $term->name == 'Outdoor') {
+              $mid_level .= '<li><a href="'.$term_url.'" class="noLink"> <span class="sansXbold">'.$term->name.'</span> <span class="arow"></span></a></li>';
+              $right_menu_box .= '<li><a href="'.$term_url.'" class="noLink"> <span class="xxx sansXbold">'.$term->name.'</span> <span class="arow"></span></a><div class="hoverList"><ul>';
+            } else {
+              $mid_level .= '<li><a href="'.$term_url.'"> <span class="sansXbold">'.$term->name.'</span> <span class="arow"></span></a></li>';
+              $right_menu_box .= '<li><a href="'.$term_url.'"> <span class="xxx sansXbold">'.$term->name.'</span> <span class="arow"></span></a><div class="hoverList"><ul>';
+            }
+            
+          }
+        }  
+        $mid_parent_tid = $term->tid;
+      }
+      
+      if($term->parents[0] == $mid_parent_tid) {  // third level
+        $right_menu_box .= '<li><a href="'.$term_url.'">'.$term->name.' <span class="arow"></span></a></li>';
+      }
+        //exit;
+    }
+    //echo $right_menu_box;
+    $output .= $outer_level . $mid_level.'</ul></div>'.$right_menu_box.'</ul></div></div></div>';
+    //echo $output;
+   //exit;
+    return $output;
+  }
+  
+  
+  function awards_and_events_content() {
+    $output = '';
+    // get news data
+    $query = new EntityFieldQuery();
+    $query->entityCondition('entity_type', 'node')
+          ->entityCondition('bundle', 'news')
+          ->fieldOrderBy('field_news_date', 'value', 'DESC')
+          ->range(0, 1);
+    $result = $query->execute();
+    //echo '<pre>';
+    if(isset($result['node'])) {
+      
+      $nid = array_keys($result['node']);
+      $node = node_load($nid[0]);
+      //print_r($node);
+      $news_title = $node->title;
+      $news_url = drupal_get_path_alias('node/'. $node->nid);
+      $news_link = preg_replace('|/[^/]*$|','', $news_url);
+      $news_date = date('M d, Y', strtotime($node->field_news_date['und'][0]['value']));
+      if($node->field_news_pdf) {
+        $brochure_path = file_create_url($node->field_news_pdf['und'][0]['uri']);
+      } else {
+        $brochure_path = '';
+      }
+      //echo $news_date;
+    }
+    //$news_title .= ' Some extra text added for testing';
+    if(strlen($news_title) > 91) {
+      $news_title = substr($news_title, 0, strrpos( substr( $news_title, 0, 91), ' ' )). '...';
+    } 
+    //echo substr($news_title, 0, strrpos( substr( $news_title, 0, 91), ' ' ));
+    //echo strlen($news_title);
+		$output .= '<div class="latestNewsBox"><div class="rotetBg">';
+    $output .= '<img src="'.base_path().'sites/all/themes/framework/images/latestNewsBg.png" alt=""></div>';
+    $output .= '<div class="textBox"><h2 class="centerLine">Latest <span class="sansbold">News and Events</span> </h2>';
+    $output .= '<h3>'.$news_title.'</h3><p>'.$news_date.'</p>';
+    if($brochure_path) {
+        $output .= '<a target="_blank" href="'.$brochure_path.'" class="btnBox whtBtn red"><span class="arow"></span></a>';
+    } 	
+    //$output .= '<a href="'.$news_url.'" class="btnBox white"><span class="arow"></span></a> </div>';
+    $output .= '</div>';
+    $output .= '<a href="'.base_path().'about-us/media-center/news-and-events" class="viwMore">View News and Events <span class="arow"></span></a></div>';
+    //exit;
+    //echo '</pre>';
+    return $output;
+  }
+   
+  function wipro_lighting_application_content() {
+    $output = '';
+    $img = '';
+    $count = 0;
+    $vocabulary = taxonomy_vocabulary_machine_name_load('applications');
+    $terms = taxonomy_get_tree(5, $parent = 0, $max_depth = 1, $load_entities = TRUE);
+    foreach($terms as $term) {
+      $url = drupal_get_path_alias('taxonomy/term/' . $term->tid);
+      if($term->field_icon_image) {
+        $img = file_create_url($term->field_icon_image['und'][0]['uri']);
+      }
+      $output .= '<li><div class="thum"><img src="'.$img.'" alt="'.$term->name.'"></div>';
+			$output .= '<h3>'.$term->name.'</h3><a href="'.$url.'" class="btnBox linBlank"><span class="arow"></span></a> </li>';
+    }
+    return $output;
+  }
+  
+  function inspired_lighting_products_content() {
+    //echo '<pre>';
+    $output = '';
+    $nid_arr = array();
+    $query = new EntityFieldQuery();
+    $query->entityCondition('entity_type', 'node')
+          ->entityCondition('bundle', 'product')
+          ->fieldCondition('field_show_on_home_banner', 'value', 'Yes')
+          ->fieldOrderBy('field_product_launch_date', 'value', 'DESC')
+          ->range(0, 5);
+    $result = $query->execute();
+    //echo '<pre>'; foreach($result['node'] as $row) { print_r($row); } echo '</pre>'; exit;
+    foreach($result['node'] as $row) {
+      array_push($nid_arr,$row->nid);
+    }
+    // print_r($nid_arr);
+    foreach($nid_arr as $nid) {
+      //echo $nid . '<br/>';
+      $node = node_load($nid);
+      $prod_name = $node->title;
+      //$prod_path = drupal_get_path_alias('node/'. $node->nid);
+      $prod_path = base_path(). 'delighted-to-assist/write-to-us';
+      //$prod_image = file_create_url(image_style_path('thumbnail', $node->uc_product_image['und'][0]['uri']));
+      //echo $prod_image;
+      $prod_image = file_create_url(image_style_url('medium',$node->uc_product_image['und'][0]['uri']));
+      $all_prod_links = preg_replace('|/[^/]*$|','', $prod_path);
+      if($node->field_brochure_download) {
+        $brochure_path = file_create_url($node->field_brochure_download['und'][0]['uri']);
+      } else {
+        $brochure_path = '';
+      }
+      //echo '<pre>'; print_r($node); echo '</pre>'; exit;
+      $output .= '<div class="dotWrap"><div class="textBox"><div class="datBox"><h2 class="centerLine">Latest Innovative Product</h2>';
+      $output .= '<h3>'.$prod_name.'<a href="'.$prod_path.'" class="btnBox whtBtn lightBlue"> <span class="arow"></span></a></h3>';
+      $output .= '<div class="thum"><img alt="'.$prod_name.'" src="'.$prod_image.'"> </div></div><div class="innovative"><ul>';
+      if($brochure_path) {
+        $output .= '<li class="getPdf"><a href="'.$brochure_path.'" target="_blank">Download Brochure</a></li>';
+      }
+      $output .= '<li class="viewPro"><a href="'.$all_prod_links.'">View all Products</a></li></ul></div></div></div>';
+      
+      
+      
+      
+     /*$output .= '<div class="latestBox"><div class="textBox"><div class="datBox">';
+      $output .= '<h2 class="centerLine">Latest Product Innovations</h2>';
+      $output .= '<h3>'.$prod_name.' <a class="btnBox whtBtn lightBlue" href="'.$prod_path.'"> <span class="arow"></span></a></h3>';
+      $output .= '<div class="thum"><img src="'.$prod_image.'" alt="'.$prod_name.'"> </div></div>';
+      $output .= '<div class="innovative"><ul>';
+      if($brochure_path) {
+        $output .= '<li class="getPdf"><a target="_blank" href="'.$brochure_path.'">Download Brochure</a></li>';
+      } 
+      $output .= '<li class="viewPro"><a href="'.$all_prod_links.'">View all Products</a></li>';
+      $output .= '</ul></div></div></div>';*/
+    }
+    //echo '</pre>';
+    //exit;
+    return $output;
+  }
+  
+  function get_homepage_banner_content() {
+    $output = '<div class="slide home"><div class="bannerShow">';
+    $query = new EntityFieldQuery();
+    $query->entityCondition('entity_type', 'node')
+          ->entityCondition('bundle', 'home_page_banner')
+          ->propertyCondition('status', NODE_PUBLISHED);
+    $result = $query->execute();
+    if(isset($result['node'])) {
+      $nids = array_keys($result['node']);
+      $nodes = node_load_multiple($nids);
+      $cnt = 1;
+      foreach($nodes as $node) {
+        //echo '<pre>'; print_r($node); echo '</pre>'; exit;
+        $banner_url = base_path().$node->field_banner_link['und'][0]['value'];
+        $banner_text = $node->body['und'][0]['value'];
+        $img_uri = $node->field_banner_image['und'][0]['uri'];
+        $mob_uri = file_create_url($node->field_mobile_banner['und'][0]['uri']);
+        //$banner_link = $node->field_banner_link['und'][0]['value'];
+        $img_path = file_create_url($img_uri);
+        $output .= '<div class="banner banner'.$cnt.'" mob-attr="'.$mob_uri.'" desk-attr="'.$img_path.'" style="background-image:url('.$img_path.')"> 
+                <div class="copyBox">
+                   
+                  <div class="content"><span class="line"></span>'.$banner_text.'
+                    
+                    <a href="'.$banner_url.'" class="btnBox whtBox grnBtn"><span class="arow"></span></a> </div>
+                </div>
+              </div>';
+        $cnt++;        
+      }
+    }
+    $output .= '<ul class="thumDot"></ul>';
+    $output .= '<div class="led-edge lbLedEdgeClick"><img src="'.base_path().'sites/all/themes/framework/images/led-edge.png" alt=""></div>';
+    $output .= '</div></div>';
+    return $output;
+  }
+  
+  
+  
+  function get_product_count($tid) {
+    $result = db_query("SELECT count(field_product_category_tid) FROM {field_data_field_product_category} WHERE field_product_category_tid=:arg", array(':arg' => $tid))->fetchField();
+    return $result;
+  }
+  
